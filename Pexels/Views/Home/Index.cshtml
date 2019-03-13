@@ -158,7 +158,7 @@
 
                     @{
                         int count = 3;
-                        int inc = 1;
+                        int inc = 0;
                     }
                     @for (int i =0; i < count; i++)
                     {
@@ -166,12 +166,12 @@
 
                             @if (i == 0)
                             {
-                                for (int k = 0; k < 6; k++)
+                                for (int k = 0; k < 9; k++)
                                 {
 
                                     <div class="image-div mb-3">
-                                        <a href=@Url.Action("index","Photosingle",new {id=@Model.Photos[k].Id})>
-                                            <img src="/Public/image/@Model.Photos[k].Link" alt="">
+                                        <a href=@Url.Action("index","Photosingle",new {id=@Model.Photos[i * count + k + inc].Id})>
+                                            <img src="/Public/image/@Model.Photos[i * count + k + inc].Link" alt="">
                                         </a>
                                         <div class="photo-buttons">
                                             <a href=""><i class="fas fa-plus-circle"></i></a>
@@ -184,13 +184,12 @@
                             }
                             else
                             {
-                                for (int k = 0; k < 6; k++)
+                                for (int k = 0; k < 9; k++)
                                 {
 
                                     <div class="image-div mb-3">
-                                        @*<p>@Model[i * count + k + inc]</p>*@
-                                        <a href=@Url.Action("index","Photosingle",new {id=@Model.Photos[k].Id})>
-                                            <img src="/Public/image/@Model.Photos[k].Link" alt="">
+                                        <a href=@Url.Action("index","Photosingle",new {id=@Model.Photos[i * count + k + inc].Id})>
+                                            <img src="/Public/image/@Model.Photos[i * count + k + inc].Link" alt="">
                                         </a>
                                         <div class="photo-buttons">
                                             <a href=""><i class="fas fa-plus-circle"></i></a>

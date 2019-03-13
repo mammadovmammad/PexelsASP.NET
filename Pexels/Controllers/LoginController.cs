@@ -66,7 +66,6 @@ namespace Pexels.Controllers
             {
                 ModelState.AddModelError(string.Empty, "Email or Password is wrong");
                 return View(user);
-
             }
 
 
