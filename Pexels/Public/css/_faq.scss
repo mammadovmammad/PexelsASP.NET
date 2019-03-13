@@ -1,0 +1,39 @@
+.faq-header{
+    background-image: url("../image/faq-background.jpg");
+    height: 350px;
+    background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-blend-mode: darken;
+  background-color: #00000036;
+  .header-content{
+      text-align: center;
+    padding-top: 120px;
+    h1{
+        margin: 10px 0px;
+    }
+    h1,h3{
+        margin-bottom: 15px;
+        color: white;
+    }
+    h3{
+        width: 50%;
+        margin-left: 370px;
+    }
+  }
+}
+
+.faq-content{
+    h2{
+        margin-top: 85px;
+        margin-bottom: -20px;
+        font-weight: 700;
+    }
+    .definition-list{
+        margin: 50px 0px;
+        .definition-list-content{
+            color: #666;
+            font-size: 18px;
+        }
+    }
+}

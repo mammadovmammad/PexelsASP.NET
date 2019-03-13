@@ -1,0 +1,693 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="PexelsModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="AboutHeaders">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="HeadTitle" Type="nvarchar" MaxLength="150" />
+          <Property Name="HeadText" Type="nvarchar(max)" />
+          <Property Name="HeadBackground" Type="nvarchar" MaxLength="150" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'Pexels.dbo.AboutUs' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="AboutUs">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="150" />
+          <Property Name="Content" Type="ntext" />
+          <Property Name="Icon" Type="nvarchar" MaxLength="250" />
+        </EntityType>
+        <EntityType Name="Category">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Category" Type="nvarchar" MaxLength="250" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'Pexels.dbo.Discovers' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Discovers">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="150" />
+          <Property Name="Desc" Type="nvarchar" MaxLength="150" />
+          <Property Name="CollectionImage" Type="nvarchar" MaxLength="250" />
+          <Property Name="CollectionTitle" Type="nvarchar" MaxLength="150" />
+          <Property Name="CollectionCount" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="FaqHeaders">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="250" />
+          <Property Name="Desc" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="FaqNews">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="250" />
+          <Property Name="Text" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="FaqUploads">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="250" />
+          <Property Name="Text" Type="nvarchar(max)" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'Pexels.dbo.Homes' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Homes">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="HeadTitle" Type="nvarchar" MaxLength="150" />
+          <Property Name="Title" Type="nvarchar" MaxLength="150" />
+          <Property Name="Image" Type="nvarchar" MaxLength="250" />
+        </EntityType>
+        <EntityType Name="Likes">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Count" Type="int" />
+          <Property Name="PhotoId" Type="int" />
+        </EntityType>
+        <EntityType Name="LisenceAllows">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AllowItem" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="LisenceCards">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Photo" Type="nvarchar" MaxLength="250" />
+          <Property Name="Title" Type="nvarchar" MaxLength="250" />
+          <Property Name="Text" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="LisenceHeader">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="255" />
+          <Property Name="Text" Type="nvarchar(max)" />
+          <Property Name="Background" Type="nvarchar" MaxLength="250" />
+        </EntityType>
+        <EntityType Name="LisenceNotAllows">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NotAllowItem" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Photos">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar(max)" />
+          <Property Name="CategoryId" Type="int" />
+          <Property Name="Link" Type="nvarchar(max)" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'Pexels.dbo.PopularPhotos' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="PopularPhotos">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="50" />
+          <Property Name="Photo" Type="nvarchar" MaxLength="250" />
+          <Property Name="Icon" Type="nvarchar" MaxLength="250" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'Pexels.dbo.PopularSearches' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="PopularSearches">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="150" />
+          <Property Name="Desc" Type="nvarchar" MaxLength="150" />
+          <Property Name="CollectionPhoto" Type="nvarchar" MaxLength="250" />
+          <Property Name="CollectionTitle" Type="nvarchar" MaxLength="150" />
+          <Property Name="CollectionIcon" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Settings">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Logo" Type="nvarchar" MaxLength="255" />
+          <Property Name="Facebook" Type="nvarchar" MaxLength="250" />
+          <Property Name="Twitter" Type="nvarchar" MaxLength="250" />
+          <Property Name="Instagram" Type="nvarchar" MaxLength="250" />
+          <Property Name="Pinterest" Type="nvarchar" MaxLength="250" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="Surname" Type="nvarchar" MaxLength="50" />
+          <Property Name="Email" Type="nvarchar" MaxLength="250" />
+          <Property Name="Password" Type="nvarchar" MaxLength="255" />
+        </EntityType>
+        <Association Name="FK_Likes_Photos">
+          <End Role="Photos" Type="Self.Photos" Multiplicity="0..1" />
+          <End Role="Likes" Type="Self.Likes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Photos">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Likes">
+              <PropertyRef Name="PhotoId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Photos_Category">
+          <End Role="Category" Type="Self.Category" Multiplicity="0..1" />
+          <End Role="Photos" Type="Self.Photos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Category">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Photos">
+              <PropertyRef Name="CategoryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="PexelsModelStoreContainer">
+          <EntitySet Name="AboutHeaders" EntityType="Self.AboutHeaders" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Category" EntityType="Self.Category" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="FaqHeaders" EntityType="Self.FaqHeaders" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="FaqNews" EntityType="Self.FaqNews" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="FaqUploads" EntityType="Self.FaqUploads" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Likes" EntityType="Self.Likes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LisenceAllows" EntityType="Self.LisenceAllows" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LisenceCards" EntityType="Self.LisenceCards" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LisenceHeader" EntityType="Self.LisenceHeader" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LisenceNotAllows" EntityType="Self.LisenceNotAllows" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Photos" EntityType="Self.Photos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Settings" EntityType="Self.Settings" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AboutUs" EntityType="Self.AboutUs" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [AboutUs].[Id] AS [Id], 
+    [AboutUs].[Title] AS [Title], 
+    [AboutUs].[Content] AS [Content], 
+    [AboutUs].[Icon] AS [Icon]
+    FROM [dbo].[AboutUs] AS [AboutUs]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Discovers" EntityType="Self.Discovers" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Discovers].[Id] AS [Id], 
+    [Discovers].[Title] AS [Title], 
+    [Discovers].[Desc] AS [Desc], 
+    [Discovers].[CollectionImage] AS [CollectionImage], 
+    [Discovers].[CollectionTitle] AS [CollectionTitle], 
+    [Discovers].[CollectionCount] AS [CollectionCount]
+    FROM [dbo].[Discovers] AS [Discovers]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Homes" EntityType="Self.Homes" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Homes].[Id] AS [Id], 
+    [Homes].[HeadTitle] AS [HeadTitle], 
+    [Homes].[Title] AS [Title], 
+    [Homes].[Image] AS [Image]
+    FROM [dbo].[Homes] AS [Homes]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="PopularPhotos" EntityType="Self.PopularPhotos" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [PopularPhotos].[Id] AS [Id], 
+    [PopularPhotos].[Title] AS [Title], 
+    [PopularPhotos].[Photo] AS [Photo], 
+    [PopularPhotos].[Icon] AS [Icon]
+    FROM [dbo].[PopularPhotos] AS [PopularPhotos]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="PopularSearches" EntityType="Self.PopularSearches" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [PopularSearches].[Id] AS [Id], 
+    [PopularSearches].[Title] AS [Title], 
+    [PopularSearches].[Desc] AS [Desc], 
+    [PopularSearches].[CollectionPhoto] AS [CollectionPhoto], 
+    [PopularSearches].[CollectionTitle] AS [CollectionTitle], 
+    [PopularSearches].[CollectionIcon] AS [CollectionIcon]
+    FROM [dbo].[PopularSearches] AS [PopularSearches]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK_Likes_Photos" Association="Self.FK_Likes_Photos">
+            <End Role="Photos" EntitySet="Photos" />
+            <End Role="Likes" EntitySet="Likes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Photos_Category" Association="Self.FK_Photos_Category">
+            <End Role="Category" EntitySet="Category" />
+            <End Role="Photos" EntitySet="Photos" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="PexelsModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Settings">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Logo" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Facebook" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Twitter" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Instagram" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Pinterest" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="AboutUs">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="Content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Icon" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Discovers">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="Desc" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="CollectionImage" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="CollectionTitle" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="CollectionCount" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Homes">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="HeadTitle" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="Title" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="Image" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="PopularPhotos">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Photo" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Icon" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="PopularSearches">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Title" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="Desc" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="CollectionPhoto" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="CollectionTitle" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="CollectionIcon" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityContainer Name="PexelsEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Settings" EntityType="Self.Settings" />
+          <EntitySet Name="AboutUs" EntityType="Self.AboutUs" />
+          <EntitySet Name="Discovers" EntityType="Self.Discovers" />
+          <EntitySet Name="Homes" EntityType="Self.Homes" />
+          <EntitySet Name="PopularPhotos" EntityType="Self.PopularPhotos" />
+          <EntitySet Name="PopularSearches" EntityType="Self.PopularSearches" />
+          <EntitySet Name="AboutHeaders" EntityType="PexelsModel.AboutHeaders" />
+          <EntitySet Name="LisenceHeader" EntityType="PexelsModel.LisenceHeader" />
+          <EntitySet Name="Category" EntityType="PexelsModel.Category" />
+          <EntitySet Name="Photos" EntityType="PexelsModel.Photos" />
+          <AssociationSet Name="FK_Photos_Category" Association="PexelsModel.FK_Photos_Category">
+            <End Role="Category" EntitySet="Category" />
+            <End Role="Photos" EntitySet="Photos" />
+          </AssociationSet>
+          <EntitySet Name="Likes" EntityType="PexelsModel.Likes" />
+          <EntitySet Name="LisenceAllows" EntityType="PexelsModel.LisenceAllows" />
+          <EntitySet Name="LisenceCards" EntityType="PexelsModel.LisenceCards" />
+          <AssociationSet Name="FK_Likes_Photos" Association="PexelsModel.FK_Likes_Photos">
+            <End Role="Photos" EntitySet="Photos" />
+            <End Role="Likes" EntitySet="Likes" />
+          </AssociationSet>
+          <EntitySet Name="LisenceNotAllows" EntityType="PexelsModel.LisenceNotAllows" />
+          <EntitySet Name="FaqNews" EntityType="PexelsModel.FaqNews" />
+          <EntitySet Name="FaqUploads" EntityType="PexelsModel.FaqUploads" />
+          <EntitySet Name="FaqHeaders" EntityType="PexelsModel.FaqHeaders" />
+          <EntitySet Name="Users" EntityType="PexelsModel.Users" />
+        </EntityContainer>
+        <EntityType Name="AboutHeaders">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="HeadTitle" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="HeadText" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="HeadBackground" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="LisenceHeader">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Text" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Background" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Category">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Category1" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Photos" Relationship="PexelsModel.FK_Photos_Category" FromRole="Category" ToRole="Photos" />
+        </EntityType>
+        <EntityType Name="Photos">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CategoryId" Type="Int32" />
+          <Property Name="Link" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Category" Relationship="PexelsModel.FK_Photos_Category" FromRole="Photos" ToRole="Category" />
+          <NavigationProperty Name="Likes" Relationship="PexelsModel.FK_Likes_Photos" FromRole="Photos" ToRole="Likes" />
+        </EntityType>
+        <Association Name="FK_Photos_Category">
+          <End Type="PexelsModel.Category" Role="Category" Multiplicity="0..1" />
+          <End Type="PexelsModel.Photos" Role="Photos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Category">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Photos">
+              <PropertyRef Name="CategoryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Likes">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Count" Type="Int32" />
+          <Property Name="PhotoId" Type="Int32" />
+          <NavigationProperty Name="Photos" Relationship="PexelsModel.FK_Likes_Photos" FromRole="Likes" ToRole="Photos" />
+        </EntityType>
+        <EntityType Name="LisenceAllows">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AllowItem" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="LisenceCards">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Photo" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Title" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Text" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <Association Name="FK_Likes_Photos">
+          <End Type="PexelsModel.Photos" Role="Photos" Multiplicity="0..1" />
+          <End Type="PexelsModel.Likes" Role="Likes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Photos">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Likes">
+              <PropertyRef Name="PhotoId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="LisenceNotAllows">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NotAllowItem" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="FaqNews">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Text" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="FaqUploads">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Text" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="FaqHeaders">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Desc" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Surname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Password" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="PexelsModelStoreContainer" CdmEntityContainer="PexelsEntities">
+          <EntitySetMapping Name="Settings">
+            <EntityTypeMapping TypeName="PexelsModel.Settings">
+              <MappingFragment StoreEntitySet="Settings">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Logo" ColumnName="Logo" />
+                <ScalarProperty Name="Facebook" ColumnName="Facebook" />
+                <ScalarProperty Name="Twitter" ColumnName="Twitter" />
+                <ScalarProperty Name="Instagram" ColumnName="Instagram" />
+                <ScalarProperty Name="Pinterest" ColumnName="Pinterest" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AboutUs">
+            <EntityTypeMapping TypeName="PexelsModel.AboutUs">
+              <MappingFragment StoreEntitySet="AboutUs">
+                <ScalarProperty Name="Icon" ColumnName="Icon" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Content" ColumnName="Content" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Discovers">
+            <EntityTypeMapping TypeName="PexelsModel.Discovers">
+              <MappingFragment StoreEntitySet="Discovers">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Desc" ColumnName="Desc" />
+                <ScalarProperty Name="CollectionImage" ColumnName="CollectionImage" />
+                <ScalarProperty Name="CollectionTitle" ColumnName="CollectionTitle" />
+                <ScalarProperty Name="CollectionCount" ColumnName="CollectionCount" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Homes">
+            <EntityTypeMapping TypeName="PexelsModel.Homes">
+              <MappingFragment StoreEntitySet="Homes">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="HeadTitle" ColumnName="HeadTitle" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Image" ColumnName="Image" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PopularPhotos">
+            <EntityTypeMapping TypeName="PexelsModel.PopularPhotos">
+              <MappingFragment StoreEntitySet="PopularPhotos">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Photo" ColumnName="Photo" />
+                <ScalarProperty Name="Icon" ColumnName="Icon" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PopularSearches">
+            <EntityTypeMapping TypeName="PexelsModel.PopularSearches">
+              <MappingFragment StoreEntitySet="PopularSearches">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Desc" ColumnName="Desc" />
+                <ScalarProperty Name="CollectionPhoto" ColumnName="CollectionPhoto" />
+                <ScalarProperty Name="CollectionTitle" ColumnName="CollectionTitle" />
+                <ScalarProperty Name="CollectionIcon" ColumnName="CollectionIcon" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AboutHeaders">
+            <EntityTypeMapping TypeName="PexelsModel.AboutHeaders">
+              <MappingFragment StoreEntitySet="AboutHeaders">
+                <ScalarProperty Name="HeadBackground" ColumnName="HeadBackground" />
+                <ScalarProperty Name="HeadText" ColumnName="HeadText" />
+                <ScalarProperty Name="HeadTitle" ColumnName="HeadTitle" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LisenceHeader">
+            <EntityTypeMapping TypeName="PexelsModel.LisenceHeader">
+              <MappingFragment StoreEntitySet="LisenceHeader">
+                <ScalarProperty Name="Background" ColumnName="Background" />
+                <ScalarProperty Name="Text" ColumnName="Text" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Category">
+            <EntityTypeMapping TypeName="PexelsModel.Category">
+              <MappingFragment StoreEntitySet="Category">
+                <ScalarProperty Name="Category1" ColumnName="Category" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Photos">
+            <EntityTypeMapping TypeName="PexelsModel.Photos">
+              <MappingFragment StoreEntitySet="Photos">
+                <ScalarProperty Name="Link" ColumnName="Link" />
+                <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Likes">
+            <EntityTypeMapping TypeName="PexelsModel.Likes">
+              <MappingFragment StoreEntitySet="Likes">
+                <ScalarProperty Name="PhotoId" ColumnName="PhotoId" />
+                <ScalarProperty Name="Count" ColumnName="Count" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LisenceAllows">
+            <EntityTypeMapping TypeName="PexelsModel.LisenceAllows">
+              <MappingFragment StoreEntitySet="LisenceAllows">
+                <ScalarProperty Name="AllowItem" ColumnName="AllowItem" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LisenceCards">
+            <EntityTypeMapping TypeName="PexelsModel.LisenceCards">
+              <MappingFragment StoreEntitySet="LisenceCards">
+                <ScalarProperty Name="Text" ColumnName="Text" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Photo" ColumnName="Photo" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LisenceNotAllows">
+            <EntityTypeMapping TypeName="PexelsModel.LisenceNotAllows">
+              <MappingFragment StoreEntitySet="LisenceNotAllows">
+                <ScalarProperty Name="NotAllowItem" ColumnName="NotAllowItem" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FaqNews">
+            <EntityTypeMapping TypeName="PexelsModel.FaqNews">
+              <MappingFragment StoreEntitySet="FaqNews">
+                <ScalarProperty Name="Text" ColumnName="Text" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FaqUploads">
+            <EntityTypeMapping TypeName="PexelsModel.FaqUploads">
+              <MappingFragment StoreEntitySet="FaqUploads">
+                <ScalarProperty Name="Text" ColumnName="Text" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FaqHeaders">
+            <EntityTypeMapping TypeName="PexelsModel.FaqHeaders">
+              <MappingFragment StoreEntitySet="FaqHeaders">
+                <ScalarProperty Name="Desc" ColumnName="Desc" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="PexelsModel.Users">
+              <MappingFragment StoreEntitySet="Users">
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Surname" ColumnName="Surname" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

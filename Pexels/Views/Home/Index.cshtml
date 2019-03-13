@@ -1,0 +1,272 @@
+﻿@model Pexels.Models.VwModel
+@{
+    ViewBag.Title = "Index";
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Pulsuz fotoşəkillər - Pexels</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
+    <link rel="stylesheet" href="/Public/css/style.css">
+</head>
+
+<body>
+    <header class="index">
+        <div class="menu home">
+            <div class="row menu-navbar-home">
+                <div class="col-lg-2 logo">
+                    <a class="logotxt" href="@Url.Action("index","home")">
+                        <img src="/Public/image/logo.jpg" width="35" height="35" alt="">
+                        <span>Pexels</span>
+                    </a>
+                </div>
+                <div class="col-lg-10 d-flex justify-content-end">
+                    <ul class="navbar-item">
+                        <li>
+                            <div class="dropdown">
+                                <a class="dropbtn" href="@Url.Action("Index","Discover")">Araşdırmaq</a>
+                                <div class="dropdown-content">
+                                    <a href="@Url.Action("index","discover")">Kəşf edin</a>
+                                    <a href="@Url.Action("index","popularphotos")">Populyar şəkillər</a>
+                                    <a href="@Url.Action("index","popularsearches")">Populyar axtarışlar</a>
+                                </div>
+                            </div>
+                        </li>
+                        <li><a href="@Url.Action("Index","Lisence")">Lisenziya</a></li>
+                        <li>
+                            <div class="dropdown">
+                                <a class="dropbtn" href="#"><i class="fas fa-ellipsis-h"></i></a>
+                                <div class="dropdown-content-more">
+                                    <a href="@Url.Action("index","login")">Giriş</a>
+                                    <a href="@Url.Action("index","join")">Qeydiyyat</a>
+                                    <a href="@Url.Action("index","aboutus")">Haqqımızda</a>
+                                    <a href="@Url.Action("index","faq")">Suallar</a>
+                                    <ul class="social">
+                                        <li>
+                                            <a target="blank_" href="https://www.facebook.com/">
+                                                <i class="fab fa-facebook-f"></i>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a target="blank_" href="https://twitter.com/">
+                                                <i class="fab fa-twitter"></i>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a target="blank_" href="https://www.instagram.com/">
+                                                <i class="fab fa-instagram"></i>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a target="blank_" href="https://www.pinterest.com/">
+                                                <i class="fab fa-pinterest"></i>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <a href="@Url.Action("index","join")">
+                                <button type="button" class="btn btn-success">Qeydiyyat</button>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <i class="fas fa-bars res-menu"></i>
+        </div>
+        <div id="search">
+            <div class="row d-flex justify-content-center">
+                <h2>İstedadlı fotoqraflar tərəfindən paylaşılan ən yaxşı pulsuz şəkilləri.</h2>
+            </div>
+            <div class="row d-flex justify-content-center">
+                <div class="wrap">
+                    <form class="search">
+                        <input type="text" class="searchTerm" placeholder="Fotoşəkil axtarın">
+                        <button type="submit" class="searchButton fa fa-search"></button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="menu-responsive">
+            <ul class="navbar-responsive">
+                <li>
+                    <a href="@Url.Action("index","discover")">Kəşf edin</a>
+                </li>
+                <li><a href="@Url.Action("index","popularphotos")">Populyar şəkillər</a></li>
+                <li>
+                    <a href="@Url.Action("index","popularsearches")">Populyar axtarışlar</a>
+                </li>
+                <hr />
+                <li>
+                    <a href="@Url.Action("index", "login")">Giriş</a>
+                </li>
+                <li>
+                    <a href="@Url.Action("index", "join")">Qeydiyyat</a>
+                </li>
+                <li>
+                    <a href="@Url.Action("index", "Lisence")">Lisenziya</a>
+                </li>
+                <li>
+                    <a href="@Url.Action("index", "aboutus")">Haqqımızda</a>
+                </li>
+                <li>
+                    <a href="@Url.Action("index", "faq")">Suallar</a>
+                </li>
+                
+            </ul>
+            <ul class="res-social">
+                <li>
+                    <a target="blank_" href="https://www.facebook.com/">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                </li>
+                <li>
+                    <a target="blank_" href="https://twitter.com/">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                </li>
+                <li>
+                    <a target="blank_" href="https://www.instagram.com/">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                </li>
+                <li>
+                    <a target="blank_" href="https://www.pinterest.com/">
+                        <i class="fab fa-pinterest"></i>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </header>
+
+    <main>
+        <div class="home-content m-container">
+            <div class="title">
+                <h4>Pulsuz Foto şəkil</h4>
+            </div>
+            
+            <div class="photos">
+                <div class="row">
+
+                    @{
+                        int count = 3;
+                        int inc = 1;
+                    }
+                    @for (int i =0; i < count; i++)
+                    {
+                        <div class="col-lg-4 photos-column">
+
+                            @if (i == 0)
+                            {
+                                for (int k = 0; k < 6; k++)
+                                {
+
+                                    <div class="image-div mb-3">
+                                        <a href=@Url.Action("index","Photosingle",new {id=@Model.Photos[k].Id})>
+                                            <img src="/Public/image/@Model.Photos[k].Link" alt="">
+                                        </a>
+                                        <div class="photo-buttons">
+                                            <a href=""><i class="fas fa-plus-circle"></i></a>
+                                            <a href="" class="right-like-button"> <i class="far fa-heart"></i></a>
+                                        </div>
+                                    </div>
+
+
+                                }
+                            }
+                            else
+                            {
+                                for (int k = 0; k < 6; k++)
+                                {
+
+                                    <div class="image-div mb-3">
+                                        @*<p>@Model[i * count + k + inc]</p>*@
+                                        <a href=@Url.Action("index","Photosingle",new {id=@Model.Photos[k].Id})>
+                                            <img src="/Public/image/@Model.Photos[k].Link" alt="">
+                                        </a>
+                                        <div class="photo-buttons">
+                                            <a href=""><i class="fas fa-plus-circle"></i></a>
+                                            <a href="" class="right-like-button"> <i class="far fa-heart"></i></a>
+                                        </div>
+                                    </div>
+                                }
+                                inc++;
+                            }
+
+                        </div>
+                    }
+                </div>
+            </div>
+            
+            
+
+            @*<div class="photos">
+                <div class="row">
+                    <div class="col-lg-4 photos-column">
+                        @foreach (var item in Model.Photos)
+                        {
+                            <form method="post">
+                                <div class="image-div mb-3">
+                                    <a href=@Url.Action("index","Photosingle",new {id=@item.Id})>
+                                        <img src="/Public/image/@item.Link" alt="">
+                                    </a>
+                                    <div class="photo-buttons">
+                                        <a href=""><i class="fas fa-plus-circle"></i></a>
+                                        <a href="" class="right-like-button"> <i class="far fa-heart"></i></a>
+                                    </div>
+                                </div>
+                            </form>
+                        }
+
+                    </div>
+                    <div class="col-lg-4 photos-column">
+                        @foreach (var item in Model.Photos2)
+                        {
+                            <form method="post">
+                                <div class="image-div mb-3">
+                                    <a href=@Url.Action("index","Photosingle",new {id=@item.Id})>
+                                        <img src="/Public/image/@item.Link" alt="">
+                                    </a>
+                                    <div class="photo-buttons">
+                                        <a href=""><i class="fas fa-plus-circle"></i></a>
+                                        <a href="" class="right-like-button"> <i class="far fa-heart"></i></a>
+                                    </div>
+                                </div>
+                            </form>
+                        }
+                    </div>
+
+                    <div class="col-lg-4 photos-column">
+                        @foreach (var item in Model.Photos3)
+                        {
+                            <form method="post">
+                                <div class="image-div mb-3">
+                                    <a href=@Url.Action("index","Photosingle",new {id=@item.Id})>
+                                        <img src="/Public/image/@item.Link" alt="">
+                                    </a>
+                                    <div class="photo-buttons">
+                                        <a href=""><i class="fas fa-plus-circle"></i></a>
+                                        <a href="" class="right-like-button"> <i class="far fa-heart"></i></a>
+                                    </div>
+                                </div>
+                            </form>
+                        }
+                    </div>
+                </div>
+            </div>*@
+        </div>
+    </main>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="/Public/js/script.js"></script>
+</body>
+
+</html>

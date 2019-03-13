@@ -1,0 +1,52 @@
+﻿@model Pexels.Models.VwModel
+@{
+    ViewBag.Title = "Index";
+}
+
+<main>
+    <section class="faq-header">
+        <div class="header-content">
+            <h1>@Model.FaqHeader.Title</h1>
+            <h3>@Model.FaqHeader.Desc</h3>
+        </div>
+    </section>
+
+    <div class="faq-content">
+        <div class="container">
+            <div class="col-lg-12">
+                <h2>Mən Pexel'də yeniyəm. Nə bilməliyəm?</h2>
+                @foreach (var item in Model.FaqNews)
+                {
+                    <div class="definition-list">
+                        <div class="definition-list-title">
+                            <h3>@item.Title</h3>
+                        </div>
+                        <div class="definition-list-content">
+                            <p>
+                            @item.Text
+                            </p>
+                        </div>
+                    </div>
+                }
+                
+                <h2>Pexels'e fotoşəkillər göndərmək istəyirəm, proses nədir?</h2>
+                @foreach (var item in Model.FaqUpload)
+                {
+                    <div class="definition-list">
+                        <div class="definition-list-title">
+                            <h3>@item.Title</h3>
+                        </div>
+                        <div class="definition-list-content">
+                            <p>
+                                @item.Text
+                            </p>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+
+</main>
+
+

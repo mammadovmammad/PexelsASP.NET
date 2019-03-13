@@ -1,0 +1,54 @@
+﻿@model Pexels.Models.VwModel
+@{
+    ViewBag.Title = "Index";
+    Layout = "../Shared/_PartLayout.cshtml";
+}
+
+<section class="image-section mt-100 justify-content-around">
+    <div class="row">
+        <div class="col-lg-8">
+            <div class="image">
+                <img src="/Public/image/@Model.PhotoModel.Link" alt="">
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="content">
+                <div class="row">
+                    <div class="col-lg-7">
+                        <div class="download">
+                            <i class="fas fa-download"></i>
+                            <a href="/Public/image/@Model.PhotoModel.Link" download="/Public/image/@Model.PhotoModel.Link">
+                                Pulsuz yüklə
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-5">
+                        <div class="like">
+                            <button class="btn btn-secondary button-like">
+                                <i class="far fa-heart"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pexels-lisence-photo mt-40">
+                    <h4>Pexels Lisenziya</h4>
+                    <p>✓ Şəxsi və kommersiya istifadə üçün pulsuzdur</p>
+                    <p>✓ Atribut tələb olunmur</p>
+                    <a href="lisence.html">Learn more about the license »</a>
+                </div>
+
+                <div class="pexels-follow mt-40">
+                    <h4>Pexels İzləyin</h4>
+                    <a target="_blank" href="https://www.instagram.com/pexels/">
+                        <img src="/Public/image/instagram-icon-photo.jpg" alt="">
+                        <span>Instagram</span>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</section>

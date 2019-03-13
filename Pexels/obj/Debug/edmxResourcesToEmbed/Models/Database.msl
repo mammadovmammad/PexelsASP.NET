@@ -1,0 +1,182 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="PexelsModelStoreContainer" CdmEntityContainer="PexelsEntities">
+    <EntitySetMapping Name="Settings">
+      <EntityTypeMapping TypeName="PexelsModel.Settings">
+        <MappingFragment StoreEntitySet="Settings">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Logo" ColumnName="Logo" />
+          <ScalarProperty Name="Facebook" ColumnName="Facebook" />
+          <ScalarProperty Name="Twitter" ColumnName="Twitter" />
+          <ScalarProperty Name="Instagram" ColumnName="Instagram" />
+          <ScalarProperty Name="Pinterest" ColumnName="Pinterest" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AboutUs">
+      <EntityTypeMapping TypeName="PexelsModel.AboutUs">
+        <MappingFragment StoreEntitySet="AboutUs">
+          <ScalarProperty Name="Icon" ColumnName="Icon" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Content" ColumnName="Content" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Discovers">
+      <EntityTypeMapping TypeName="PexelsModel.Discovers">
+        <MappingFragment StoreEntitySet="Discovers">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Desc" ColumnName="Desc" />
+          <ScalarProperty Name="CollectionImage" ColumnName="CollectionImage" />
+          <ScalarProperty Name="CollectionTitle" ColumnName="CollectionTitle" />
+          <ScalarProperty Name="CollectionCount" ColumnName="CollectionCount" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Homes">
+      <EntityTypeMapping TypeName="PexelsModel.Homes">
+        <MappingFragment StoreEntitySet="Homes">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="HeadTitle" ColumnName="HeadTitle" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Image" ColumnName="Image" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PopularPhotos">
+      <EntityTypeMapping TypeName="PexelsModel.PopularPhotos">
+        <MappingFragment StoreEntitySet="PopularPhotos">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Photo" ColumnName="Photo" />
+          <ScalarProperty Name="Icon" ColumnName="Icon" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PopularSearches">
+      <EntityTypeMapping TypeName="PexelsModel.PopularSearches">
+        <MappingFragment StoreEntitySet="PopularSearches">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Desc" ColumnName="Desc" />
+          <ScalarProperty Name="CollectionPhoto" ColumnName="CollectionPhoto" />
+          <ScalarProperty Name="CollectionTitle" ColumnName="CollectionTitle" />
+          <ScalarProperty Name="CollectionIcon" ColumnName="CollectionIcon" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AboutHeaders">
+      <EntityTypeMapping TypeName="PexelsModel.AboutHeaders">
+        <MappingFragment StoreEntitySet="AboutHeaders">
+          <ScalarProperty Name="HeadBackground" ColumnName="HeadBackground" />
+          <ScalarProperty Name="HeadText" ColumnName="HeadText" />
+          <ScalarProperty Name="HeadTitle" ColumnName="HeadTitle" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LisenceHeader">
+      <EntityTypeMapping TypeName="PexelsModel.LisenceHeader">
+        <MappingFragment StoreEntitySet="LisenceHeader">
+          <ScalarProperty Name="Background" ColumnName="Background" />
+          <ScalarProperty Name="Text" ColumnName="Text" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Category">
+      <EntityTypeMapping TypeName="PexelsModel.Category">
+        <MappingFragment StoreEntitySet="Category">
+          <ScalarProperty Name="Category1" ColumnName="Category" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Photos">
+      <EntityTypeMapping TypeName="PexelsModel.Photos">
+        <MappingFragment StoreEntitySet="Photos">
+          <ScalarProperty Name="Link" ColumnName="Link" />
+          <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Likes">
+      <EntityTypeMapping TypeName="PexelsModel.Likes">
+        <MappingFragment StoreEntitySet="Likes">
+          <ScalarProperty Name="PhotoId" ColumnName="PhotoId" />
+          <ScalarProperty Name="Count" ColumnName="Count" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LisenceAllows">
+      <EntityTypeMapping TypeName="PexelsModel.LisenceAllows">
+        <MappingFragment StoreEntitySet="LisenceAllows">
+          <ScalarProperty Name="AllowItem" ColumnName="AllowItem" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LisenceCards">
+      <EntityTypeMapping TypeName="PexelsModel.LisenceCards">
+        <MappingFragment StoreEntitySet="LisenceCards">
+          <ScalarProperty Name="Text" ColumnName="Text" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Photo" ColumnName="Photo" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LisenceNotAllows">
+      <EntityTypeMapping TypeName="PexelsModel.LisenceNotAllows">
+        <MappingFragment StoreEntitySet="LisenceNotAllows">
+          <ScalarProperty Name="NotAllowItem" ColumnName="NotAllowItem" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FaqNews">
+      <EntityTypeMapping TypeName="PexelsModel.FaqNews">
+        <MappingFragment StoreEntitySet="FaqNews">
+          <ScalarProperty Name="Text" ColumnName="Text" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FaqUploads">
+      <EntityTypeMapping TypeName="PexelsModel.FaqUploads">
+        <MappingFragment StoreEntitySet="FaqUploads">
+          <ScalarProperty Name="Text" ColumnName="Text" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FaqHeaders">
+      <EntityTypeMapping TypeName="PexelsModel.FaqHeaders">
+        <MappingFragment StoreEntitySet="FaqHeaders">
+          <ScalarProperty Name="Desc" ColumnName="Desc" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="PexelsModel.Users">
+        <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Surname" ColumnName="Surname" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
