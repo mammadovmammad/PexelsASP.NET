@@ -1,0 +1,59 @@
+﻿@using Pexels.Models
+@model VwModel
+@{
+    int count = 3;
+    int inc = 0;
+}
+@if (Model.Photos.Count == 0)
+{
+    <p class="alert-danger text-center">Yoy have not got any pictures with that category name</p>
+    return;
+}
+@for (int i = 0; i < count; i++)
+    {
+        <div class="col-lg-4 photos-column">
+
+            @if (i == 0)
+            {
+                for (int k = 0; k < 3; k++)
+                {
+
+                    <div class="image-div mb-3">
+                        <a href=@Url.Action("index", "Photosingle", new {id = @Model.Photos[i * count + k + inc].Id})>
+                            <img src="/Public/image/@Model.Photos[i * count + k + inc].Link" alt="">
+                        </a>
+                        <div class="photo-buttons">
+                            <a href=""><i class="fas fa-plus-circle"></i></a>
+                            <i class="far fa-heart right-like-button"></i>
+                            <input class="forPhotoId" type="hidden" value="@Model.Photos[i * count + k + inc].Id" />
+                            <input type="hidden" id="isLikeed" value="0" />
+                            @*<input class="" type="hidden" value="@Model.Likes.Where(l=>l.PhotoId==Model.Photos[i * count + k + inc].Id)"/>*@
+                        </div>
+                    </div>
+
+
+                }
+            }
+            else
+            {
+                for (int k = 0; k < 3; k++)
+                {
+
+                    <div class="image-div mb-3">
+                        <a href=@Url.Action("index", "Photosingle", new {id = @Model.Photos[i * count + k + inc].Id})>
+                            <img src="/Public/image/@Model.Photos[i * count + k + inc].Link" alt="">
+                        </a>
+                        <div class="photo-buttons">
+                            <a href=""><i class="fas fa-plus-circle"></i></a>
+                            <i class="far fa-heart right-like-button"></i>
+                            <input class="forPhotoId" type="hidden" value="@Model.Photos[i * count + k + inc].Id"/>
+                            <input type="hidden" id="isLikeed" value="0"/>
+                        </div>
+                    </div>
+                }
+                inc++;
+            }
+
+        </div>
+    }
+

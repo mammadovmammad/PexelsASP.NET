@@ -14,7 +14,7 @@ namespace Pexels.Controllers
         {
             VwModel data = new VwModel();
             data.Settings = db.Settings.FirstOrDefault();
-            data.Photos = db.Photos.ToList();
+            data.Photos = db.Photos.OrderByDescending(p => p.Id).Take(10).ToList();
 
 
             //data.Photos = db.Photos.Take(8).ToList();
@@ -39,6 +39,14 @@ namespace Pexels.Controllers
             return View(data);
         }
 
+        [HttpPost]
+        public ActionResult Search(string query)
+        {
+            VwModel data = new VwModel();
+            data.Settings = db.Settings.FirstOrDefault();
+            data.Photos = db.Photos.Where(p=>p.Category.Category1.Trim().ToUpper()==query.Trim().ToUpper()).OrderByDescending(p => p.Id).Take(10).ToList();
+            return View(data);
+        }
         
     }
 }

@@ -26,8 +26,10 @@
     <link rel="stylesheet" type="text/css" href="~/Public/Login/vendor/select2/select2.min.css">
     <!--===============================================================================================-->
     <link rel="stylesheet" type="text/css" href="~/Public/Login/vendor/daterangepicker/daterangepicker.css">
+    <!--===============================================================================================-->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
-
+    <!--===============================================================================================-->
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <!--===============================================================================================-->
     <link rel="stylesheet" type="text/css" href="/Public/Login/css/util.css">
     <link rel="stylesheet" type="text/css" href="/Public/Login/css/main.css">
@@ -35,7 +37,7 @@
 </head>
 <body>
 
-
+    @*Register Head*@
     <div class="limiter">
         <div class="container-login100">
             <div class="wrap-login100 p-l-55 p-r-55 p-t-65 p-b-50">
@@ -48,26 +50,23 @@
                         <a href="@Url.Action("Index","Login")">Giriş</a>
                         <a href="@Url.Action("Index","Join")">Qeydiyyat</a>
                     </div>
-
                 </div>
-                <form role="form" class="login100-form validate-form" method="post" action="@Url.Action("Index", "Login")">
-                    @Html.ValidationSummary(true," ", new {@class="text-danger"})
-                    <div class="wrap-input100 validate-input" data-validate="Valid email is required: ex@abc.xyz">
+
+                @*Register Form*@
+                <form role="form" class="login100-form validate-form" method="post" action="@Url.Action("Login", "Account")">
+                    @Html.ValidationSummary(true, " ", new { @class = "text-danger" })
+                    <div class="wrap-input100 validate-input" data-validate="E-poçt boş buraxıla bilməz: ex@abc.xyz">
                         <input class="input100" type="email" name="email" placeholder="E-poçt">
-                        @Html.ValidationMessage("Error"," ",new{@class="text-danger"})
                         <span class="field-validation-error text-danger"
                               data-valmsg-for="Error"
-                              data-valmsg-replace="true"
-                              ></span>
-                        @*@Html.TextBoxFor(x=>x.Email,new {@class="form-control",Type="Email"})*@
-                        
+                              data-valmsg-replace="true"></span>
+
                         <span class="focus-input100-1"></span>
                         <span class="focus-input100-2"></span>
                     </div>
 
-                    <div class="wrap-input100 rs1 validate-input" data-validate="Password is required">
+                    <div class="wrap-input100 rs1 validate-input" data-validate="Şifrə boş buraxıla bilməz">
                         <input class="input100" type="password" name="password" placeholder="Şifrə">
-                        @Html.ValidationMessageFor(x=>x.Password," ",new{@class="text-danger"})
                         <span class="field-validation-valid text-danger"
                               data-valmsg-for="Password"
                               data-valmsg-replace="true"></span>
@@ -76,16 +75,6 @@
                     </div>
 
                     <div class="container-login100-form-btn m-t-20">
-
-                        @if (Session["LoginError"] != null)
-                        {
-                            <div class="alert alert-danger">
-                                @Session["LoginError"]
-                            </div>
-
-                            Session["LoginError"] = null;
-                        }
-
                         <button type="submit" class="login100-form-btn">
                             Daxil ol
                         </button>

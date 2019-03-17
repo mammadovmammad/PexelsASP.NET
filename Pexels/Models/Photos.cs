@@ -18,6 +18,7 @@ namespace Pexels.Models
         public Photos()
         {
             this.Likes = new HashSet<Likes>();
+            this.PhotoUsers = new HashSet<PhotoUsers>();
         }
     
         public int Id { get; set; }
@@ -28,5 +29,7 @@ namespace Pexels.Models
         public virtual Category Category { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Likes> Likes { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<PhotoUsers> PhotoUsers { get; set; }
     }
 }

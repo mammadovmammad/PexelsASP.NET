@@ -7,13 +7,15 @@ using Pexels.Models;
 
 namespace Pexels.Controllers
 {
-    public class PhotosingleController : BaseController
+    public class PhotosingleController : Controller
     {
+        protected PexelsEntities db = new PexelsEntities();
         // GET: Photosingle
         public ActionResult Index(int? id)
         {
 
             VwModel data = new VwModel();
+            data.Settings = db.Settings.FirstOrDefault();
             if (id == null)
             {
                 HttpNotFound();

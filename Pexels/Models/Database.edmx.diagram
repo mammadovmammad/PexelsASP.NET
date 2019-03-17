@@ -7,7 +7,6 @@
       <Diagram DiagramId="095b480c9beb418b83c8ef9423df48f5" Name="Diagram1" ZoomLevel="106">
         <EntityTypeShape EntityType="PexelsModel.Settings" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="PexelsModel.AboutUs" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="PexelsModel.Discovers" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
         <EntityTypeShape EntityType="PexelsModel.Homes" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="PexelsModel.PopularPhotos" Width="1.5" PointX="6.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="PexelsModel.PopularSearches" Width="1.5" PointX="0.75" PointY="6.75" IsExpanded="true" />
@@ -25,6 +24,12 @@
         <EntityTypeShape EntityType="PexelsModel.FaqUploads" Width="1.5" PointX="10.375" PointY="10.75" />
         <EntityTypeShape EntityType="PexelsModel.FaqHeaders" Width="1.5" PointX="3.375" PointY="3.75" />
         <EntityTypeShape EntityType="PexelsModel.Users" Width="1.5" PointX="11.375" PointY="3.75" />
+        <EntityTypeShape EntityType="PexelsModel.DiscoverCards" Width="1.5" PointX="0.75" PointY="3.75" />
+        <EntityTypeShape EntityType="PexelsModel.DiscoverHeaders" Width="1.5" PointX="5.75" PointY="11.75" />
+        <EntityTypeShape EntityType="PexelsModel.PhotoUsers" Width="1.5" PointX="13.625" PointY="6" />
+        <AssociationConnector Association="PexelsModel.FK_PhotoUsers_Photos" />
+        <AssociationConnector Association="PexelsModel.FK_PhotoUsers_Users" />
+        <AssociationConnector Association="PexelsModel.FK_Likes_Users" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

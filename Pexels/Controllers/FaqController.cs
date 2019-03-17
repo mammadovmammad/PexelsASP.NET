@@ -7,8 +7,9 @@ using Pexels.Models;
 
 namespace Pexels.Controllers
 {
-    public class FaqController : BaseController
+    public class FaqController : Controller
     {
+        protected PexelsEntities db = new PexelsEntities();
         // GET: Faq
         public ActionResult Index()
         {
@@ -16,6 +17,7 @@ namespace Pexels.Controllers
             data.FaqHeader = db.FaqHeaders.FirstOrDefault();
             data.FaqNews = db.FaqNews.ToList();
             data.FaqUpload = db.FaqUploads.ToList();
+            data.Settings = db.Settings.FirstOrDefault();
             return View(data);
         }
     }

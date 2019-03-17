@@ -3,15 +3,19 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Pexels.Models;
 
 namespace Pexels.Controllers
 {
-    public class PopularphotosController : BaseController
+    public class PopularphotosController : Controller
     {
+        PexelsEntities db =new PexelsEntities();
         // GET: Popularphotos
         public ActionResult Index()
         {
-            return View();
+            VwModel data = new VwModel();
+            data.Settings = db.Settings.FirstOrDefault();
+            return View(data);
         }
     }
 }

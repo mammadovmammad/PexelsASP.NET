@@ -156,17 +156,18 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AboutusController.cs" />
-    <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Controllers\AJAXController.cs" />
     <Compile Include="Controllers\CollectionsController.cs" />
     <Compile Include="Controllers\DiscoverController.cs" />
     <Compile Include="Controllers\FaqController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\JoinController.cs" />
     <Compile Include="Controllers\LisenceController.cs" />
-    <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\PhotosingleController.cs" />
     <Compile Include="Controllers\PopularphotosController.cs" />
     <Compile Include="Controllers\PopularsearchesController.cs" />
+    <Compile Include="Controllers\ProfileController.cs" />
     <Compile Include="Controllers\SearchController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
@@ -196,7 +197,10 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Database.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Models\Discovers.cs">
+    <Compile Include="Models\DiscoverCards.cs">
+      <DependentUpon>Database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DiscoverHeaders.cs">
       <DependentUpon>Database.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\FaqHeaders.cs">
@@ -227,6 +231,9 @@
       <DependentUpon>Database.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Photos.cs">
+      <DependentUpon>Database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\PhotoUsers.cs">
       <DependentUpon>Database.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\PopularPhotos.cs">
@@ -286,6 +293,7 @@
     <Content Include="Public\image\pexels-photo-1838582.jpeg" />
     <Content Include="Public\image\pexels-photo-55787.jpeg" />
     <Content Include="Public\image\pexels-photo-744780.jpeg" />
+    <Content Include="Public\image\profile-image.png" />
     <Content Include="Public\js\script.js" />
     <Content Include="Public\Login\css\main.css" />
     <Content Include="Public\Login\css\util.css" />
@@ -460,7 +468,7 @@
     <Content Include="Views\Search\Index.cshtml" />
     <Content Include="Views\Collections\Index.cshtml" />
     <Content Include="Views\Photosingle\Index.cshtml" />
-    <Content Include="Views\Login\Index.cshtml" />
+    <Content Include="Views\Account\Login.cshtml" />
     <Content Include="Views\Join\Index.cshtml" />
     <Content Include="Public\Login\vendor\bootstrap\css\bootstrap-grid.css.map" />
     <Content Include="Public\Login\vendor\bootstrap\css\bootstrap-grid.min.css.map" />
@@ -468,6 +476,9 @@
     <Content Include="Public\Login\vendor\bootstrap\css\bootstrap-reboot.min.css.map" />
     <Content Include="Public\Login\vendor\bootstrap\css\bootstrap.css.map" />
     <Content Include="Public\Login\vendor\bootstrap\css\bootstrap.min.css.map" />
+    <Content Include="Views\Profile\Index.cshtml" />
+    <Content Include="Views\Shared\_PartialPhotos.cshtml" />
+    <Content Include="Views\Home\Search.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

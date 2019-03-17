@@ -781,7 +781,7 @@ ul {
     color: #555;
 }
 
-    .content .download a,i.fa-download {
+    .content .download a, i.fa-download {
         color: white;
     }
 
@@ -808,16 +808,51 @@ ul {
         background-color: #05a081;
     }
 
-    .content .like .button-like {
-        background: #f9f9f9;
-        border-color: #eee;
-        padding: 10px 15px;
+.profile-header {
+    margin-top: 150px;
+}
+
+    .profile-header .profile-logo {
+        display: inline-block;
+        margin-right: 20px;
     }
 
-        .content .like .button-like i {
-            color: #555;
-            font-size: 20px;
+        .profile-header .profile-logo img {
+            width: 150px;
+            height: 150px;
+            border-radius: 10px;
         }
+
+    .profile-header .profile-details {
+        display: inline-block;
+        margin-right: 20px;
+    }
+
+        .profile-header .profile-details h2 {
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+    .profile-header .upload-photo {
+        display: inline-block;
+    }
+
+        .profile-header .upload-photo button.upload {
+            padding: 10px 25px;
+            background-color: #2275d7;
+            border-color: #2275d7;
+        }
+
+.content .like .button-like {
+    background: #f9f9f9;
+    border-color: #eee;
+    padding: 10px 15px;
+}
+
+    .content .like .button-like i {
+        color: #555;
+        font-size: 20px;
+    }
 
 .res-menu {
     cursor: pointer;
@@ -850,10 +885,10 @@ ul.navbar-responsive {
         padding: 0px 10px;
     }
 
-    ul.navbar-responsive li a {
-        text-decoration: none;
-        color: white;
-    }
+        ul.navbar-responsive li a {
+            text-decoration: none;
+            color: white;
+        }
 
 ul.res-social {
     position: absolute;
@@ -863,14 +898,14 @@ ul.res-social {
     background-color: white;
 }
 
-ul.res-social li{
-    margin-right: 15px;
-    margin-left: 10px;
-}
-
-    ul.res-social li a {
-        color: #232a34;
+    ul.res-social li {
+        margin-right: 15px;
+        margin-left: 10px;
     }
+
+        ul.res-social li a {
+            color: #232a34;
+        }
 
 
 
@@ -883,12 +918,12 @@ ul.res-social li{
         right: 5px;
     }
 
-    .menu-responsive{
+    .menu-responsive {
         z-index: 55;
         position: fixed;
     }
 
-    .menu{
+    .menu {
         z-index: 56;
     }
 
@@ -916,37 +951,37 @@ ul.res-social li{
         font-weight: 600;
     }
 
-    .like{
+    .like {
         text-align: center;
     }
 }
 
-@media(max-width: 841px){
-    #search{
+@media(max-width: 841px) {
+    #search {
         padding-top: 60px;
     }
 }
 
-@media(min-width: 991px){
-    .menu-responsive{
+@media(min-width: 991px) {
+    .menu-responsive {
         display: none;
     }
 }
 
-@media(max-width: 650px){
-    ul.res-social{
+@media(max-width: 650px) {
+    ul.res-social {
         right: 180px;
     }
 }
 
-@media(max-width: 450px){
-    ul.res-social{
+@media(max-width: 450px) {  
+    ul.res-social {
         right: 75px;
     }
 }
 
-@media(max-width: 400px){
-    ul.res-social{
+@media(max-width: 400px) {
+    ul.res-social {
         right: 60px;
     }
 }

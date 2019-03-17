@@ -27,7 +27,6 @@ namespace Pexels.Models
     
         public virtual DbSet<Settings> Settings { get; set; }
         public virtual DbSet<AboutUs> AboutUs { get; set; }
-        public virtual DbSet<Discovers> Discovers { get; set; }
         public virtual DbSet<Homes> Homes { get; set; }
         public virtual DbSet<PopularPhotos> PopularPhotos { get; set; }
         public virtual DbSet<PopularSearches> PopularSearches { get; set; }
@@ -43,5 +42,8 @@ namespace Pexels.Models
         public virtual DbSet<FaqUploads> FaqUploads { get; set; }
         public virtual DbSet<FaqHeaders> FaqHeaders { get; set; }
         public virtual DbSet<Users> Users { get; set; }
+        public virtual DbSet<DiscoverCards> DiscoverCards { get; set; }
+        public virtual DbSet<DiscoverHeaders> DiscoverHeaders { get; set; }
+        public virtual DbSet<PhotoUsers> PhotoUsers { get; set; }
     }
 }

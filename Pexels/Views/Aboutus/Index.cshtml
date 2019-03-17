@@ -1,10 +1,10 @@
 ﻿@model Pexels.Models.VwModel
-
 @{
     ViewBag.Title = "Index";
 }
 
 <main>
+    @*Header Section In About Page*@
     <section class="about-header" style="background-image: url('/Public/image/@Model.AboutHeaders.HeadBackground')">
         <div class="header-content">
             <h1>@Model.AboutHeaders.HeadTitle</h1>
@@ -13,7 +13,8 @@
             </h3>
         </div>
     </section>
-
+    
+    @*Main Content In About Page*@
     <section class="main-content">
         <div class="container">
             <div class="col-lg-12">

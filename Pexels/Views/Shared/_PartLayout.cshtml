@@ -1,8 +1,6 @@
-﻿@using Pexels.Models;
+﻿@using Pexels.Models
+@model VwModel
 
-@{
-    Settings setting = ViewBag.Setting as Settings;
-}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -18,100 +16,112 @@
 </head>
 
 <body>
-<header>
-    <div class="menu fixed">
-        <div class="row menu-navbar">
-            <div class="col-lg-2 logo">
-                <a class="logotxt" href="@Url.Action("index","home")">
-                    <img src="/Uploads/@setting.Logo" width="35" height="35" alt="">
-                    <span>Pexels</span>
-                </a>
-            </div>
-            <div class="col-lg-10 d-flex justify-content-end">
-                <ul class="navbar-item">
-                    <li>
-                        <div class="dropdown">
-                            <a class="dropbtn" href="@Url.Action("index","Discover")">Araşdırmaq</a>
-                            <div class="dropdown-content">
-                                <a href="@Url.Action("index","discover")">Kəşf edin</a>
-                                <a href="@Url.Action("index","popularphotos")">Populyar şəkillər</a>
-                                <a href="@Url.Action("index","popularsearches")">Populyar axtarışlar</a>
+    <header>
+        <div class="menu fixed">
+            <div class="row menu-navbar">
+                <div class="col-lg-2 logo">
+                    <a class="logotxt" href="@Url.Action("index","home")">
+                        <img src="/Uploads/@Model.Settings.Logo" width="35" height="35" alt="">
+                        <span>Pexels</span>
+                    </a>
+                </div>
+                <div class="col-lg-10 d-flex justify-content-end">
+                    <ul class="navbar-item">
+                        <li>
+                            <div class="dropdown">
+                                <a class="dropbtn" style="margin:0px" href="@Url.Action("index","Discover")">Araşdırmaq</a>
+                                <div class="dropdown-content">
+                                    <a href="@Url.Action("index","discover")">Kəşf edin</a>
+                                    <a href="@Url.Action("index","popularphotos")">Populyar şəkillər</a>
+                                    <a href="@Url.Action("index","popularsearches")">Populyar axtarışlar</a>
+                                </div>
                             </div>
-                        </div>
-                    </li>
-                    <li><a href="@Url.Action("index","Lisence")">Lisenziya</a></li>
-                    <li>
-                        <div class="dropdown">
-                            <a class="dropbtn" href="#"><i class="fas fa-ellipsis-h"></i></a>
-                            <div class="dropdown-content-more">
-                                <a href="@Url.Action("index","login")">Giriş</a>
-                                <a href="@Url.Action("index","join")">Qeydiyyat</a>
-                                <a href="@Url.Action("index","aboutus")">Haqqımızda</a>
-                                <a href="@Url.Action("index","faq")">Suallar</a>
-                                <ul class="social">
-                                    <li><a target="blank_" href="@setting.Facebook"><i class="fab fa-facebook-f"></i></a></li>
-                                    <li><a target="blank_" href="@setting.Twitter"><i class="fab fa-twitter"></i></a></li>
-                                    <li><a target="blank_" href="@setting.Instagram"><i class="fab fa-instagram"></i></a></li>
-                                    <li><a target="blank_" href="@setting.Pinterest"><i class="fab fa-pinterest"></i></a></li>
-                                </ul>
+                        </li>
+                        <li><a href="@Url.Action("index","Lisence")">Lisenziya</a></li>
+                        <li><a href="@Url.Action("Index","Join")">Qeydiyyat</a></li>
+                        <li>
+                            <div class="dropdown">
+                                <a class="dropbtn" href="#"><i class="fas fa-ellipsis-h"></i></a>
+                                <div class="dropdown-content-more">
+                                    @if (Session["LoggedUser"] != null)
+                                    {
+                                        <a href="@Url.Action("index","Profile")">Profil</a>
+                                        <a href="@Url.Action("Logout", "Account")">Çıxış</a>
+                                        <a href="@Url.Action("index", "join")">Qeydiyyat</a>
+                                        <a href="@Url.Action("index", "aboutus")">Haqqımızda</a>
+                                        <a href="@Url.Action("index", "faq")">Suallar</a>
+                                    }
+                                    else
+                                    {
+                                        <a href="@Url.Action("Login", "Account")">Giriş</a>
+                                        <a href="@Url.Action("index", "join")">Qeydiyyat</a>
+                                        <a href="@Url.Action("index", "aboutus")">Haqqımızda</a>
+                                        <a href="@Url.Action("index", "faq")">Suallar</a>
+                                    }
+                                    <ul class="social">
+                                        <li><a target="blank_" href="@Model.Settings.Facebook"><i class="fab fa-facebook-f"></i></a></li>
+                                        <li><a target="blank_" href="@Model.Settings.Twitter"><i class="fab fa-twitter"></i></a></li>
+                                        <li><a target="blank_" href="@Model.Settings.Instagram"><i class="fab fa-instagram"></i></a></li>
+                                        <li><a target="blank_" href="@Model.Settings.Pinterest"><i class="fab fa-pinterest"></i></a></li>
+                                    </ul>
+                                </div>
                             </div>
-                        </div>
 
-                    </li>
-                    <li>
-                        <a href="@Url.Action("index","join")">
-                            <button type="button" class="btn btn-success">Qeydiyyat</button>
-                        </a>
-                    </li>
+                        </li>
+                        <li>
+                            <a href="@Url.Action("Upload", "Profile")">
+                                <button type="button" class="btn btn-success">Yükləmək</button>
+                            </a>
+                        </li>
+                </div>
             </div>
+            <i class="fas fa-bars res-menu"></i>
         </div>
-        <i class="fas fa-bars res-menu"></i>
-    </div>
-    <div class="menu-responsive">
-        <ul class="navbar-responsive">
-            <li>
-                <a href="@Url.Action("index","discover")">Kəşf edin</a>
-            </li>
-            <li><a href="@Url.Action("index","popularphotos")">Populyar şəkillər</a></li>
-            <li>
-                <a href="@Url.Action("index","popularsearches")">Populyar axtarışlar</a>
-            </li>
-            <hr />
-            <li><a href="@Url.Action("index","login")">Giriş</a></li>
-            <li> <a href="@Url.Action("index","join")">Qeydiyyat</a></li>
-            <li><a href="@Url.Action("index","Lisence")">Lisenziya</a></li>
-            <li> <a href="@Url.Action("index","aboutus")">Haqqımızda</a></li>
-            <li> <a href="@Url.Action("index","faq")">Suallar</a></li>
-        </ul>
-        <ul class="res-social">
-            <li>
-                <a target="blank_" href="https://www.facebook.com/">
-                    <i class="fab fa-facebook-f"></i>
-                </a>
-            </li>
-            <li>
-                <a target="blank_" href="https://twitter.com/">
-                    <i class="fab fa-twitter"></i>
-                </a>
-            </li>
-            <li>
-                <a target="blank_" href="https://www.instagram.com/">
-                    <i class="fab fa-instagram"></i>
-                </a>
-            </li>
-            <li>
-                <a target="blank_" href="https://www.pinterest.com/">
-                    <i class="fab fa-pinterest"></i>
-                </a>
-            </li>
-        </ul>
-    </div>
-</header>
+        <div class="menu-responsive">
+            <ul class="navbar-responsive">
+                <li>
+                    <a href="@Url.Action("index","discover")">Kəşf edin</a>
+                </li>
+                <li><a href="@Url.Action("index","popularphotos")">Populyar şəkillər</a></li>
+                <li>
+                    <a href="@Url.Action("index","popularsearches")">Populyar axtarışlar</a>
+                </li>
+                <hr />
+                <li><a href="@Url.Action("index","login")">Giriş</a></li>
+                <li> <a href="@Url.Action("index","join")">Qeydiyyat</a></li>
+                <li><a href="@Url.Action("index","Lisence")">Lisenziya</a></li>
+                <li> <a href="@Url.Action("index","aboutus")">Haqqımızda</a></li>
+                <li> <a href="@Url.Action("index","faq")">Suallar</a></li>
+            </ul>
+            <ul class="res-social">
+                <li>
+                    <a target="blank_" href="https://www.facebook.com/">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                </li>
+                <li>
+                    <a target="blank_" href="https://twitter.com/">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                </li>
+                <li>
+                    <a target="blank_" href="https://www.instagram.com/">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                </li>
+                <li>
+                    <a target="blank_" href="https://www.pinterest.com/">
+                        <i class="fab fa-pinterest"></i>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </header>
 
-@RenderBody()
+    @RenderBody()
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script src="/Public/js/script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="/Public/js/script.js"></script>
 </body>
 
 

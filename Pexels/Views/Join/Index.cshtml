@@ -32,7 +32,9 @@
     <!--===============================================================================================-->
 </head>
 <body>
-    <div class="limiter">
+
+            @*Register Head*@
+<div class="limiter">
         <div class="container-login100">
             <div class="wrap-login100 p-l-55 p-r-55 p-t-65 p-b-50">
                 <div class="row navi d-flex justify-content-between">
@@ -45,28 +47,30 @@
                         <a href="@Url.Action("Index","Join")">Qeydiyyat</a>
                     </div>
                 </div>
-                <form class="login100-form validate-form" method="post" action="@Url.Action("Index","Login" )">
+                @*Register Form*@
+                <form class="login100-form validate-form" method="post" action="@Url.Action("Create", "Join")">
+                    @Html.ValidationSummary(true, "SameUser", new { @class = "text-danger" })
 
-                    <div class="wrap-input100 validate-input" data-validate="First name is required">
-                        <input class="input100" type="text" name="first-name" placeholder="Ad">
+                    <div class="wrap-input100 validate-input" data-validate="Ad boş Buraxıla bilməz">
+                        <input class="input100" type="text" name="Name" placeholder="Ad">
                         <span class="focus-input100-1"></span>
                         <span class="focus-input100-2"></span>
                     </div>
 
-                    <div class="wrap-input100 validate-input">
-                        <input class="input100" type="text" name="last-name" placeholder="Soyad (şəxsi)">
+                    <div class="wrap-input100 ">
+                        <input class="input100" type="text" name="Surname" placeholder="Soyad (şəxsi)">
                         <span class="focus-input100-1"></span>
                         <span class="focus-input100-2"></span>
                     </div>
 
-                    <div class="wrap-input100 validate-input" data-validate="Valid email is required: ex@abc.xyz">
-                        <input class="input100" type="text" name="email" placeholder="E-poçt">
+                    <div class="wrap-input100 validate-input" data-validate="E-poçt boş buraxıla bilməz: ex@abc.xyz">
+                        <input class="input100" type="text" name="Email" placeholder="E-poçt">
                         <span class="focus-input100-1"></span>
                         <span class="focus-input100-2"></span>
                     </div>
 
-                    <div class="wrap-input100 rs1 validate-input" data-validate="Password is required">
-                        <input class="input100" type="password" name="pass" placeholder="Şifrə">
+                    <div class="wrap-input100 rs1 validate-input" data-validate="Şifrə boş buraxıla bilməz">
+                        <input class="input100" type="password" name="Password" placeholder="Şifrə">
                         <span class="focus-input100-1"></span>
                         <span class="focus-input100-2"></span>
                     </div>
@@ -86,21 +90,21 @@
 
 
     <!--===============================================================================================-->
-    <script src="./Login/vendor/jquery/jquery-3.2.1.min.js"></script>
+    <script src="/Public/Login/vendor/jquery/jquery-3.2.1.min.js"></script>
     <!--===============================================================================================-->
-    <script src="./Login/vendor/animsition/js/animsition.min.js"></script>
+    <script src="/Public/Login/vendor/animsition/js/animsition.min.js"></script>
     <!--===============================================================================================-->
-    <script src="./Login/vendor/bootstrap/js/popper.js"></script>
-    <script src="./Login/vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/Public/Login/vendor/bootstrap/js/popper.js"></script>
+    <script src="/Public/Login/vendor/bootstrap/js/bootstrap.min.js"></script>
     <!--===============================================================================================-->
-    <script src="./Login/vendor/select2/select2.min.js"></script>
+    <script src="/Public/Login/vendor/select2/select2.min.js"></script>
     <!--===============================================================================================-->
-    <script src="./Login/vendor/daterangepicker/moment.min.js"></script>
-    <script src="./Login/vendor/daterangepicker/daterangepicker.js"></script>
+    <script src="/Public/Login/vendor/daterangepicker/moment.min.js"></script>
+    <script src="/Public/Login/vendor/daterangepicker/daterangepicker.js"></script>
     <!--===============================================================================================-->
-    <script src="./Login/vendor/countdowntime/countdowntime.js"></script>
+    <script src="/Public/Login/vendor/countdowntime/countdowntime.js"></script>
     <!--===============================================================================================-->
-    <script src="js/main.js"></script>
+    <script src="/Public/Login/js/main.js"></script>
 
 </body>
 </html>

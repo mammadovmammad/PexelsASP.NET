@@ -20,17 +20,6 @@
     <Property Name="Content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="Icon" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
   </EntityType>
-  <EntityType Name="Discovers">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Title" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
-    <Property Name="Desc" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
-    <Property Name="CollectionImage" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-    <Property Name="CollectionTitle" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
-    <Property Name="CollectionCount" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-  </EntityType>
   <EntityType Name="Homes">
     <Key>
       <PropertyRef Name="Id" />
@@ -63,7 +52,6 @@
   <EntityContainer Name="PexelsEntities" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="Settings" EntityType="Self.Settings" />
     <EntitySet Name="AboutUs" EntityType="Self.AboutUs" />
-    <EntitySet Name="Discovers" EntityType="Self.Discovers" />
     <EntitySet Name="Homes" EntityType="Self.Homes" />
     <EntitySet Name="PopularPhotos" EntityType="Self.PopularPhotos" />
     <EntitySet Name="PopularSearches" EntityType="Self.PopularSearches" />
@@ -87,6 +75,21 @@
     <EntitySet Name="FaqUploads" EntityType="PexelsModel.FaqUploads" />
     <EntitySet Name="FaqHeaders" EntityType="PexelsModel.FaqHeaders" />
     <EntitySet Name="Users" EntityType="PexelsModel.Users" />
+    <EntitySet Name="DiscoverCards" EntityType="PexelsModel.DiscoverCards" />
+    <EntitySet Name="DiscoverHeaders" EntityType="PexelsModel.DiscoverHeaders" />
+    <EntitySet Name="PhotoUsers" EntityType="PexelsModel.PhotoUsers" />
+    <AssociationSet Name="FK_PhotoUsers_Photos" Association="PexelsModel.FK_PhotoUsers_Photos">
+      <End Role="Photos" EntitySet="Photos" />
+      <End Role="PhotoUsers" EntitySet="PhotoUsers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PhotoUsers_Users" Association="PexelsModel.FK_PhotoUsers_Users">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="PhotoUsers" EntitySet="PhotoUsers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Likes_Users" Association="PexelsModel.FK_Likes_Users">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Likes" EntitySet="Likes" />
+    </AssociationSet>
   </EntityContainer>
   <EntityType Name="AboutHeaders">
     <Key>
@@ -124,6 +127,7 @@
     <Property Name="Link" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="Category" Relationship="PexelsModel.FK_Photos_Category" FromRole="Photos" ToRole="Category" />
     <NavigationProperty Name="Likes" Relationship="PexelsModel.FK_Likes_Photos" FromRole="Photos" ToRole="Likes" />
+    <NavigationProperty Name="PhotoUsers" Relationship="PexelsModel.FK_PhotoUsers_Photos" FromRole="Photos" ToRole="PhotoUsers" />
   </EntityType>
   <Association Name="FK_Photos_Category">
     <End Type="PexelsModel.Category" Role="Category" Multiplicity="0..1" />
@@ -145,6 +149,8 @@
     <Property Name="Count" Type="Int32" />
     <Property Name="PhotoId" Type="Int32" />
     <NavigationProperty Name="Photos" Relationship="PexelsModel.FK_Likes_Photos" FromRole="Likes" ToRole="Photos" />
+    <Property Name="UserId" Type="Int32" />
+    <NavigationProperty Name="Users" Relationship="PexelsModel.FK_Likes_Users" FromRole="Likes" ToRole="Users" />
   </EntityType>
   <EntityType Name="LisenceAllows">
     <Key>
@@ -214,5 +220,69 @@
     <Property Name="Surname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="Email" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
     <Property Name="Password" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="PhotoUsers" Relationship="PexelsModel.FK_PhotoUsers_Users" FromRole="Users" ToRole="PhotoUsers" />
+    <NavigationProperty Name="Likes" Relationship="PexelsModel.FK_Likes_Users" FromRole="Users" ToRole="Likes" />
   </EntityType>
+  <EntityType Name="DiscoverCards">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CardImage" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="CardTitle" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="DiscoverHeaders">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Title" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="Desc" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="PhotoUsers">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PhotoId" Type="Int32" />
+    <Property Name="UserId" Type="Int32" />
+    <NavigationProperty Name="Photos" Relationship="PexelsModel.FK_PhotoUsers_Photos" FromRole="PhotoUsers" ToRole="Photos" />
+    <NavigationProperty Name="Users" Relationship="PexelsModel.FK_PhotoUsers_Users" FromRole="PhotoUsers" ToRole="Users" />
+  </EntityType>
+  <Association Name="FK_PhotoUsers_Photos">
+    <End Type="PexelsModel.Photos" Role="Photos" Multiplicity="0..1" />
+    <End Type="PexelsModel.PhotoUsers" Role="PhotoUsers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Photos">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PhotoUsers">
+        <PropertyRef Name="PhotoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PhotoUsers_Users">
+    <End Type="PexelsModel.Users" Role="Users" Multiplicity="0..1" />
+    <End Type="PexelsModel.PhotoUsers" Role="PhotoUsers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PhotoUsers">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Likes_Users">
+    <End Type="PexelsModel.Users" Role="Users" Multiplicity="0..1" />
+    <End Type="PexelsModel.Likes" Role="Likes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Likes">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
 </Schema>

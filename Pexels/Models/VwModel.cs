@@ -11,6 +11,8 @@ namespace Pexels.Models
         public AboutHeaders AboutHeaders { get; set; }
         public LisenceHeader LisenceHeader { get; set; }
         public List<Category> Categories { get; set; }
+        public DiscoverHeaders DiscoverHeader { get; set; }
+        public List<DiscoverCards> DiscoverCards { get; set; }
         public List<Photos> Photos { get; set; }
         public List<LisenceAllows> LisenceAllow { get; set; }
         public List<LisenceCards> LisenceCard { get; set; }
@@ -21,5 +23,6 @@ namespace Pexels.Models
         public List<FaqNews> FaqNews { get; set; }
         public List<FaqUploads> FaqUpload{ get; set; }
         public Users User { get; set; }
+        public List<Likes> Likes { get; set; }
     }
 }

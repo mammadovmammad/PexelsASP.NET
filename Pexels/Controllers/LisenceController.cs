@@ -7,8 +7,9 @@ using Pexels.Models;
 
 namespace Pexels.Controllers
 {
-    public class LisenceController : BaseController
+    public class LisenceController : Controller
     {
+        protected PexelsEntities db = new PexelsEntities();
         // GET: Lisence
         public ActionResult Index()
         {
@@ -17,6 +18,7 @@ namespace Pexels.Controllers
             data.LisenceAllow = db.LisenceAllows.ToList();
             data.LisenceCard = db.LisenceCards.ToList();
             data.LisenceNotAllow = db.LisenceNotAllows.ToList();
+            data.Settings = db.Settings.FirstOrDefault();
             return View(data);
         }
     }

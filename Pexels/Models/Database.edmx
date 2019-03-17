@@ -32,18 +32,21 @@ warning 6002: The table/view 'Pexels.dbo.AboutUs' does not have a primary key de
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Category" Type="nvarchar" MaxLength="250" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'Pexels.dbo.Discovers' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
-        <EntityType Name="Discovers">
+        <EntityType Name="DiscoverCards">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Title" Type="nvarchar" MaxLength="150" />
-          <Property Name="Desc" Type="nvarchar" MaxLength="150" />
-          <Property Name="CollectionImage" Type="nvarchar" MaxLength="250" />
-          <Property Name="CollectionTitle" Type="nvarchar" MaxLength="150" />
-          <Property Name="CollectionCount" Type="nvarchar" MaxLength="50" />
+          <Property Name="CardImage" Type="nvarchar" MaxLength="250" />
+          <Property Name="CardTitle" Type="nvarchar" MaxLength="250" />
+        </EntityType>
+        <EntityType Name="DiscoverHeaders">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="250" />
+          <Property Name="Desc" Type="nvarchar" MaxLength="250" />
         </EntityType>
         <EntityType Name="FaqHeaders">
           <Key>
@@ -87,6 +90,7 @@ warning 6002: The table/view 'Pexels.dbo.Homes' does not have a primary key defi
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Count" Type="int" />
           <Property Name="PhotoId" Type="int" />
+          <Property Name="UserId" Type="int" />
         </EntityType>
         <EntityType Name="LisenceAllows">
           <Key>
@@ -128,6 +132,14 @@ warning 6002: The table/view 'Pexels.dbo.Homes' does not have a primary key defi
           <Property Name="Name" Type="nvarchar(max)" />
           <Property Name="CategoryId" Type="int" />
           <Property Name="Link" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="PhotoUsers">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PhotoId" Type="int" />
+          <Property Name="UserId" Type="int" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'Pexels.dbo.PopularPhotos' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -186,6 +198,18 @@ warning 6002: The table/view 'Pexels.dbo.PopularSearches' does not have a primar
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Likes_Users">
+          <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+          <End Role="Likes" Type="Self.Likes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Likes">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Photos_Category">
           <End Role="Category" Type="Self.Category" Multiplicity="0..1" />
           <End Role="Photos" Type="Self.Photos" Multiplicity="*" />
@@ -198,9 +222,35 @@ warning 6002: The table/view 'Pexels.dbo.PopularSearches' does not have a primar
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_PhotoUsers_Photos">
+          <End Role="Photos" Type="Self.Photos" Multiplicity="0..1" />
+          <End Role="PhotoUsers" Type="Self.PhotoUsers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Photos">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PhotoUsers">
+              <PropertyRef Name="PhotoId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PhotoUsers_Users">
+          <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+          <End Role="PhotoUsers" Type="Self.PhotoUsers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PhotoUsers">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="PexelsModelStoreContainer">
           <EntitySet Name="AboutHeaders" EntityType="Self.AboutHeaders" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Category" EntityType="Self.Category" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DiscoverCards" EntityType="Self.DiscoverCards" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DiscoverHeaders" EntityType="Self.DiscoverHeaders" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="FaqHeaders" EntityType="Self.FaqHeaders" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="FaqNews" EntityType="Self.FaqNews" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="FaqUploads" EntityType="Self.FaqUploads" Schema="dbo" store:Type="Tables" />
@@ -210,6 +260,7 @@ warning 6002: The table/view 'Pexels.dbo.PopularSearches' does not have a primar
           <EntitySet Name="LisenceHeader" EntityType="Self.LisenceHeader" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="LisenceNotAllows" EntityType="Self.LisenceNotAllows" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Photos" EntityType="Self.Photos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PhotoUsers" EntityType="Self.PhotoUsers" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Settings" EntityType="Self.Settings" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="AboutUs" EntityType="Self.AboutUs" store:Type="Tables" store:Schema="dbo">
@@ -219,16 +270,6 @@ warning 6002: The table/view 'Pexels.dbo.PopularSearches' does not have a primar
     [AboutUs].[Content] AS [Content], 
     [AboutUs].[Icon] AS [Icon]
     FROM [dbo].[AboutUs] AS [AboutUs]</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="Discovers" EntityType="Self.Discovers" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [Discovers].[Id] AS [Id], 
-    [Discovers].[Title] AS [Title], 
-    [Discovers].[Desc] AS [Desc], 
-    [Discovers].[CollectionImage] AS [CollectionImage], 
-    [Discovers].[CollectionTitle] AS [CollectionTitle], 
-    [Discovers].[CollectionCount] AS [CollectionCount]
-    FROM [dbo].[Discovers] AS [Discovers]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="Homes" EntityType="Self.Homes" store:Type="Tables" store:Schema="dbo">
             <DefiningQuery>SELECT 
@@ -260,9 +301,21 @@ warning 6002: The table/view 'Pexels.dbo.PopularSearches' does not have a primar
             <End Role="Photos" EntitySet="Photos" />
             <End Role="Likes" EntitySet="Likes" />
           </AssociationSet>
+          <AssociationSet Name="FK_Likes_Users" Association="Self.FK_Likes_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Likes" EntitySet="Likes" />
+          </AssociationSet>
           <AssociationSet Name="FK_Photos_Category" Association="Self.FK_Photos_Category">
             <End Role="Category" EntitySet="Category" />
             <End Role="Photos" EntitySet="Photos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PhotoUsers_Photos" Association="Self.FK_PhotoUsers_Photos">
+            <End Role="Photos" EntitySet="Photos" />
+            <End Role="PhotoUsers" EntitySet="PhotoUsers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PhotoUsers_Users" Association="Self.FK_PhotoUsers_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="PhotoUsers" EntitySet="PhotoUsers" />
           </AssociationSet>
         </EntityContainer>
       </Schema></edmx:StorageModels>
@@ -288,17 +341,6 @@ warning 6002: The table/view 'Pexels.dbo.PopularSearches' does not have a primar
           <Property Name="Title" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
           <Property Name="Content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Icon" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-        </EntityType>
-        <EntityType Name="Discovers">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Title" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
-          <Property Name="Desc" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
-          <Property Name="CollectionImage" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-          <Property Name="CollectionTitle" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
-          <Property Name="CollectionCount" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="Homes">
           <Key>
@@ -332,7 +374,6 @@ warning 6002: The table/view 'Pexels.dbo.PopularSearches' does not have a primar
         <EntityContainer Name="PexelsEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Settings" EntityType="Self.Settings" />
           <EntitySet Name="AboutUs" EntityType="Self.AboutUs" />
-          <EntitySet Name="Discovers" EntityType="Self.Discovers" />
           <EntitySet Name="Homes" EntityType="Self.Homes" />
           <EntitySet Name="PopularPhotos" EntityType="Self.PopularPhotos" />
           <EntitySet Name="PopularSearches" EntityType="Self.PopularSearches" />
@@ -356,6 +397,21 @@ warning 6002: The table/view 'Pexels.dbo.PopularSearches' does not have a primar
           <EntitySet Name="FaqUploads" EntityType="PexelsModel.FaqUploads" />
           <EntitySet Name="FaqHeaders" EntityType="PexelsModel.FaqHeaders" />
           <EntitySet Name="Users" EntityType="PexelsModel.Users" />
+          <EntitySet Name="DiscoverCards" EntityType="PexelsModel.DiscoverCards" />
+          <EntitySet Name="DiscoverHeaders" EntityType="PexelsModel.DiscoverHeaders" />
+          <EntitySet Name="PhotoUsers" EntityType="PexelsModel.PhotoUsers" />
+          <AssociationSet Name="FK_PhotoUsers_Photos" Association="PexelsModel.FK_PhotoUsers_Photos">
+            <End Role="Photos" EntitySet="Photos" />
+            <End Role="PhotoUsers" EntitySet="PhotoUsers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PhotoUsers_Users" Association="PexelsModel.FK_PhotoUsers_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="PhotoUsers" EntitySet="PhotoUsers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Likes_Users" Association="PexelsModel.FK_Likes_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Likes" EntitySet="Likes" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="AboutHeaders">
           <Key>
@@ -393,6 +449,7 @@ warning 6002: The table/view 'Pexels.dbo.PopularSearches' does not have a primar
           <Property Name="Link" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Category" Relationship="PexelsModel.FK_Photos_Category" FromRole="Photos" ToRole="Category" />
           <NavigationProperty Name="Likes" Relationship="PexelsModel.FK_Likes_Photos" FromRole="Photos" ToRole="Likes" />
+          <NavigationProperty Name="PhotoUsers" Relationship="PexelsModel.FK_PhotoUsers_Photos" FromRole="Photos" ToRole="PhotoUsers" />
         </EntityType>
         <Association Name="FK_Photos_Category">
           <End Type="PexelsModel.Category" Role="Category" Multiplicity="0..1" />
@@ -414,6 +471,8 @@ warning 6002: The table/view 'Pexels.dbo.PopularSearches' does not have a primar
           <Property Name="Count" Type="Int32" />
           <Property Name="PhotoId" Type="Int32" />
           <NavigationProperty Name="Photos" Relationship="PexelsModel.FK_Likes_Photos" FromRole="Likes" ToRole="Photos" />
+          <Property Name="UserId" Type="Int32" />
+          <NavigationProperty Name="Users" Relationship="PexelsModel.FK_Likes_Users" FromRole="Likes" ToRole="Users" />
         </EntityType>
         <EntityType Name="LisenceAllows">
           <Key>
@@ -483,7 +542,71 @@ warning 6002: The table/view 'Pexels.dbo.PopularSearches' does not have a primar
           <Property Name="Surname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Email" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
           <Property Name="Password" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="PhotoUsers" Relationship="PexelsModel.FK_PhotoUsers_Users" FromRole="Users" ToRole="PhotoUsers" />
+          <NavigationProperty Name="Likes" Relationship="PexelsModel.FK_Likes_Users" FromRole="Users" ToRole="Likes" />
         </EntityType>
+        <EntityType Name="DiscoverCards">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CardImage" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="CardTitle" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="DiscoverHeaders">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Desc" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="PhotoUsers">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PhotoId" Type="Int32" />
+          <Property Name="UserId" Type="Int32" />
+          <NavigationProperty Name="Photos" Relationship="PexelsModel.FK_PhotoUsers_Photos" FromRole="PhotoUsers" ToRole="Photos" />
+          <NavigationProperty Name="Users" Relationship="PexelsModel.FK_PhotoUsers_Users" FromRole="PhotoUsers" ToRole="Users" />
+        </EntityType>
+        <Association Name="FK_PhotoUsers_Photos">
+          <End Type="PexelsModel.Photos" Role="Photos" Multiplicity="0..1" />
+          <End Type="PexelsModel.PhotoUsers" Role="PhotoUsers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Photos">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PhotoUsers">
+              <PropertyRef Name="PhotoId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PhotoUsers_Users">
+          <End Type="PexelsModel.Users" Role="Users" Multiplicity="0..1" />
+          <End Type="PexelsModel.PhotoUsers" Role="PhotoUsers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PhotoUsers">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Likes_Users">
+          <End Type="PexelsModel.Users" Role="Users" Multiplicity="0..1" />
+          <End Type="PexelsModel.Likes" Role="Likes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Likes">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -509,18 +632,6 @@ warning 6002: The table/view 'Pexels.dbo.PopularSearches' does not have a primar
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Title" ColumnName="Title" />
                 <ScalarProperty Name="Content" ColumnName="Content" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Discovers">
-            <EntityTypeMapping TypeName="PexelsModel.Discovers">
-              <MappingFragment StoreEntitySet="Discovers">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="Title" ColumnName="Title" />
-                <ScalarProperty Name="Desc" ColumnName="Desc" />
-                <ScalarProperty Name="CollectionImage" ColumnName="CollectionImage" />
-                <ScalarProperty Name="CollectionTitle" ColumnName="CollectionTitle" />
-                <ScalarProperty Name="CollectionCount" ColumnName="CollectionCount" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -597,6 +708,7 @@ warning 6002: The table/view 'Pexels.dbo.PopularSearches' does not have a primar
           <EntitySetMapping Name="Likes">
             <EntityTypeMapping TypeName="PexelsModel.Likes">
               <MappingFragment StoreEntitySet="Likes">
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
                 <ScalarProperty Name="PhotoId" ColumnName="PhotoId" />
                 <ScalarProperty Name="Count" ColumnName="Count" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
@@ -663,6 +775,33 @@ warning 6002: The table/view 'Pexels.dbo.PopularSearches' does not have a primar
                 <ScalarProperty Name="Email" ColumnName="Email" />
                 <ScalarProperty Name="Surname" ColumnName="Surname" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DiscoverCards">
+            <EntityTypeMapping TypeName="PexelsModel.DiscoverCards">
+              <MappingFragment StoreEntitySet="DiscoverCards">
+                <ScalarProperty Name="CardTitle" ColumnName="CardTitle" />
+                <ScalarProperty Name="CardImage" ColumnName="CardImage" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DiscoverHeaders">
+            <EntityTypeMapping TypeName="PexelsModel.DiscoverHeaders">
+              <MappingFragment StoreEntitySet="DiscoverHeaders">
+                <ScalarProperty Name="Desc" ColumnName="Desc" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PhotoUsers">
+            <EntityTypeMapping TypeName="PexelsModel.PhotoUsers">
+              <MappingFragment StoreEntitySet="PhotoUsers">
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="PhotoId" ColumnName="PhotoId" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
