@@ -46,24 +46,38 @@ $(document).ready(function () {
     window.addEventListener("scroll", scrollLoadFunction);
 
 
-    //var likeButton = $(".right-like-button");
-    //var forPhotoId = $(".forPhotoId");
-    //var isLikeed = $("#isLikeed");
 
-    //$(document).on("click", ".right-like-button", function() {
-    //    if (isLikeed.val() == 0) {
-    //        $.ajax({
-    //            url: "/AJAX/LikePhoto",
-    //            data: { photoID: $(".forPhotoId").val() },
-    //            type: "post",
-    //            datatype: "json",
-    //            success: function(res) {
-    //                console.log(res);
-    //                $(".right-like-button").CSS("color", "red"),
-    //                    isLikeed.val(1)
-
-    //            }
-    //    })
-    //    }
-    //})
+    $(document).on("click", ".right-like-button", function () {
+        var isLiked = $(this).next();
+        var forPhotoId = isLiked.next().val();
+        var myButton = $(this);
+        if ($(this).next().val() == 0) {
+            $.ajax({
+                url: "/AJAX/LikePhoto",
+                data: { photoID: forPhotoId },
+                type: "post",
+                datatype: "json",
+                success: function(res) {
+                    console.log(res);
+                    isLiked.val(1)
+                    myButton.css("color", "red")
+                }
+            })
+        } else {
+            console.log(forPhotoId)
+                $.ajax({
+                    url: "/AJAX/DissLikePhoto",
+                    data: { photoID:forPhotoId  },
+                    type: "post",
+                    datatype: "json",
+                    success: function(res) {
+                        console.log(res);
+                        isLiked.val(0)
+                        myButton.css("color", "white")
+                    }
+            })
+                
+            }
+        
+    })
 });

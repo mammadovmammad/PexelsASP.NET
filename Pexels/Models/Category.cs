@@ -22,6 +22,7 @@ namespace Pexels.Models
     
         public int Id { get; set; }
         public string Category1 { get; set; }
+        public string Image { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Photos> Photos { get; set; }

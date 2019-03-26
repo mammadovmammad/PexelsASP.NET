@@ -78,6 +78,7 @@
     <EntitySetMapping Name="Category">
       <EntityTypeMapping TypeName="PexelsModel.Category">
         <MappingFragment StoreEntitySet="Category">
+          <ScalarProperty Name="Image" ColumnName="Image" />
           <ScalarProperty Name="Category1" ColumnName="Category" />
           <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>

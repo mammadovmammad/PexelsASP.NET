@@ -112,6 +112,7 @@
     <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="Category1" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="Photos" Relationship="PexelsModel.FK_Photos_Category" FromRole="Category" ToRole="Photos" />
+    <Property Name="Image" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
   </EntityType>
   <EntityType Name="Photos">
     <Key>

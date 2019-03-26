@@ -1,4 +1,6 @@
-﻿
+﻿@using Pexels.Models
+@model VwModel
+
 @{
     ViewBag.Title = "Index";
     Layout = "../Shared/_PartLayout.cshtml";
@@ -6,85 +8,72 @@
 
 @*Title For Photos Category*@
 <div class="title-collection">
-    <h1>Breakfast time</h1>
+    <h1>category</h1>
 </div>
 
-@*Photo Gallery*@
+@{
+    int count = 1;
+    int inc = 0;
+}
+
+
 <div class="photos">
     <div class="row">
-        <div class="col-lg-4 photos-column">
-            <div class="image-div mb-3">
-                <a href="photo-single.html">
-                    <img src="/Public/image/collection-photo1.jpeg" alt="">
-                </a>
-                <div class="photo-buttons">
-                    <a href=""><i class="fas fa-plus-circle"></i></a>
-                    <a href="" class="right-like-button"> <i class="far fa-heart"></i></a>
-                </div>
+        @for (int i = 0; i < count; i++)
+        {
+            <div class="col-lg-4 photos-column">
+                @if (i == 0)
+                {
+                    for (int k = 0; k < 3; k++)
+                    {
+                        <div class="image-div mb-3">
+                            <a href=@Url.Action("index", "Photosingle", new {id = @Model.Photos[i * count + k + inc].Id})>
+                                <img src="/Public/UserImage/@Model.Photos[i * count + k + inc].Link" alt="">
+                            </a>
+                            <div class="photo-buttons">
+                                <a href=""><i class="fas fa-plus-circle"></i></a>
+                                @if (Session["User"] == null)
+                                {
+                                    <a href="@Url.Action("login","Account")"><i class="fas fa-heart right-like-button"></i></a>
+                                }
+                                else
+                                {
+                                    <i class="fas fa-heart right-like-button"></i>
+                                }
+                                <input type="hidden" id="isLikeed" value="0" />
+                                <input class="forPhotoId" type="hidden" value="@Model.Photos[i * count + k + inc].Id" />
+                                @*<input class="" type="hidden" value="@Model.Likes.Where(l=>l.PhotoId==Model.Photos[i * count + k + inc].Id)"/>*@
+                            </div>
+                        </div>
+                    }
+                }
+                else
+                {
+                    for (int k = 0; k < 3; k++)
+                    {
+                        <div class="image-div mb-3">
+                            <a href=@Url.Action("index", "Photosingle", new {id = @Model.Photos[i * count + k + inc].Id})>
+                                <img src="/Public/UserImage/@Model.Photos[i * count + k + inc].Link" alt="">
+                            </a>
+                            <div class="photo-buttons">
+                                <a href=""><i class="fas fa-plus-circle"></i></a>
+                                @if (Session["User"] == null)
+                                {
+                                    <a href="@Url.Action("login","Account")"><i class="fas fa-heart right-like-button"></i></a>
+                                }
+                                else
+                                {
+                                    <i class="fas fa-heart right-like-button"></i>
+                                }
+                                <input type="hidden" id="isLikeed" value="0" />
+                                <input class="forPhotoId" type="hidden" value="@Model.Photos[i * count + k + inc].Id" />
+                            </div>
+                        </div>
+                    }
+                    inc++;
+                }
             </div>
-            <div class="image-div mb-3">
-                <a href="photo-single.html">
-                    <img src="/Public/image/collection-photo1.jpeg" alt="">
-                </a>
-                <div class="photo-buttons">
-                    <a href=""><i class="fas fa-plus-circle"></i></a>
-                    <a href="" class="right-like-button"> <i class="far fa-heart"></i></a>
-                </div>
-            </div>
-            <div class="image-div mb-3">
-                <a href="photo-single.html">
-                    <img src="/Public/image/collection-photo2.jpeg" alt="">
-                </a>
-                <div class="photo-buttons">
-                    <a href=""><i class="fas fa-plus-circle"></i></a>
-                    <a href="" class="right-like-button"> <i class="far fa-heart"></i></a>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-lg-4 photos-column">
-
-            <div class="image-div mb-3">
-                <a href="photo-single.html">
-                    <img src="/Public/image/collection-photo2.jpeg" alt="">
-                </a>
-                <div class="photo-buttons">
-                    <a href=""><i class="fas fa-plus-circle"></i></a>
-                    <a href="" class="right-like-button"> <i class="far fa-heart"></i></a>
-                </div>
-            </div>
-            <div class="image-div mb-3">
-                <a href="photo-single.html">
-                    <img src="/Public/image/collection-photo1.jpeg" alt="">
-                </a>
-                <div class="photo-buttons">
-                    <a href=""><i class="fas fa-plus-circle"></i></a>
-                    <a href="" class="right-like-button"> <i class="far fa-heart"></i></a>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-lg-4 photos-column">
-            <div class="image-div mb-3">
-                <a href="photo-single.html">
-                    <img src="/Public/image/collection-photo3.jpeg" alt="">
-                </a>
-                <div class="photo-buttons">
-                    <a href=""><i class="fas fa-plus-circle"></i></a>
-                    <a href="" class="right-like-button"> <i class="far fa-heart"></i></a>
-                </div>
-            </div>
-            <div class="image-div mb-3">
-                <a href="photo-single.html">
-                    <img src="/Public/image/collection-photo2.jpeg" alt="">
-                </a>
-                <div class="photo-buttons">
-                    <a href=""><i class="fas fa-plus-circle"></i></a>
-                    <a href="" class="right-like-button"> <i class="far fa-heart"></i></a>
-                </div>
-            </div>
-        </div>
-
+        }
     </div>
 </div>
 

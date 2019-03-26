@@ -16,26 +16,6 @@ namespace Pexels.Controllers
             data.Settings = db.Settings.FirstOrDefault();
             data.Photos = db.Photos.OrderByDescending(p => p.Id).Take(10).ToList();
 
-
-            //data.Photos = db.Photos.Take(8).ToList();
-
-            //if (db.Photos.Count() > 8)
-            //{
-            //    data.Photos2 = db.Photos.OrderBy(M=>M.Id).Skip(8).Take(8).ToList();
-            //}
-            //else 
-            //{
-            //    data.Photos2 = db.Photos.ToList();
-            //}
-
-            //if (db.Photos.Count() > 16)
-            //{
-            //    data.Photos3 = db.Photos.OrderBy(M => M.Id).Skip(16).Take(8).ToList();
-            //}
-            //else
-            //{
-            //    data.Photos3 = db.Photos.ToList();
-            //}
             return View(data);
         }
 

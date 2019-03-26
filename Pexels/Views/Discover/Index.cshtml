@@ -26,17 +26,17 @@
         @*Cards Collection*@
         <div class="container-center-discover">
             <div class="row">
-                @foreach (var item in Model.DiscoverCards)
+                @foreach (var item in Model.Categories)
                 {
                     <div class="col-lg-4 collections">
                         <div class="card text-center" style="width: 20rem;">
-                            <a href="@Url.Action("index", "collections")">
-                                <img class="card-img-top" src="/Public/image/@item.CardImage">
+                            <a href="@Url.Action("Index","Collections",new{id = item.Id})">
+                                <img class="card-img-top" src="/Public/UserImage/@item.Image">
                             </a>
                             <div class="card-body">
                                 <p class="card-text collections-body">
-                                    <h5>@item.CardTitle</h5>
-                                    <span>156 photos</span>
+                                    <h5>@item.Category1</h5>
+                                    <span>@item.Photos.Count() Şəkil</span>
                                 </p>
                             </div>
                         </div>

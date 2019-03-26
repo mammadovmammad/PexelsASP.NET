@@ -641,6 +641,10 @@ ul {
     padding: 0px 45px;
 }
 
+.collections img{
+    height: 200px;
+}
+
 .container-center-discover {
     width: 1170px;
     margin-left: auto;

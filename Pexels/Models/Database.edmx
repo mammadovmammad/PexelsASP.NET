@@ -39,6 +39,7 @@ warning 6002: The table/view 'Pexels.dbo.AboutUs' does not have a primary key de
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Category" Type="nvarchar" MaxLength="250" />
+          <Property Name="Image" Type="nvarchar(max)" />
         </EntityType>
         <EntityType Name="DiscoverCards">
           <Key>
@@ -420,6 +421,7 @@ warning 6002: The table/view 'Pexels.dbo.PopularSearches' does not have a primar
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Category1" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Photos" Relationship="PexelsModel.FK_Photos_Category" FromRole="Category" ToRole="Photos" />
+          <Property Name="Image" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="Photos">
           <Key>
@@ -660,6 +662,7 @@ warning 6002: The table/view 'Pexels.dbo.PopularSearches' does not have a primar
           <EntitySetMapping Name="Category">
             <EntityTypeMapping TypeName="PexelsModel.Category">
               <MappingFragment StoreEntitySet="Category">
+                <ScalarProperty Name="Image" ColumnName="Image" />
                 <ScalarProperty Name="Category1" ColumnName="Category" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>

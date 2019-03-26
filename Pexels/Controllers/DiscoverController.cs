@@ -16,7 +16,9 @@ namespace Pexels.Controllers
             VwModel data = new VwModel();
             data.Settings = db.Settings.FirstOrDefault();
             data.DiscoverCards = db.DiscoverCards.ToList();
+            data.Categories = db.Category.ToList();
             data.DiscoverHeader = db.DiscoverHeaders.FirstOrDefault();
+            
             return View(data);
         }
     }

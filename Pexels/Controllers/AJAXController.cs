@@ -27,19 +27,33 @@ namespace Pexels.Controllers
             return PartialView("_PartialPhotos", vm);
         }
 
-        //public ActionResult LikePhoto(int photoID)
-        //{
-        //    Users user = Session["Loggeduser"] as Users;
+        public ActionResult LikePhoto(int photoID)
+        {
+            Users user = Session["User"] as Users;
+            
+                Likes like = new Likes
+                {
+                    PhotoId = photoID,
+                    UserId = user.Id,
+                };
 
-        //    Likes like = new Likes
-        //    {
-        //        PhotoId = photoID,
-        //        UserId = user.Id
-        //    };
-        //    db.Likes.Add(like);
-        //    db.SaveChanges();
+                db.Likes.Add(like);
+                db.SaveChanges();
 
-        //    return Json(like);
-        //}
+                return Json(like);
+
+        }
+
+        public ActionResult DissLikePhoto(int photoID)
+        {
+            Users user = Session["User"] as Users;
+
+            Likes dislike = db.Likes.Where(l => l.PhotoId == photoID && l.UserId == user.Id).FirstOrDefault();
+
+            db.Likes.Remove(dislike);
+            db.SaveChanges();
+
+            return Json(dislike);
+        }
     }
 }

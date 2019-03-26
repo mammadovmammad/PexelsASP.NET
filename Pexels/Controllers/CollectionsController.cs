@@ -11,9 +11,10 @@ namespace Pexels.Controllers
     {
         protected PexelsEntities db = new PexelsEntities();
         // GET: Collections
-        public ActionResult Index()
+        public ActionResult Index(int? id)
         {
             VwModel data = new VwModel();
+            data.Photos = db.Photos.Where(v => v.CategoryId == id).ToList();
             data.Settings = db.Settings.FirstOrDefault();
             return View(data);
         }
