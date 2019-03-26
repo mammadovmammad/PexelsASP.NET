@@ -20,6 +20,14 @@ warning 6002: The table/view 'Pexels.dbo.AboutUs' does not have a primary key de
     <Property Name="Content" Type="ntext" />
     <Property Name="Icon" Type="nvarchar" MaxLength="250" />
   </EntityType>
+  <EntityType Name="Admins">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="250" />
+    <Property Name="Password" Type="nvarchar" MaxLength="250" />
+  </EntityType>
   <EntityType Name="Category">
     <Key>
       <PropertyRef Name="Id" />
@@ -127,14 +135,8 @@ warning 6002: The table/view 'Pexels.dbo.Homes' does not have a primary key defi
     <Property Name="Name" Type="nvarchar(max)" />
     <Property Name="CategoryId" Type="int" />
     <Property Name="Link" Type="nvarchar(max)" />
-  </EntityType>
-  <EntityType Name="PhotoUsers">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="PhotoId" Type="int" />
     <Property Name="UserId" Type="int" />
+    <Property Name="Status" Type="bit" />
   </EntityType>
   <!--Errors Found During Generation:
 warning 6002: The table/view 'Pexels.dbo.PopularPhotos' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -217,32 +219,21 @@ warning 6002: The table/view 'Pexels.dbo.PopularSearches' does not have a primar
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_PhotoUsers_Photos">
-    <End Role="Photos" Type="Self.Photos" Multiplicity="0..1" />
-    <End Role="PhotoUsers" Type="Self.PhotoUsers" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Photos">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="PhotoUsers">
-        <PropertyRef Name="PhotoId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_PhotoUsers_Users">
+  <Association Name="FK_Photos_Users">
     <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
-    <End Role="PhotoUsers" Type="Self.PhotoUsers" Multiplicity="*" />
+    <End Role="Photos" Type="Self.Photos" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Users">
         <PropertyRef Name="Id" />
       </Principal>
-      <Dependent Role="PhotoUsers">
+      <Dependent Role="Photos">
         <PropertyRef Name="UserId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
   <EntityContainer Name="PexelsModelStoreContainer">
     <EntitySet Name="AboutHeaders" EntityType="Self.AboutHeaders" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Admins" EntityType="Self.Admins" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Category" EntityType="Self.Category" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="DiscoverCards" EntityType="Self.DiscoverCards" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="DiscoverHeaders" EntityType="Self.DiscoverHeaders" Schema="dbo" store:Type="Tables" />
@@ -255,7 +246,6 @@ warning 6002: The table/view 'Pexels.dbo.PopularSearches' does not have a primar
     <EntitySet Name="LisenceHeader" EntityType="Self.LisenceHeader" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="LisenceNotAllows" EntityType="Self.LisenceNotAllows" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Photos" EntityType="Self.Photos" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="PhotoUsers" EntityType="Self.PhotoUsers" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Settings" EntityType="Self.Settings" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="AboutUs" EntityType="Self.AboutUs" store:Type="Tables" store:Schema="dbo">
@@ -304,13 +294,9 @@ warning 6002: The table/view 'Pexels.dbo.PopularSearches' does not have a primar
       <End Role="Category" EntitySet="Category" />
       <End Role="Photos" EntitySet="Photos" />
     </AssociationSet>
-    <AssociationSet Name="FK_PhotoUsers_Photos" Association="Self.FK_PhotoUsers_Photos">
-      <End Role="Photos" EntitySet="Photos" />
-      <End Role="PhotoUsers" EntitySet="PhotoUsers" />
-    </AssociationSet>
-    <AssociationSet Name="FK_PhotoUsers_Users" Association="Self.FK_PhotoUsers_Users">
+    <AssociationSet Name="FK_Photos_Users" Association="Self.FK_Photos_Users">
       <End Role="Users" EntitySet="Users" />
-      <End Role="PhotoUsers" EntitySet="PhotoUsers" />
+      <End Role="Photos" EntitySet="Photos" />
     </AssociationSet>
   </EntityContainer>
 </Schema>

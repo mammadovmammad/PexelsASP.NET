@@ -52,7 +52,6 @@
                                     {
                                         <a href="@Url.Action("index","Profile")">Profil</a>
                                         <a href="@Url.Action("Logout", "Account")">Çıxış</a>
-                                        <a href="@Url.Action("index", "join")">Qeydiyyat</a>
                                         <a href="@Url.Action("index", "aboutus")">Haqqımızda</a>
                                         <a href="@Url.Action("index", "faq")">Suallar</a>
                                     }
@@ -90,7 +89,7 @@
                             </div>
                         </li>
                         <li>
-                            <a href="@Url.Action("Upload", "Profile")">
+                            <a href="@Url.Action("Index", "Profile")">
                                 <button type="button" class="btn btn-success">Yükləmək</button>
                             </a>
                         </li>
@@ -108,8 +107,8 @@
                 <div class="wrap">
                     <form class="search" method="post" action="/Home/Search">
                         <input type="text" class="searchTerm" name="query" placeholder="Fotoşəkil axtarın">
-                        <button type="submit">
-                            <a href="@Url.Action("Search","Home")"  class="searchButton"><i class="fa fa-search"></i></a>
+                        <button type="submit" class="searchButton">
+                            <a href="@Url.Action("Search","Home")"  ><i class="fa fa-search"></i></a>
                         </button>
                     </form>
                 </div>
@@ -127,22 +126,23 @@
                     <a href="@Url.Action("index", "popularsearches")">Populyar axtarışlar</a>
                 </li>
                 <hr />
-                <li>
-                    <a href="@Url.Action("index", "login")">Giriş</a>
-                </li>
-                <li>
-                    <a href="@Url.Action("index", "join")">Qeydiyyat</a>
-                </li>
-                <li>
-                    <a href="@Url.Action("index", "Lisence")">Lisenziya</a>
-                </li>
-                <li>
-                    <a href="@Url.Action("index", "aboutus")">Haqqımızda</a>
-                </li>
-                <li>
-                    <a href="@Url.Action("index", "faq")">Suallar</a>
-                </li>
-
+                @if (Session["LoggedUser"] != null)
+                {
+                    <li><a href="@Url.Action("index","Profile")">Profil</a></li>
+                    <li><a href="@Url.Action("Logout", "Account")">Çıxış</a></li>
+                    <li> <a href="@Url.Action("index","join")">Qeydiyyat</a></li>
+                    <li><a href="@Url.Action("index","Lisence")">Lisenziya</a></li>
+                    <li> <a href="@Url.Action("index","aboutus")">Haqqımızda</a></li>
+                    <li> <a href="@Url.Action("index","faq")">Suallar</a></li>
+                }
+                else
+                {
+                    <li><a href="@Url.Action("Login", "Account")">Giriş</a></li>
+                    <li><a href="@Url.Action("index", "join")">Qeydiyyat</a></li>
+                    <li><a href="@Url.Action("index","Lisence")">Lisenziya</a></li>
+                    <li><a href="@Url.Action("index", "aboutus")">Haqqımızda</a></li>
+                    <li><a href="@Url.Action("index", "faq")">Suallar</a></li>
+                }
             </ul>
             <ul class="res-social">
                 <li>
@@ -183,63 +183,7 @@
                     @Html.Partial("_PartialPhotos", Model)
                 </div>
             </div>
-
-
-
-            @*<div class="photos">
-                    <div class="row">
-                        <div class="col-lg-4 photos-column">
-                            @foreach (var item in Model.Photos)
-                            {
-                                <form method="post">
-                                    <div class="image-div mb-3">
-                                        <a href=@Url.Action("index","Photosingle",new {id=@item.Id})>
-                                            <img src="/Public/image/@item.Link" alt="">
-                                        </a>
-                                        <div class="photo-buttons">
-                                            <a href=""><i class="fas fa-plus-circle"></i></a>
-                                            <a href="" class="right-like-button"> <i class="far fa-heart"></i></a>
-                                        </div>
-                                    </div>
-                                </form>
-                            }
-
-                        </div>
-                        <div class="col-lg-4 photos-column">
-                            @foreach (var item in Model.Photos2)
-                            {
-                                <form method="post">
-                                    <div class="image-div mb-3">
-                                        <a href=@Url.Action("index","Photosingle",new {id=@item.Id})>
-                                            <img src="/Public/image/@item.Link" alt="">
-                                        </a>
-                                        <div class="photo-buttons">
-                                            <a href=""><i class="fas fa-plus-circle"></i></a>
-                                            <a href="" class="right-like-button"> <i class="far fa-heart"></i></a>
-                                        </div>
-                                    </div>
-                                </form>
-                            }
-                        </div>
-
-                        <div class="col-lg-4 photos-column">
-                            @foreach (var item in Model.Photos3)
-                            {
-                                <form method="post">
-                                    <div class="image-div mb-3">
-                                        <a href=@Url.Action("index","Photosingle",new {id=@item.Id})>
-                                            <img src="/Public/image/@item.Link" alt="">
-                                        </a>
-                                        <div class="photo-buttons">
-                                            <a href=""><i class="fas fa-plus-circle"></i></a>
-                                            <a href="" class="right-like-button"> <i class="far fa-heart"></i></a>
-                                        </div>
-                                    </div>
-                                </form>
-                            }
-                        </div>
-                    </div>
-                </div>*@
+          
         </div>
     </main>
 

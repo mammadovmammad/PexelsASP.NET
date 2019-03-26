@@ -14,8 +14,14 @@ namespace Pexels.Controllers
         // GET: Profile
         public ActionResult Index()
         {
+            if (Session["Loggeduser"]==null)
+            {
+                return RedirectToAction("Login", "Account");
+            }
+
             VwModel data = new VwModel();
             data.Settings = db.Settings.FirstOrDefault();
+            data.Categories = db.Category.ToList();
 
             return View(data);
         }

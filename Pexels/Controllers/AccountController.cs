@@ -30,7 +30,7 @@ namespace Pexels.Controllers
             {
                 if (Crypto.VerifyHashedPassword(db.Users.First(u => u.Email==user.Email).Password, user.Password))
                 {
-                    current_user = db.Users.First(u => u.Email == user.Email);
+                    current_user = db.Users.FirstOrDefault(u => u.Email == user.Email);
                     Session["Loggeduser"] = true;
                     Session["User"] = current_user;
                     return RedirectToAction("Index","Home");
@@ -50,6 +50,8 @@ namespace Pexels.Controllers
             return View(user);
         }
 
+
+        //User Logout
         public ActionResult Logout()
         {
             Session.Clear();

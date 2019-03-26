@@ -44,6 +44,6 @@ namespace Pexels.Models
         public virtual DbSet<Users> Users { get; set; }
         public virtual DbSet<DiscoverCards> DiscoverCards { get; set; }
         public virtual DbSet<DiscoverHeaders> DiscoverHeaders { get; set; }
-        public virtual DbSet<PhotoUsers> PhotoUsers { get; set; }
+        public virtual DbSet<Admins> Admins { get; set; }
     }
 }

@@ -1,4 +1,6 @@
-﻿@{
+﻿@using Pexels.Models
+@model Pexels.Models.VwModel
+@{
     Layout = "~/Views/Shared/_PartLayout.cshtml";
 }
 
@@ -8,11 +10,28 @@
             <img src="/Public/image/profile-image.png" alt="">
         </div>
         <div class="profile-details">
-            <h2>User</h2>
+            
+            @if (Session["User"] != null)
+            {
+               Users user  = Session["User"] as Users;
+            <h2>@user.Name</h2>
+            }
+
         </div>
 
         <div class="upload-photo">
-            <button class="btn btn-success upload">Yükləmək</button>
+            <form method="post" action="@Url.Action("Upload","Upload")" enctype="multipart/form-data">
+                <input type="file" name="img" />
+                <select name="categoryId">
+                    @foreach (var item in @Model.Categories)
+                    {
+                        <option value="@item.Id">@item.Category1</option>
+                    }
+                </select>
+                <input type="text" name="name"/>
+                <button type="submit" class="btn btn-success upload">Yükləmək</button>
+
+            </form>
         </div>
     </div>
 </div>

@@ -16,6 +16,7 @@ namespace Pexels.Controllers
         {
             db = new PexelsEntities();
         }
+
         public ActionResult LoadPhotos(int skip)
         {
             VwModel vm = new VwModel()

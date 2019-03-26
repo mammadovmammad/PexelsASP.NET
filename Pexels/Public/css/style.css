@@ -199,13 +199,16 @@ ul {
     }
 
         #search .search .searchButton {
+            padding: 2.9% 3%;
             background-color: white;
             border: none;
-            padding: .86rem .8rem;
-            margin-left: -5px;
-            border-top: 1px solid white;
             cursor: pointer;
+            margin-left: -1.3%;
         }
+
+            #search .search .searchButton i {
+                color: #a3a3a3;
+            }
 
 .menu {
     width: 100%;

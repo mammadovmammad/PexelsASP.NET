@@ -26,10 +26,9 @@
         <EntityTypeShape EntityType="PexelsModel.Users" Width="1.5" PointX="11.375" PointY="3.75" />
         <EntityTypeShape EntityType="PexelsModel.DiscoverCards" Width="1.5" PointX="0.75" PointY="3.75" />
         <EntityTypeShape EntityType="PexelsModel.DiscoverHeaders" Width="1.5" PointX="5.75" PointY="11.75" />
-        <EntityTypeShape EntityType="PexelsModel.PhotoUsers" Width="1.5" PointX="13.625" PointY="6" />
-        <AssociationConnector Association="PexelsModel.FK_PhotoUsers_Photos" />
-        <AssociationConnector Association="PexelsModel.FK_PhotoUsers_Users" />
         <AssociationConnector Association="PexelsModel.FK_Likes_Users" />
+        <EntityTypeShape EntityType="PexelsModel.Admins" Width="1.5" PointX="12.375" PointY="0.75" />
+        <AssociationConnector Association="PexelsModel.FK_Photos_Users" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

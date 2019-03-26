@@ -44,7 +44,7 @@ namespace Pexels.Controllers
         {
             VwModel data = new VwModel();
             data.Settings = db.Settings.FirstOrDefault();
-            data.Photos = db.Photos.Where(p=>p.Category.Category1.Trim().ToUpper()==query.Trim().ToUpper()).OrderByDescending(p => p.Id).Take(10).ToList();
+            data.Photos = db.Photos.Where(p=>p.Category.Category1.ToUpper()==query.Trim().ToUpper()).OrderByDescending(p => p.Id).Take(10).ToList();
             return View(data);
         }
         

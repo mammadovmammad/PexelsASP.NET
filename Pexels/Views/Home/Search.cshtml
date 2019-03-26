@@ -106,9 +106,11 @@
             </div>
             <div class="row d-flex justify-content-center">
                 <div class="wrap">
-                    <form class="search">
-                        <input type="text" class="searchTerm" placeholder="Fotoşəkil axtarın">
-                        <a class="searchButton"><i class="fa fa-search"></i></a>
+                    <form class="search" method="post" action="/Home/Search">
+                        <input type="text" class="searchTerm" name="query" placeholder="Fotoşəkil axtarın">
+                        <button type="submit" class="searchButton">
+                            <a href="@Url.Action("Search","Home")"><i class="fa fa-search"></i></a>
+                        </button>
                     </form>
                 </div>
             </div>

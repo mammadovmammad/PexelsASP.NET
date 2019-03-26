@@ -12,13 +12,10 @@ namespace Pexels.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class PhotoUsers
+    public partial class Admins
     {
         public int Id { get; set; }
-        public Nullable<int> PhotoId { get; set; }
-        public Nullable<int> UserId { get; set; }
-    
-        public virtual Photos Photos { get; set; }
-        public virtual Users Users { get; set; }
+        public string Password { get; set; }
+        public string Name { get; set; }
     }
 }

@@ -70,7 +70,7 @@
                         </div>
                     </li>
                     <li>
-                        <a href="@Url.Action("Upload", "Profile")">
+                        <a href="@Url.Action("Index", "Profile")">
                             <button type="button" class="btn btn-success">Yükləmək</button>
                         </a>
                     </li>
@@ -90,11 +90,23 @@
                 <a href="@Url.Action("index","popularsearches")">Populyar axtarışlar</a>
             </li>
             <hr/>
-            <li><a href="@Url.Action("index","login")">Giriş</a></li>
-            <li> <a href="@Url.Action("index","join")">Qeydiyyat</a></li>
-            <li><a href="@Url.Action("index","Lisence")">Lisenziya</a></li>
-            <li> <a href="@Url.Action("index","aboutus")">Haqqımızda</a></li>
-            <li> <a href="@Url.Action("index","faq")">Suallar</a></li>
+            @if (Session["LoggedUser"] != null)
+            {
+                <li><a href="@Url.Action("index","Profile")">Profil</a></li>
+                <li><a href="@Url.Action("Logout", "Account")">Çıxış</a></li>
+                <li> <a href="@Url.Action("index","join")">Qeydiyyat</a></li>
+                <li><a href="@Url.Action("index","Lisence")">Lisenziya</a></li>
+                <li> <a href="@Url.Action("index","aboutus")">Haqqımızda</a></li>
+                <li> <a href="@Url.Action("index","faq")">Suallar</a></li>
+            }
+            else
+            {
+                <li><a href="@Url.Action("Login", "Account")">Giriş</a></li>
+                <li><a href="@Url.Action("index", "join")">Qeydiyyat</a></li>
+                <li><a href="@Url.Action("index","Lisence")">Lisenziya</a></li>
+                <li><a href="@Url.Action("index", "aboutus")">Haqqımızda</a></li>
+                <li><a href="@Url.Action("index", "faq")">Suallar</a></li>
+            }
         </ul>
         <ul class="res-social">
             <li>
