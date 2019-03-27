@@ -134,49 +134,53 @@
 </header>
     
 <main>
-<div class="subnavbar">
-    <a  class="tab @(controllerName=="aboutus"?"active":"")" href="@Url.Action("Index","Aboutus")">Haqqımızda</a>
-    <a class="tab @(controllerName=="lisence"?"active":"")" href="@Url.Action("Index","Lisence")">Lisenziya</a>
-    <a  class="tab @(controllerName=="faq"?"active":"")" href="@Url.Action("Index","Faq")">Suallar</a>
-</div>
+    <div class="subnavbar">
+        <a class="tab @(controllerName=="aboutus"?"active":"")" href="@Url.Action("Index","Aboutus")">Haqqımızda</a>
+        <a class="tab @(controllerName=="lisence"?"active":"")" href="@Url.Action("Index","Lisence")">Lisenziya</a>
+        <a class="tab @(controllerName=="faq"?"active":"")" href="@Url.Action("Index","Faq")">Suallar</a>
+    </div>
 
-@RenderBody()
+    @RenderBody()
 
-<footer>
-    <div class="container-footer">
-        <div class="row">
-            <div class="footer-list-pexels col-lg-3">
-                <a href="@Url.Action("index","Home")"><img src="/Public/image/logo.jpg" width="30" height="30" alt="">
-                    Pexels</a>
-                <p>Gözəl fotoşəkillər bizim istedadlı cəmiyyətimiz tərəfindən əmələ gəlmişdir.</p>
-                <a class="register" href="@Url.Action("index","join")">Pulsuz Qeydiyyatdan keç →</a>
-                <ul class="social-list">
-                    <li><a href="https://www.instagram.com/"><i class="fab fa-instagram"></i></a></li>
-                    <li><a href="https://twitter.com/"><i class="fab fa-twitter"></i></a></li>
-                    <li><a href="https://www.facebook.com/"><i class="fab fa-facebook-f"></i></a></li>
-                    <li><a href="https://medium.com/"><i class="fab fa-medium"></i></a></li>
-                </ul>
-            </div>
-            <div class="footer-list-service col-lg-3">
-                <h5>Service</h5>
-                <ul class="service-list">
-                    <li> <a href="@Url.Action("index","Lisence")">Lisenziya</a> </li>
-                    <li> <a href="@Url.Action("index","Faq")">Suallar</a> </li>
-                    <li><a href="@Url.Action("index","Aboutus")">Haqqımızda</a></li>
-                </ul>
-            </div>
-            <div class="footer-list-photo col-lg-3">
-                <h5>Şəkillər</h5>
-                <ul class="photo-list">
-                    <li> <a href="@Url.Action("index","Discover")">Koleksiyonları kəşf edin</a> </li>
-                    <li> <a href="@Url.Action("index","Popularphotos")">Populyar şəkillər</a> </li>
-                    <li><a href="@Url.Action("index","Popularsearches")">Populyar axtarışlar</a></li>
-                </ul>
+    <footer>
+        <div class="container-footer">
+            <div class="row">
+                <div class="footer-list-pexels col-lg-3">
+                    <a href="@Url.Action("index","Home")">
+                        <img src="/Public/image/logo.jpg" width="30" height="30" alt="">
+                        Pexels
+                    </a>
+                    <p>Gözəl fotoşəkillər bizim istedadlı cəmiyyətimiz tərəfindən əmələ gəlmişdir.</p>
+                    <a class="register" href="@Url.Action("index","join")">Pulsuz Qeydiyyatdan keç →</a>
+                    <ul class="social-list">
+                        <li><a href="https://www.instagram.com/"><i class="fab fa-instagram"></i></a></li>
+                        <li><a href="https://twitter.com/"><i class="fab fa-twitter"></i></a></li>
+                        <li><a href="https://www.facebook.com/"><i class="fab fa-facebook-f"></i></a></li>
+                        <li><a href="https://medium.com/"><i class="fab fa-medium"></i></a></li>
+                    </ul>
+                </div>
+                <div class="footer-list-service col-lg-3">
+                    <h5>Service</h5>
+                    <ul class="service-list">
+                        <li> <a href="@Url.Action("index","Lisence")">Lisenziya</a> </li>
+                        <li> <a href="@Url.Action("index","Faq")">Suallar</a> </li>
+                        <li><a href="@Url.Action("index","Aboutus")">Haqqımızda</a></li>
+                    </ul>
+                </div>
+                <div class="footer-list-photo col-lg-3">
+                    <h5>Şəkillər</h5>
+                    <ul class="photo-list">
+                        <li> <a href="@Url.Action("index","Discover")">Koleksiyonları kəşf edin</a> </li>
+                        <li> <a href="@Url.Action("index","Popularphotos")">Populyar şəkillər</a> </li>
+                        <li><a href="@Url.Action("index","Popularsearches")">Populyar axtarışlar</a></li>
+                    </ul>
+                </div>
             </div>
         </div>
-    </div>
-</footer>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script src="/Public/js/script.js"></script>
+    </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
+    <script src="~/Public/js/masonry.pkgd.min.js"></script>
+    <script src="/Public/js/script.js"></script>
 </body>
 </html>

@@ -377,6 +377,7 @@
     <Content Include="Public\image\background-search.jpeg" />
     <Content Include="Public\image\big-photo-2.jpeg" />
     <Content Include="Public\image\big-photo.jpeg" />
+    <Content Include="Public\js\masonry.pkgd.min.js" />
     <Content Include="Public\UserImage\2019_03_25_07_00_31big-photo-2.jpeg" />
     <Content Include="Public\UserImage\2019_03_25_07_06_11lisence-image1.jpg" />
     <Content Include="Public\UserImage\collection-photo1.jpeg" />

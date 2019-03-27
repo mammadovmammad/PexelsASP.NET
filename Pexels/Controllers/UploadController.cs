@@ -22,7 +22,6 @@ namespace Pexels.Controllers
             Users user = Session["User"] as Users;
             Photos photo = new Photos()
             {
-               Status = false,
                UserId = user.Id,
                CategoryId = categoryId,
                Name = name
@@ -39,10 +38,6 @@ namespace Pexels.Controllers
                     db.SaveChanges();
 
                     return RedirectToAction("Index","Home");
-                }
-                else
-                {
-                    ModelState.AddModelError("Image", "Seklin tipi duzgun deyil ve ya olcusu 10mb-dan artiqdir.");
                 }
                 
             }

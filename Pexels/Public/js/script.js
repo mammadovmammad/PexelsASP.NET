@@ -8,7 +8,12 @@ $(document).ready(function () {
         else{
             $(".home").css("background","transparent");
         }
+    });
+
+        $(window).on('load',function() {
+                $(window).scrollTop(0);
         });
+        //Change Background Color Scroll Home Page
 
         //Responsive Menu
         $('.res-menu').click(function() {
@@ -19,7 +24,8 @@ $(document).ready(function () {
                 else {
                     $('#search').css('display', 'block');
                 }
-        });
+    });
+        //Responsive Menu
 
         //Ajax Get Photos
         var skipCount =10;
@@ -31,9 +37,9 @@ $(document).ready(function () {
                     data: { skip: skipCount },
                     success: function (res) {
                         if (res.trim().length != 0) {
-                            skipCount += 3;
+                            skipCount += 5;
 
-                            $(".photos .row").append(res);
+                            $(".grid").append(res);
                         }
                         else {
                             window.removeEventListener("scroll", scrollLoadFunction);
@@ -43,11 +49,24 @@ $(document).ready(function () {
                 })
             }
         }
-    window.addEventListener("scroll", scrollLoadFunction);
+        window.addEventListener("scroll", scrollLoadFunction);
+        //Ajax Get Photos
 
+        //Masonary
+        var columns = 3,
+        setColumns = function () { columns = $(window).width() > 700 ? 3 : $(window).width() > 480 ? 2 : 1 };
+        setColumns();
+        $(window).resize(setColumns);
+        
+        $('.grid').masonry({
+        // options
+        itemSelector: '.grid-item',
+        columnWidth: function (containerWidth) { return containerWidth / columns; }
+        });
+        //Masonary
 
-
-    $(document).on("click", ".right-like-button", function () {
+        //Like
+        $(document).on("click", ".right-like-button", function () {
         var isLiked = $(this).next();
         var forPhotoId = isLiked.next().val();
         var myButton = $(this);
@@ -80,4 +99,5 @@ $(document).ready(function () {
             }
         
     })
+        //Like
 });

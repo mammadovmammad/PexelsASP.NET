@@ -17,6 +17,7 @@ namespace Pexels.Controllers
             db = new PexelsEntities();
         }
 
+        //Get Photos From Database With Ajax
         public ActionResult LoadPhotos(int skip)
         {
             VwModel vm = new VwModel()
@@ -27,6 +28,7 @@ namespace Pexels.Controllers
             return PartialView("_PartialPhotos", vm);
         }
 
+        //Like Photos By User
         public ActionResult LikePhoto(int photoID)
         {
             Users user = Session["User"] as Users;
@@ -44,6 +46,7 @@ namespace Pexels.Controllers
 
         }
 
+        //Disslike Photos By User
         public ActionResult DissLikePhoto(int photoID)
         {
             Users user = Session["User"] as Users;
