@@ -28,28 +28,29 @@ $(document).ready(function () {
         //Responsive Menu
 
         //Ajax Get Photos
-        var skipCount =10;
-        var scrollLoadFunction = function () {
-            if ($(document).height() - $(window).scrollTop() - $(window).height() < 200) {
-                $.ajax({
-                    url: "/Ajax/LoadPhotos",
-                    type: "GET",
-                    data: { skip: skipCount },
-                    success: function (res) {
-                        if (res.trim().length != 0) {
-                            skipCount += 5;
+        //var skipCount =10;
+        //var scrollLoadFunction = function () {
+        //    if ($(document).height() - $(window).scrollTop() - $(window).height() < 200) {
+        //        $.ajax({
+        //            url: "/Ajax/LoadPhotos",
+        //            type: "GET",
+        //            data: { skip: skipCount },
+        //            success: function (res) {
+        //                if (res.trim().length != 0) {
+        //                    skipCount += 5;
 
-                            $(".grid").append(res);
-                        }
-                        else {
-                            window.removeEventListener("scroll", scrollLoadFunction);
-                        }
-                    }
+        //                    $(".grid").append(res);
+        //                }
+        //                else {
+        //                    window.removeEventListener("scroll", scrollLoadFunction);
+        //                }
+        //            }
+                    
 
-                })
-            }
-        }
-        window.addEventListener("scroll", scrollLoadFunction);
+        //        })
+        //    }
+        //}
+        //window.addEventListener("scroll", scrollLoadFunction);
         //Ajax Get Photos
 
         //Masonary
@@ -61,9 +62,16 @@ $(document).ready(function () {
         $('.grid').masonry({
         // options
         itemSelector: '.grid-item',
-        columnWidth: function (containerWidth) { return containerWidth / columns; }
-        });
+            columnWidth: function (setColumns) { return setColumns / columns; }
+    });
+    
         //Masonary
+        //$('.grid').infiniteScroll({
+        //    // options
+        //    path: '.pagination__next',
+        //    append: '.grid-item',
+        //    history: false,
+        //});
 
         //Like
         $(document).on("click", ".right-like-button", function () {

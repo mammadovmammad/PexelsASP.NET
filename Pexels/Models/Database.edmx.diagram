@@ -9,25 +9,24 @@
         <EntityTypeShape EntityType="PexelsModel.AboutUs" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="PexelsModel.Homes" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="PexelsModel.PopularPhotos" Width="1.5" PointX="6.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="PexelsModel.PopularSearches" Width="1.5" PointX="0.75" PointY="6.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="PexelsModel.AboutHeaders" Width="1.5" PointX="7.375" PointY="3.75" />
-        <EntityTypeShape EntityType="PexelsModel.LisenceHeader" Width="1.5" PointX="3.375" PointY="7.75" />
-        <EntityTypeShape EntityType="PexelsModel.Category" Width="1.5" PointX="5.375" PointY="8.125" />
-        <EntityTypeShape EntityType="PexelsModel.Photos" Width="1.5" PointX="7.625" PointY="7.875" />
+        <EntityTypeShape EntityType="PexelsModel.PopularSearches" Width="1.5" PointX="0.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PexelsModel.AboutHeaders" Width="1.5" PointX="4.75" PointY="3.5" />
+        <EntityTypeShape EntityType="PexelsModel.LisenceHeader" Width="1.5" PointX="2.75" PointY="5.75" />
+        <EntityTypeShape EntityType="PexelsModel.Category" Width="1.5" PointX="4.75" PointY="5.75" />
+        <EntityTypeShape EntityType="PexelsModel.Photos" Width="1.5" PointX="6.75" PointY="5.75" />
         <AssociationConnector Association="PexelsModel.FK_Photos_Category" />
-        <EntityTypeShape EntityType="PexelsModel.Likes" Width="1.5" PointX="10.25" PointY="8.125" />
-        <EntityTypeShape EntityType="PexelsModel.LisenceAllows" Width="1.5" PointX="9.75" PointY="0.75" />
-        <EntityTypeShape EntityType="PexelsModel.LisenceCards" Width="1.5" PointX="0.75" PointY="9.75" />
+        <EntityTypeShape EntityType="PexelsModel.Likes" Width="1.5" PointX="8.875" PointY="6.125" />
+        <EntityTypeShape EntityType="PexelsModel.LisenceAllows" Width="1.5" PointX="2.75" PointY="3.5" />
+        <EntityTypeShape EntityType="PexelsModel.LisenceCards" Width="1.5" PointX="0.75" PointY="8.375" />
         <AssociationConnector Association="PexelsModel.FK_Likes_Photos" />
-        <EntityTypeShape EntityType="PexelsModel.LisenceNotAllows" Width="1.5" PointX="3.375" PointY="10.75" />
-        <EntityTypeShape EntityType="PexelsModel.FaqNews" Width="1.5" PointX="9.375" PointY="3.75" />
-        <EntityTypeShape EntityType="PexelsModel.FaqUploads" Width="1.5" PointX="10.375" PointY="10.75" />
-        <EntityTypeShape EntityType="PexelsModel.FaqHeaders" Width="1.5" PointX="3.375" PointY="3.75" />
-        <EntityTypeShape EntityType="PexelsModel.Users" Width="1.5" PointX="11.375" PointY="3.75" />
-        <EntityTypeShape EntityType="PexelsModel.DiscoverCards" Width="1.5" PointX="0.75" PointY="3.75" />
-        <EntityTypeShape EntityType="PexelsModel.DiscoverHeaders" Width="1.5" PointX="5.75" PointY="11.75" />
+        <EntityTypeShape EntityType="PexelsModel.LisenceNotAllows" Width="1.5" PointX="2.75" PointY="8.375" />
+        <EntityTypeShape EntityType="PexelsModel.FaqNews" Width="1.5" PointX="6.75" PointY="3.5" />
+        <EntityTypeShape EntityType="PexelsModel.FaqUploads" Width="1.5" PointX="6.75" PointY="8.625" />
+        <EntityTypeShape EntityType="PexelsModel.FaqHeaders" Width="1.5" PointX="0.75" PointY="3.5" />
+        <EntityTypeShape EntityType="PexelsModel.Users" Width="1.5" PointX="8.875" PointY="3.5" />
+        <EntityTypeShape EntityType="PexelsModel.DiscoverHeaders" Width="1.5" PointX="4.75" PointY="8.375" />
         <AssociationConnector Association="PexelsModel.FK_Likes_Users" />
-        <EntityTypeShape EntityType="PexelsModel.Admins" Width="1.5" PointX="12.375" PointY="0.75" />
+        <EntityTypeShape EntityType="PexelsModel.Admins" Width="1.5" PointX="8.875" PointY="0.75" />
         <AssociationConnector Association="PexelsModel.FK_Photos_Users" />
       </Diagram>
     </edmx:Diagrams>

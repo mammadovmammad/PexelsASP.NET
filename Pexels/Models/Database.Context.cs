@@ -42,7 +42,6 @@ namespace Pexels.Models
         public virtual DbSet<FaqUploads> FaqUploads { get; set; }
         public virtual DbSet<FaqHeaders> FaqHeaders { get; set; }
         public virtual DbSet<Users> Users { get; set; }
-        public virtual DbSet<DiscoverCards> DiscoverCards { get; set; }
         public virtual DbSet<DiscoverHeaders> DiscoverHeaders { get; set; }
         public virtual DbSet<Admins> Admins { get; set; }
     }

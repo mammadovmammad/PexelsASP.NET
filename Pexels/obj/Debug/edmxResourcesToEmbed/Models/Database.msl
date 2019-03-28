@@ -170,15 +170,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="DiscoverCards">
-      <EntityTypeMapping TypeName="PexelsModel.DiscoverCards">
-        <MappingFragment StoreEntitySet="DiscoverCards">
-          <ScalarProperty Name="CardTitle" ColumnName="CardTitle" />
-          <ScalarProperty Name="CardImage" ColumnName="CardImage" />
-          <ScalarProperty Name="Id" ColumnName="Id" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="DiscoverHeaders">
       <EntityTypeMapping TypeName="PexelsModel.DiscoverHeaders">
         <MappingFragment StoreEntitySet="DiscoverHeaders">

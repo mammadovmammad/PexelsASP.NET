@@ -4,34 +4,60 @@
     Layout = "~/Views/Shared/_PartLayout.cshtml";
 }
 
-    <div class="row profile-header d-flex text-center">
+<div class="row profile-header d-flex text-center">
     <div class="col-lg-12 d-flex justify-content-center align-items-center">
-        <div class="profile-logo">
-            <img src="/Public/image/profile-image.png" alt="">
+        <div class="profile col-lg-4">
+            <div class="profile-logo">
+                <img src="/Public/image/profile-image.png" alt="">
+            </div>
+            <div class="profile-details">
+
+                @if (Session["User"] != null)
+                {
+                    Users user = Session["User"] as Users;
+                    <h2>@user.Name</h2>
+                }
+
+            </div>
         </div>
-        <div class="profile-details">
             
-            @if (Session["User"] != null)
-            {
-               Users user  = Session["User"] as Users;
-            <h2>@user.Name</h2>
-            }
 
-        </div>
+        <div class="upload-photo col-lg-3 text-left">
+            <form method="post" action="@Url.Action("Upload", "Upload")" enctype="multipart/form-data">
+                <div class="form-group" style="display: inline-block; width: 50%;">
+                    <input class="form-control" type="file" name="img"/>
+                </div>
 
-        <div class="upload-photo">
-            <form method="post" action="@Url.Action("Upload","Upload")" enctype="multipart/form-data">
-                <input type="file" name="img" />
-                <select name="categoryId">
-                    @foreach (var item in @Model.Categories)
-                    {
-                        <option value="@item.Id">@item.Category1</option>
-                    }
-                </select>
-                <input type="text" name="name"/>
+                <div class="form-group text-right" style="display: inline-block;width: 48%;">
+                    <select name="categoryId" style="padding: 7px;border-radius: 4px;border: 1px solid #ced4da;">
+                        @foreach (var item in @Model.Categories)
+                        {
+                            <option value="@item.Id">@item.Category1</option>
+                        }
+                    </select>
+                </div>
+                <div class="form-group">
+                    <input class="form-control" type="text" name="name"/>
+                </div>
                 <button type="submit" class="btn btn-success upload">Yükləmək</button>
-
             </form>
         </div>
     </div>
+        
+        
+</div>
+<div class="grid" data-masonry='{ "itemSelector": ".grid-item" }' @*data-infinite-scroll='{ "path": ".pagination__next", "append": ".grid-item", "history": false }'*@>
+    @foreach (var item in Model.Photos)
+    {
+        <div class="grid-item">
+            <a href="@Url.Action("index", "Photosingle", new {id = @item.Id})">
+                <img src="/Public/UserImage/@item.Link" alt="">
+            </a>
+            <div class="photo-buttons">
+                <i class="fas fa-heart right-like-button"></i>
+                <input type="hidden" id="isLikeed" value="0" />
+                <input class="forPhotoId" type="hidden" value="@item.Id" />
+            </div>
+        </div>
+    }
 </div>

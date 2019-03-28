@@ -814,8 +814,12 @@ ul {
         background-color: #05a081;
     }
 
+    .profile{
+        height: 100%;
+    }
+
 .profile-header {
-    margin-top: 150px;
+    margin: 150px 0px;
 }
 
     .profile-header .profile-logo {

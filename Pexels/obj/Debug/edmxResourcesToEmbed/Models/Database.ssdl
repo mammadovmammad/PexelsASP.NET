@@ -36,14 +36,6 @@ warning 6002: The table/view 'Pexels.dbo.AboutUs' does not have a primary key de
     <Property Name="Category" Type="nvarchar" MaxLength="250" />
     <Property Name="Image" Type="nvarchar(max)" />
   </EntityType>
-  <EntityType Name="DiscoverCards">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="CardImage" Type="nvarchar" MaxLength="250" />
-    <Property Name="CardTitle" Type="nvarchar" MaxLength="250" />
-  </EntityType>
   <EntityType Name="DiscoverHeaders">
     <Key>
       <PropertyRef Name="Id" />
@@ -236,7 +228,6 @@ warning 6002: The table/view 'Pexels.dbo.PopularSearches' does not have a primar
     <EntitySet Name="AboutHeaders" EntityType="Self.AboutHeaders" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Admins" EntityType="Self.Admins" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Category" EntityType="Self.Category" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="DiscoverCards" EntityType="Self.DiscoverCards" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="DiscoverHeaders" EntityType="Self.DiscoverHeaders" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="FaqHeaders" EntityType="Self.FaqHeaders" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="FaqNews" EntityType="Self.FaqNews" Schema="dbo" store:Type="Tables" />

@@ -15,7 +15,7 @@ namespace Pexels.Controllers
         {
             VwModel data = new VwModel();
             data.Settings = db.Settings.FirstOrDefault();
-            data.Photos = db.Photos.OrderByDescending(p => p.Id).Take(10).ToList();
+            data.Photos = db.Photos.Where(p=>p.Likes.Count()!=0).OrderByDescending(p=>p.Likes.Count()).ToList();
             return View(data);
         }
     }

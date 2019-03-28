@@ -4,11 +4,15 @@
 
 @if (Model.Photos.Count == 0)
 {
-    <p class="alert-danger text-center">Bu kateqoriyada şəkil tapılmadı</p>
+    <div class="row">
+        <div class="col-lg-4 align-items-center">
+            <p style="width: 100%;line-height: 50px;margin-left: 5%;font-size: 20px" class="">Bu kateqoriyada şəkil tapılmadı</p>
+        </div>
+    </div>
     return;
 }
 
-<div class="grid" data-masonry='{ "itemSelector": ".grid-item" }'>
+<div class="grid" data-masonry='{ "itemSelector": ".grid-item" }' @*data-infinite-scroll='{ "path": ".pagination__next", "append": ".grid-item", "history": false }'*@>
     @foreach (var item in Model.Photos)
     {
         <div class="grid-item">

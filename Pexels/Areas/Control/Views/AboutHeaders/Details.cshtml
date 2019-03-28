@@ -1,0 +1,42 @@
+﻿@model Pexels.Models.AboutHeaders
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>AboutHeaders</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.HeadTitle)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HeadTitle)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HeadText)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HeadText)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HeadBackground)
+        </dt>
+
+        <dd>
+            <img src="~/Public/image/@Model.HeadBackground" width="150px" />
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

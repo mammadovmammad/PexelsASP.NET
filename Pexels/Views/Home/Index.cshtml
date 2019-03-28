@@ -61,7 +61,7 @@
                                         <a href="@Url.Action("index", "aboutus")">Haqqımızda</a>
                                         <a href="@Url.Action("index", "faq")">Suallar</a>
                                     }
-                                    
+
                                     <ul class="social">
                                         <li>
                                             <a target="blank_" href="https://www.facebook.com/">
@@ -107,7 +107,7 @@
                     <form class="search" method="post" action="/Home/Search">
                         <input type="text" class="searchTerm" name="query" placeholder="Fotoşəkil axtarın">
                         <button type="submit" class="searchButton">
-                            <a href="@Url.Action("Search","Home")"  ><i class="fa fa-search"></i></a>
+                            <a href="@Url.Action("Search","Home")"><i class="fa fa-search"></i></a>
                         </button>
                     </form>
                 </div>
@@ -177,14 +177,16 @@
             </div>
 
             @*Photo Section*@
-                    @Html.Partial("_PartialPhotos", Model)
-                </div>
+            @Html.Partial("_PartialPhotos", Model)
+        </div>
     </main>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
-<script src="~/Public/js/masonry.pkgd.min.js"></script>
-<script src="/Public/js/script.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="~/Public/js/infinite-scroll-docs.min.js"></script>
+    <script src="https://unpkg.com/infinite-scroll@3/dist/infinite-scroll.pkgd.min.js"></script>
+    <script src="~/Public/js/masonry.pkgd.min.js"></script>
+    <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
+    <script src="/Public/js/script.js"></script>
 </body>
 
 </html>

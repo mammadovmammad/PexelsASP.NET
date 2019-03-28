@@ -41,14 +41,6 @@ warning 6002: The table/view 'Pexels.dbo.AboutUs' does not have a primary key de
           <Property Name="Category" Type="nvarchar" MaxLength="250" />
           <Property Name="Image" Type="nvarchar(max)" />
         </EntityType>
-        <EntityType Name="DiscoverCards">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="CardImage" Type="nvarchar" MaxLength="250" />
-          <Property Name="CardTitle" Type="nvarchar" MaxLength="250" />
-        </EntityType>
         <EntityType Name="DiscoverHeaders">
           <Key>
             <PropertyRef Name="Id" />
@@ -241,7 +233,6 @@ warning 6002: The table/view 'Pexels.dbo.PopularSearches' does not have a primar
           <EntitySet Name="AboutHeaders" EntityType="Self.AboutHeaders" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Admins" EntityType="Self.Admins" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Category" EntityType="Self.Category" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="DiscoverCards" EntityType="Self.DiscoverCards" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="DiscoverHeaders" EntityType="Self.DiscoverHeaders" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="FaqHeaders" EntityType="Self.FaqHeaders" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="FaqNews" EntityType="Self.FaqNews" Schema="dbo" store:Type="Tables" />
@@ -384,7 +375,6 @@ warning 6002: The table/view 'Pexels.dbo.PopularSearches' does not have a primar
           <EntitySet Name="FaqUploads" EntityType="PexelsModel.FaqUploads" />
           <EntitySet Name="FaqHeaders" EntityType="PexelsModel.FaqHeaders" />
           <EntitySet Name="Users" EntityType="PexelsModel.Users" />
-          <EntitySet Name="DiscoverCards" EntityType="PexelsModel.DiscoverCards" />
           <EntitySet Name="DiscoverHeaders" EntityType="PexelsModel.DiscoverHeaders" />
           <AssociationSet Name="FK_Likes_Users" Association="PexelsModel.FK_Likes_Users">
             <End Role="Users" EntitySet="Users" />
@@ -530,14 +520,6 @@ warning 6002: The table/view 'Pexels.dbo.PopularSearches' does not have a primar
           <Property Name="Password" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Likes" Relationship="PexelsModel.FK_Likes_Users" FromRole="Users" ToRole="Likes" />
           <NavigationProperty Name="Photos" Relationship="PexelsModel.FK_Photos_Users" FromRole="Users" ToRole="Photos" />
-        </EntityType>
-        <EntityType Name="DiscoverCards">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="CardImage" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-          <Property Name="CardTitle" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="DiscoverHeaders">
           <Key>
@@ -750,15 +732,6 @@ warning 6002: The table/view 'Pexels.dbo.PopularSearches' does not have a primar
                 <ScalarProperty Name="Email" ColumnName="Email" />
                 <ScalarProperty Name="Surname" ColumnName="Surname" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="DiscoverCards">
-            <EntityTypeMapping TypeName="PexelsModel.DiscoverCards">
-              <MappingFragment StoreEntitySet="DiscoverCards">
-                <ScalarProperty Name="CardTitle" ColumnName="CardTitle" />
-                <ScalarProperty Name="CardImage" ColumnName="CardImage" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>

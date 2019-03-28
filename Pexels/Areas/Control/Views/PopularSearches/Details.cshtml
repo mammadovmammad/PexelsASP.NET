@@ -1,0 +1,58 @@
+﻿@model Pexels.Models.PopularSearches
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>PopularSearches</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Title)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Desc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Desc)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CollectionPhoto)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CollectionPhoto)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CollectionTitle)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CollectionTitle)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CollectionIcon)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CollectionIcon)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

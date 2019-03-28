@@ -75,7 +75,6 @@
     <EntitySet Name="FaqUploads" EntityType="PexelsModel.FaqUploads" />
     <EntitySet Name="FaqHeaders" EntityType="PexelsModel.FaqHeaders" />
     <EntitySet Name="Users" EntityType="PexelsModel.Users" />
-    <EntitySet Name="DiscoverCards" EntityType="PexelsModel.DiscoverCards" />
     <EntitySet Name="DiscoverHeaders" EntityType="PexelsModel.DiscoverHeaders" />
     <AssociationSet Name="FK_Likes_Users" Association="PexelsModel.FK_Likes_Users">
       <End Role="Users" EntitySet="Users" />
@@ -221,14 +220,6 @@
     <Property Name="Password" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="Likes" Relationship="PexelsModel.FK_Likes_Users" FromRole="Users" ToRole="Likes" />
     <NavigationProperty Name="Photos" Relationship="PexelsModel.FK_Photos_Users" FromRole="Users" ToRole="Photos" />
-  </EntityType>
-  <EntityType Name="DiscoverCards">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="CardImage" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-    <Property Name="CardTitle" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
   </EntityType>
   <EntityType Name="DiscoverHeaders">
     <Key>

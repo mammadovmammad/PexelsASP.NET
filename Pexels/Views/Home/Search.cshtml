@@ -178,16 +178,14 @@
             </div>
 
             @*Photo Section*@
-            <div class="photos">
-                <div class="row">
-                    @Html.Partial("_PartialPhotos", Model)
-                </div>
-            </div>
+            @Html.Partial("_PartialPhotos", Model)
 
         </div>
     </main>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
+    <script src="~/Public/js/masonry.pkgd.min.js"></script>
     <script src="/Public/js/script.js"></script>
 </body>
 

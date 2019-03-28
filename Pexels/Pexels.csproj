@@ -156,10 +156,25 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Control\ControlAreaRegistration.cs" />
+    <Compile Include="Areas\Control\Controllers\AboutHeadersController.cs" />
+    <Compile Include="Areas\Control\Controllers\AboutUsController.cs" />
     <Compile Include="Areas\Control\Controllers\AccountController.cs" />
     <Compile Include="Areas\Control\Controllers\AuthorizeAdminFilter.cs" />
+    <Compile Include="Areas\Control\Controllers\CategoriesController.cs" />
     <Compile Include="Areas\Control\Controllers\DashboardController.cs" />
+    <Compile Include="Areas\Control\Controllers\FaqHeadersController.cs" />
+    <Compile Include="Areas\Control\Controllers\FaqNewsController.cs" />
+    <Compile Include="Areas\Control\Controllers\FaqUploadsController.cs" />
     <Compile Include="Areas\Control\Controllers\HomeController.cs" />
+    <Compile Include="Areas\Control\Controllers\HomesController.cs" />
+    <Compile Include="Areas\Control\Controllers\LisenceAllowsController.cs" />
+    <Compile Include="Areas\Control\Controllers\LisenceCardsController.cs" />
+    <Compile Include="Areas\Control\Controllers\LisenceHeadersController.cs" />
+    <Compile Include="Areas\Control\Controllers\LisenceNotAllowsController.cs" />
+    <Compile Include="Areas\Control\Controllers\PhotosController.cs" />
+    <Compile Include="Areas\Control\Controllers\PopularPhotosController.cs" />
+    <Compile Include="Areas\Control\Controllers\PopularSearchesController.cs" />
+    <Compile Include="Areas\Control\Controllers\SettingsController.cs" />
     <Compile Include="Controllers\AboutusController.cs" />
     <Compile Include="Controllers\AJAXController.cs" />
     <Compile Include="Controllers\CollectionsController.cs" />
@@ -205,9 +220,6 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Database.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="Models\DiscoverCards.cs">
-      <DependentUpon>Database.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\DiscoverHeaders.cs">
       <DependentUpon>Database.tt</DependentUpon>
@@ -377,9 +389,11 @@
     <Content Include="Public\image\background-search.jpeg" />
     <Content Include="Public\image\big-photo-2.jpeg" />
     <Content Include="Public\image\big-photo.jpeg" />
+    <Content Include="Public\js\infinite-scroll-docs.min.js" />
     <Content Include="Public\js\masonry.pkgd.min.js" />
     <Content Include="Public\UserImage\2019_03_25_07_00_31big-photo-2.jpeg" />
     <Content Include="Public\UserImage\2019_03_25_07_06_11lisence-image1.jpg" />
+    <Content Include="Public\UserImage\city.jpg" />
     <Content Include="Public\UserImage\collection-photo1.jpeg" />
     <Content Include="Public\UserImage\collection-photo2.jpeg" />
     <Content Include="Public\UserImage\collection-photo3.jpeg" />
@@ -450,6 +464,7 @@
     <Content Include="Public\Login\vendor\select2\select2.js" />
     <Content Include="Public\Login\vendor\select2\select2.min.css" />
     <Content Include="Public\Login\vendor\select2\select2.min.js" />
+    <Content Include="Public\UserImage\sport.jpg" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -530,6 +545,81 @@
     <Content Include="Areas\Control\Views\_ViewStart.cshtml" />
     <Content Include="Areas\Control\Views\Shared\_Layout.cshtml" />
     <Content Include="Areas\Control\Views\Dashboard\Index.cshtml" />
+    <Content Include="Areas\Control\Views\AboutHeaders\Create.cshtml" />
+    <Content Include="Areas\Control\Views\AboutHeaders\Delete.cshtml" />
+    <Content Include="Areas\Control\Views\AboutHeaders\Details.cshtml" />
+    <Content Include="Areas\Control\Views\AboutHeaders\Edit.cshtml" />
+    <Content Include="Areas\Control\Views\AboutHeaders\Index.cshtml" />
+    <Content Include="Areas\Control\Views\AboutUs\Create.cshtml" />
+    <Content Include="Areas\Control\Views\AboutUs\Delete.cshtml" />
+    <Content Include="Areas\Control\Views\AboutUs\Details.cshtml" />
+    <Content Include="Areas\Control\Views\AboutUs\Edit.cshtml" />
+    <Content Include="Areas\Control\Views\AboutUs\Index.cshtml" />
+    <Content Include="Areas\Control\Views\Categories\Create.cshtml" />
+    <Content Include="Areas\Control\Views\Categories\Delete.cshtml" />
+    <Content Include="Areas\Control\Views\Categories\Details.cshtml" />
+    <Content Include="Areas\Control\Views\Categories\Edit.cshtml" />
+    <Content Include="Areas\Control\Views\Categories\Index.cshtml" />
+    <Content Include="Areas\Control\Views\FaqHeaders\Create.cshtml" />
+    <Content Include="Areas\Control\Views\FaqHeaders\Delete.cshtml" />
+    <Content Include="Areas\Control\Views\FaqHeaders\Details.cshtml" />
+    <Content Include="Areas\Control\Views\FaqHeaders\Edit.cshtml" />
+    <Content Include="Areas\Control\Views\FaqHeaders\Index.cshtml" />
+    <Content Include="Areas\Control\Views\FaqNews\Create.cshtml" />
+    <Content Include="Areas\Control\Views\FaqNews\Delete.cshtml" />
+    <Content Include="Areas\Control\Views\FaqNews\Details.cshtml" />
+    <Content Include="Areas\Control\Views\FaqNews\Edit.cshtml" />
+    <Content Include="Areas\Control\Views\FaqNews\Index.cshtml" />
+    <Content Include="Areas\Control\Views\FaqUploads\Create.cshtml" />
+    <Content Include="Areas\Control\Views\FaqUploads\Delete.cshtml" />
+    <Content Include="Areas\Control\Views\FaqUploads\Details.cshtml" />
+    <Content Include="Areas\Control\Views\FaqUploads\Edit.cshtml" />
+    <Content Include="Areas\Control\Views\FaqUploads\Index.cshtml" />
+    <Content Include="Areas\Control\Views\Homes\Create.cshtml" />
+    <Content Include="Areas\Control\Views\Homes\Delete.cshtml" />
+    <Content Include="Areas\Control\Views\Homes\Details.cshtml" />
+    <Content Include="Areas\Control\Views\Homes\Edit.cshtml" />
+    <Content Include="Areas\Control\Views\Homes\Index.cshtml" />
+    <Content Include="Areas\Control\Views\LisenceAllows\Create.cshtml" />
+    <Content Include="Areas\Control\Views\LisenceAllows\Delete.cshtml" />
+    <Content Include="Areas\Control\Views\LisenceAllows\Details.cshtml" />
+    <Content Include="Areas\Control\Views\LisenceAllows\Edit.cshtml" />
+    <Content Include="Areas\Control\Views\LisenceAllows\Index.cshtml" />
+    <Content Include="Areas\Control\Views\LisenceNotAllows\Create.cshtml" />
+    <Content Include="Areas\Control\Views\LisenceNotAllows\Delete.cshtml" />
+    <Content Include="Areas\Control\Views\LisenceNotAllows\Details.cshtml" />
+    <Content Include="Areas\Control\Views\LisenceNotAllows\Edit.cshtml" />
+    <Content Include="Areas\Control\Views\LisenceNotAllows\Index.cshtml" />
+    <Content Include="Areas\Control\Views\LisenceCards\Create.cshtml" />
+    <Content Include="Areas\Control\Views\LisenceCards\Delete.cshtml" />
+    <Content Include="Areas\Control\Views\LisenceCards\Details.cshtml" />
+    <Content Include="Areas\Control\Views\LisenceCards\Edit.cshtml" />
+    <Content Include="Areas\Control\Views\LisenceCards\Index.cshtml" />
+    <Content Include="Areas\Control\Views\LisenceHeaders\Create.cshtml" />
+    <Content Include="Areas\Control\Views\LisenceHeaders\Delete.cshtml" />
+    <Content Include="Areas\Control\Views\LisenceHeaders\Details.cshtml" />
+    <Content Include="Areas\Control\Views\LisenceHeaders\Edit.cshtml" />
+    <Content Include="Areas\Control\Views\LisenceHeaders\Index.cshtml" />
+    <Content Include="Areas\Control\Views\Photos\Create.cshtml" />
+    <Content Include="Areas\Control\Views\Photos\Delete.cshtml" />
+    <Content Include="Areas\Control\Views\Photos\Details.cshtml" />
+    <Content Include="Areas\Control\Views\Photos\Edit.cshtml" />
+    <Content Include="Areas\Control\Views\Photos\Index.cshtml" />
+    <Content Include="Areas\Control\Views\PopularPhotos\Create.cshtml" />
+    <Content Include="Areas\Control\Views\PopularPhotos\Delete.cshtml" />
+    <Content Include="Areas\Control\Views\PopularPhotos\Details.cshtml" />
+    <Content Include="Areas\Control\Views\PopularPhotos\Edit.cshtml" />
+    <Content Include="Areas\Control\Views\PopularPhotos\Index.cshtml" />
+    <Content Include="Areas\Control\Views\PopularSearches\Create.cshtml" />
+    <Content Include="Areas\Control\Views\PopularSearches\Delete.cshtml" />
+    <Content Include="Areas\Control\Views\PopularSearches\Details.cshtml" />
+    <Content Include="Areas\Control\Views\PopularSearches\Edit.cshtml" />
+    <Content Include="Areas\Control\Views\PopularSearches\Index.cshtml" />
+    <Content Include="Areas\Control\Views\Settings\Create.cshtml" />
+    <Content Include="Areas\Control\Views\Settings\Delete.cshtml" />
+    <Content Include="Areas\Control\Views\Settings\Details.cshtml" />
+    <Content Include="Areas\Control\Views\Settings\Edit.cshtml" />
+    <Content Include="Areas\Control\Views\Settings\Index.cshtml" />
     <None Include="packages.config" />
     <Content Include="Public\css\style.css.map" />
     <Content Include="Public\css\style.scss" />
