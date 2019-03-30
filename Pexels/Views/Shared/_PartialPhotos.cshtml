@@ -16,11 +16,22 @@
     @foreach (var item in Model.Photos)
     {
         <div class="grid-item">
-            <a href="@Url.Action("index", "Photosingle", new {id = @item.Id})">
-                <img src="/Public/UserImage/@item.Link" alt="">
-            </a>
+            <div class="photo">
+                <a  href="@Url.Action("index", "Photosingle", new {id = @item.Id})">
+                    <img  src="/Public/UserImage/@item.Link" alt="">
+                </a>
+            </div>
+            
             <div class="photo-buttons">
-                <i class="fas fa-heart right-like-button"></i>
+                @if (Session["User"] == null)
+                {
+                    <a href="@Url.Action("login","Account")"><i class="fas fa-heart right-like-button"></i></a>
+                }
+                else
+                {
+                    <i class="fas fa-heart right-like-button"></i>
+                }
+
                 <input type="hidden" id="isLikeed" value="0" />
                 <input class="forPhotoId" type="hidden" value="@item.Id" />
             </div>

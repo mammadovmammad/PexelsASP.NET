@@ -38,23 +38,11 @@
     <Property Name="Photo" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
     <Property Name="Icon" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
   </EntityType>
-  <EntityType Name="PopularSearches">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="Int32" Nullable="false" />
-    <Property Name="Title" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
-    <Property Name="Desc" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
-    <Property Name="CollectionPhoto" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-    <Property Name="CollectionTitle" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
-    <Property Name="CollectionIcon" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-  </EntityType>
   <EntityContainer Name="PexelsEntities" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="Settings" EntityType="Self.Settings" />
     <EntitySet Name="AboutUs" EntityType="Self.AboutUs" />
     <EntitySet Name="Homes" EntityType="Self.Homes" />
     <EntitySet Name="PopularPhotos" EntityType="Self.PopularPhotos" />
-    <EntitySet Name="PopularSearches" EntityType="Self.PopularSearches" />
     <EntitySet Name="AboutHeaders" EntityType="PexelsModel.AboutHeaders" />
     <EntitySet Name="LisenceHeader" EntityType="PexelsModel.LisenceHeader" />
     <EntitySet Name="Category" EntityType="PexelsModel.Category" />
@@ -85,6 +73,7 @@
       <End Role="Users" EntitySet="Users" />
       <End Role="Photos" EntitySet="Photos" />
     </AssociationSet>
+    <EntitySet Name="Searches" EntityType="PexelsModel.Searches" />
   </EntityContainer>
   <EntityType Name="AboutHeaders">
     <Key>
@@ -208,6 +197,7 @@
     <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="Title" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
     <Property Name="Desc" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Background" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
   </EntityType>
   <EntityType Name="Users">
     <Key>
@@ -261,4 +251,12 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <EntityType Name="Searches">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Title" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="Photo" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+  </EntityType>
 </Schema>

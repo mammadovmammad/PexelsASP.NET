@@ -10,107 +10,107 @@ using Pexels.Models;
 
 namespace Pexels.Areas.Control.Controllers
 {
-    public class PopularPhotosController : Controller
+    public class SearchesController : Controller
     {
         private PexelsEntities db = new PexelsEntities();
 
-        // GET: Control/PopularPhotos
+        // GET: Control/Searches
         public ActionResult Index()
         {
-            return View(db.PopularPhotos.ToList());
+            return View(db.Searches.ToList());
         }
 
-        // GET: Control/PopularPhotos/Details/5
+        // GET: Control/Searches/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            PopularPhotos popularPhotos = db.PopularPhotos.Find(id);
-            if (popularPhotos == null)
+            Searches searches = db.Searches.Find(id);
+            if (searches == null)
             {
                 return HttpNotFound();
             }
-            return View(popularPhotos);
+            return View(searches);
         }
 
-        // GET: Control/PopularPhotos/Create
+        // GET: Control/Searches/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Control/PopularPhotos/Create
+        // POST: Control/Searches/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Title,Photo,Icon")] PopularPhotos popularPhotos)
+        public ActionResult Create([Bind(Include = "Id,Title,Photo")] Searches searches)
         {
             if (ModelState.IsValid)
             {
-                db.PopularPhotos.Add(popularPhotos);
+                db.Searches.Add(searches);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(popularPhotos);
+            return View(searches);
         }
 
-        // GET: Control/PopularPhotos/Edit/5
+        // GET: Control/Searches/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            PopularPhotos popularPhotos = db.PopularPhotos.Find(id);
-            if (popularPhotos == null)
+            Searches searches = db.Searches.Find(id);
+            if (searches == null)
             {
                 return HttpNotFound();
             }
-            return View(popularPhotos);
+            return View(searches);
         }
 
-        // POST: Control/PopularPhotos/Edit/5
+        // POST: Control/Searches/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Title,Photo,Icon")] PopularPhotos popularPhotos)
+        public ActionResult Edit([Bind(Include = "Id,Title,Photo")] Searches searches)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(popularPhotos).State = EntityState.Modified;
+                db.Entry(searches).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(popularPhotos);
+            return View(searches);
         }
 
-        // GET: Control/PopularPhotos/Delete/5
+        // GET: Control/Searches/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            PopularPhotos popularPhotos = db.PopularPhotos.Find(id);
-            if (popularPhotos == null)
+            Searches searches = db.Searches.Find(id);
+            if (searches == null)
             {
                 return HttpNotFound();
             }
-            return View(popularPhotos);
+            return View(searches);
         }
 
-        // POST: Control/PopularPhotos/Delete/5
+        // POST: Control/Searches/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            PopularPhotos popularPhotos = db.PopularPhotos.Find(id);
-            db.PopularPhotos.Remove(popularPhotos);
+            Searches searches = db.Searches.Find(id);
+            db.Searches.Remove(searches);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

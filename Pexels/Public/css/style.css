@@ -63,7 +63,7 @@
         }
 
 header.index {
-    background-image: url("../image/background-image2.jpeg");
+    
     height: 31.25rem;
     background-blend-mode: darken;
     background-color: #00000033;
@@ -581,7 +581,6 @@ ul {
 }
 
 .faq-header {
-    background-image: url("../image/faq-background.jpg");
     height: 350px;
     background-size: cover;
     background-repeat: no-repeat;
@@ -705,15 +704,14 @@ ul {
     padding-right: 10px;
 }
 
-    .photos .photos-column .image-div {
-        position: relative;
+    .photo {
         box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.25);
     }
 
-        .photos .photos-column .image-div img {
-            width: 100%;
-            height: 100%;
+        .photo img {
+            position: relative;
         }
+
 
 .title-search {
     margin-top: 6%;
@@ -737,18 +735,20 @@ ul {
 
 .photo-buttons {
     width: 14%;
-    position: absolute;
     font-size: 20px;
-    right: 0%;
-    bottom: 5%;
     opacity: 0;
     transition: all .3s;
 }
 
     .photo-buttons i {
+        cursor: pointer;
+        right: 5%;
+        bottom: 40px;
         color: white;
         text-shadow: 0 0 3px rgba(0, 0, 0, 0.6);
         line-height: .3;
+        position: absolute;
+
     }
 
         .photo-buttons a i {

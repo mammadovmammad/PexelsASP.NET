@@ -7,7 +7,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Pexels Login</title>
+    <title>Pexels Giriş</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!--===============================================================================================-->
@@ -32,29 +32,36 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <!--===============================================================================================-->
     <link rel="stylesheet" type="text/css" href="/Public/Login/css/util.css">
+    <!--===============================================================================================-->
     <link rel="stylesheet" type="text/css" href="/Public/Login/css/main.css">
     <!--===============================================================================================-->
 </head>
 <body>
 
-    @*Register Head*@
+    <!--Register Head-->
     <div class="limiter">
         <div class="container-login100">
             <div class="wrap-login100 p-l-55 p-r-55 p-t-65 p-b-50">
+                <!--Navigation-->
                 <div class="row navi d-flex justify-content-between">
                     <div class="index-navi">
                         <img src="/Public/image/logo.jpg" width="30" height="30" alt="">
-                        <a href="@Url.Action("Index","Home")">Pexels</a>
+                        <a href="@Url.Action("Index", "Home")">Pexels</a>
                     </div>
                     <div class="login-join-navi">
-                        <a href="@Url.Action("Index","Login")">Giriş</a>
-                        <a href="@Url.Action("Index","Join")">Qeydiyyat</a>
+                        <a href="@Url.Action("Login", "Account")">Giriş</a>
+                        <a href="@Url.Action("Create", "Join")">Qeydiyyat</a>
                     </div>
                 </div>
 
-                @*Register Form*@
+                <!--Register Form-->
                 <form role="form" class="login100-form validate-form" method="post" action="@Url.Action("Login", "Account")">
-                    @Html.ValidationSummary(true, " ", new { @class = "text-danger" })
+
+                    @if (ViewBag.WrongPassOrEmail != null)
+                    {
+                        <p class="text-danger">@ViewBag.WrongPassOrEmail</p>
+                    }
+
                     <div class="wrap-input100 validate-input" data-validate="E-poçt boş buraxıla bilməz: ex@abc.xyz">
                         <input class="input100" type="email" name="email" placeholder="E-poçt">
                         <span class="field-validation-error text-danger"
@@ -86,7 +93,7 @@
                             Hesab yaratmaq istəyirsiniz?
                         </span>
 
-                        <a href="@Url.Action("Index", "join")" class="txt2 hov1">
+                        <a href="@Url.Action("Create", "join")" class="txt2 hov1">
                             Qeydiyyat
                         </a>
 
@@ -97,23 +104,25 @@
     </div>
 
 
-
     <!--===============================================================================================-->
     <script src="~/Public/Login/vendor/jquery/jquery-3.2.1.min.js"></script>
     <!--===============================================================================================-->
     <script src="~/Public/Login/vendor/animsition/js/animsition.min.js"></script>
     <!--===============================================================================================-->
     <script src="~/Public/Login/vendor/bootstrap/js/popper.js"></script>
+    <!--===============================================================================================-->
     <script src="~/Public/Login/vendor/bootstrap/js/bootstrap.min.js"></script>
     <!--===============================================================================================-->
     <script src="~/Public/Login/vendor/select2/select2.min.js"></script>
     <!--===============================================================================================-->
     <script src="~/Public/Login/vendor/daterangepicker/moment.min.js"></script>
+    <!--===============================================================================================-->
     <script src="~/Public/Login/vendor/daterangepicker/daterangepicker.js"></script>
     <!--===============================================================================================-->
     <script src="~/Public/Login/vendor/countdowntime/countdowntime.js"></script>
     <!--===============================================================================================-->
     <script src="~/Public/Login/js/main.js"></script>
+    <!--===============================================================================================-->
 
 </body>
 </html>

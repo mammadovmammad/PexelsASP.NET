@@ -10,68 +10,31 @@
     <h3>Breakfast time</h3>
 </div>
 
+<div class="grid" data-masonry='{ "itemSelector": ".grid-item" }' @*data-infinite-scroll='{ "path": ".pagination__next", "append": ".grid-item", "history": false }'*@>
+    @foreach (var item in Model.Photos)
+    {
+        <div class="grid-item">
+            <div class="photo">
+                <a href="@Url.Action("index", "Photosingle", new {id = @item.Id})">
+                    <img src="/Public/UserImage/@item.Link" alt="">
+                </a>
+            </div>
 
-@{
-    int count = 2;
-    int inc = 0;
-}
-
-<div class="photos">
-    <div class="row">
-        @for (int i = 0; i < count; i++)
-        {
-            <div class="col-lg-4 photos-column">
-                @if (i == 0)
+            <div class="photo-buttons">
+                @if (Session["User"] == null)
                 {
-                    for (int k = 0; k < 3; k++)
-                    {
-                        <div class="image-div mb-3">
-                            <a href=@Url.Action("index", "Photosingle", new {id = @Model.Photos[i * count + k + inc].Id})>
-                                <img src="/Public/UserImage/@Model.Photos[i * count + k + inc].Link" alt="">
-                            </a>
-                            <div class="photo-buttons">
-                                <a href=""><i class="fas fa-plus-circle"></i></a>
-                                @if (Session["User"] == null)
-                                {
-                                    <a href="@Url.Action("login","Account")"><i class="fas fa-heart right-like-button"></i></a>
-                                }
-                                else
-                                {
-                                    <i class="fas fa-heart right-like-button"></i>
-                                }
-                                <input type="hidden" id="isLikeed" value="0" />
-                                <input class="forPhotoId" type="hidden" value="@Model.Photos[i * count + k + inc].Id" />
-                                @*<input class="" type="hidden" value="@Model.Likes.Where(l=>l.PhotoId==Model.Photos[i * count + k + inc].Id)"/>*@
-                            </div>
-                        </div>
-                    }
+                    <a href="@Url.Action("login","Account")"><i class="fas fa-heart right-like-button"></i></a>
                 }
                 else
                 {
-                    for (int k = 0; k < 3; k++)
-                    {
-                        <div class="image-div mb-3">
-                            <a href=@Url.Action("index", "Photosingle", new {id = @Model.Photos[i * count + k + inc].Id})>
-                                <img src="/Public/UserImage/@Model.Photos[i * count + k + inc].Link" alt="">
-                            </a>
-                            <div class="photo-buttons">
-                                <a href=""><i class="fas fa-plus-circle"></i></a>
-                                @if (Session["User"] == null)
-                                {
-                                    <a href="@Url.Action("login","Account")"><i class="fas fa-heart right-like-button"></i></a>
-                                }
-                                else
-                                {
-                                    <i class="fas fa-heart right-like-button"></i>
-                                }
-                                <input type="hidden" id="isLikeed" value="0" />
-                                <input class="forPhotoId" type="hidden" value="@Model.Photos[i * count + k + inc].Id" />
-                            </div>
-                        </div>
-                    }
-                    inc++;
+                    <i class="fas fa-heart right-like-button"></i>
                 }
+
+                <input type="hidden" id="isLikeed" value="0" />
+                <input class="forPhotoId" type="hidden" value="@item.Id" />
             </div>
-        }
-    </div>
+        </div>
+    }
 </div>
+
+

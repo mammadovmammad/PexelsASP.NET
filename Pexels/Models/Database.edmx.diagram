@@ -9,7 +9,6 @@
         <EntityTypeShape EntityType="PexelsModel.AboutUs" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="PexelsModel.Homes" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="PexelsModel.PopularPhotos" Width="1.5" PointX="6.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="PexelsModel.PopularSearches" Width="1.5" PointX="0.75" PointY="5.75" IsExpanded="true" />
         <EntityTypeShape EntityType="PexelsModel.AboutHeaders" Width="1.5" PointX="4.75" PointY="3.5" />
         <EntityTypeShape EntityType="PexelsModel.LisenceHeader" Width="1.5" PointX="2.75" PointY="5.75" />
         <EntityTypeShape EntityType="PexelsModel.Category" Width="1.5" PointX="4.75" PointY="5.75" />
@@ -28,6 +27,7 @@
         <AssociationConnector Association="PexelsModel.FK_Likes_Users" />
         <EntityTypeShape EntityType="PexelsModel.Admins" Width="1.5" PointX="8.875" PointY="0.75" />
         <AssociationConnector Association="PexelsModel.FK_Photos_Users" />
+        <EntityTypeShape EntityType="PexelsModel.Searches" Width="1.5" PointX="0.75" PointY="5.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

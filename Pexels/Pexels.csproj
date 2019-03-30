@@ -172,8 +172,7 @@
     <Compile Include="Areas\Control\Controllers\LisenceHeadersController.cs" />
     <Compile Include="Areas\Control\Controllers\LisenceNotAllowsController.cs" />
     <Compile Include="Areas\Control\Controllers\PhotosController.cs" />
-    <Compile Include="Areas\Control\Controllers\PopularPhotosController.cs" />
-    <Compile Include="Areas\Control\Controllers\PopularSearchesController.cs" />
+    <Compile Include="Areas\Control\Controllers\SearchesController.cs" />
     <Compile Include="Areas\Control\Controllers\SettingsController.cs" />
     <Compile Include="Controllers\AboutusController.cs" />
     <Compile Include="Controllers\AJAXController.cs" />
@@ -189,7 +188,6 @@
     <Compile Include="Controllers\PopularsearchesController.cs" />
     <Compile Include="Controllers\ProfileController.cs" />
     <Compile Include="Controllers\SearchController.cs" />
-    <Compile Include="Controllers\UploadController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -258,7 +256,7 @@
     <Compile Include="Models\PopularPhotos.cs">
       <DependentUpon>Database.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\PopularSearches.cs">
+    <Compile Include="Models\Searches.cs">
       <DependentUpon>Database.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Settings.cs">
@@ -384,6 +382,7 @@
       <LastGenOutput>Database.cs</LastGenOutput>
     </Content>
     <Content Include="Public\css\style.css" />
+    <Content Include="Public\image\2019_03_25_07_00_31big-photo-2.jpeg" />
     <Content Include="Public\image\about-background.jpg" />
     <Content Include="Public\image\background-image2.jpeg" />
     <Content Include="Public\image\background-search.jpeg" />
@@ -560,11 +559,6 @@
     <Content Include="Areas\Control\Views\Categories\Details.cshtml" />
     <Content Include="Areas\Control\Views\Categories\Edit.cshtml" />
     <Content Include="Areas\Control\Views\Categories\Index.cshtml" />
-    <Content Include="Areas\Control\Views\FaqHeaders\Create.cshtml" />
-    <Content Include="Areas\Control\Views\FaqHeaders\Delete.cshtml" />
-    <Content Include="Areas\Control\Views\FaqHeaders\Details.cshtml" />
-    <Content Include="Areas\Control\Views\FaqHeaders\Edit.cshtml" />
-    <Content Include="Areas\Control\Views\FaqHeaders\Index.cshtml" />
     <Content Include="Areas\Control\Views\FaqNews\Create.cshtml" />
     <Content Include="Areas\Control\Views\FaqNews\Delete.cshtml" />
     <Content Include="Areas\Control\Views\FaqNews\Details.cshtml" />
@@ -605,21 +599,21 @@
     <Content Include="Areas\Control\Views\Photos\Details.cshtml" />
     <Content Include="Areas\Control\Views\Photos\Edit.cshtml" />
     <Content Include="Areas\Control\Views\Photos\Index.cshtml" />
-    <Content Include="Areas\Control\Views\PopularPhotos\Create.cshtml" />
-    <Content Include="Areas\Control\Views\PopularPhotos\Delete.cshtml" />
-    <Content Include="Areas\Control\Views\PopularPhotos\Details.cshtml" />
-    <Content Include="Areas\Control\Views\PopularPhotos\Edit.cshtml" />
-    <Content Include="Areas\Control\Views\PopularPhotos\Index.cshtml" />
-    <Content Include="Areas\Control\Views\PopularSearches\Create.cshtml" />
-    <Content Include="Areas\Control\Views\PopularSearches\Delete.cshtml" />
-    <Content Include="Areas\Control\Views\PopularSearches\Details.cshtml" />
-    <Content Include="Areas\Control\Views\PopularSearches\Edit.cshtml" />
-    <Content Include="Areas\Control\Views\PopularSearches\Index.cshtml" />
     <Content Include="Areas\Control\Views\Settings\Create.cshtml" />
     <Content Include="Areas\Control\Views\Settings\Delete.cshtml" />
     <Content Include="Areas\Control\Views\Settings\Details.cshtml" />
     <Content Include="Areas\Control\Views\Settings\Edit.cshtml" />
     <Content Include="Areas\Control\Views\Settings\Index.cshtml" />
+    <Content Include="Areas\Control\Views\FaqHeaders\Create.cshtml" />
+    <Content Include="Areas\Control\Views\FaqHeaders\Delete.cshtml" />
+    <Content Include="Areas\Control\Views\FaqHeaders\Details.cshtml" />
+    <Content Include="Areas\Control\Views\FaqHeaders\Edit.cshtml" />
+    <Content Include="Areas\Control\Views\FaqHeaders\Index.cshtml" />
+    <Content Include="Areas\Control\Views\Searches\Create.cshtml" />
+    <Content Include="Areas\Control\Views\Searches\Delete.cshtml" />
+    <Content Include="Areas\Control\Views\Searches\Details.cshtml" />
+    <Content Include="Areas\Control\Views\Searches\Edit.cshtml" />
+    <Content Include="Areas\Control\Views\Searches\Index.cshtml" />
     <None Include="packages.config" />
     <Content Include="Public\css\style.css.map" />
     <Content Include="Public\css\style.scss" />
@@ -718,14 +712,14 @@
     <Content Include="Views\Collections\Index.cshtml" />
     <Content Include="Views\Photosingle\Index.cshtml" />
     <Content Include="Views\Account\Login.cshtml" />
-    <Content Include="Views\Join\Index.cshtml" />
+    <Content Include="Views\Join\Create.cshtml" />
     <Content Include="Public\Login\vendor\bootstrap\css\bootstrap-grid.css.map" />
     <Content Include="Public\Login\vendor\bootstrap\css\bootstrap-grid.min.css.map" />
     <Content Include="Public\Login\vendor\bootstrap\css\bootstrap-reboot.css.map" />
     <Content Include="Public\Login\vendor\bootstrap\css\bootstrap-reboot.min.css.map" />
     <Content Include="Public\Login\vendor\bootstrap\css\bootstrap.css.map" />
     <Content Include="Public\Login\vendor\bootstrap\css\bootstrap.min.css.map" />
-    <Content Include="Views\Profile\Index.cshtml" />
+    <Content Include="Views\Profile\Upload.cshtml" />
     <Content Include="Views\Shared\_PartialPhotos.cshtml" />
     <Content Include="Views\Home\Search.cshtml" />
   </ItemGroup>

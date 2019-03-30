@@ -12,13 +12,10 @@ namespace Pexels.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class PopularSearches
+    public partial class Searches
     {
         public int Id { get; set; }
         public string Title { get; set; }
-        public string Desc { get; set; }
-        public string CollectionPhoto { get; set; }
-        public string CollectionTitle { get; set; }
-        public string CollectionIcon { get; set; }
+        public string Photo { get; set; }
     }
 }

@@ -43,18 +43,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="PopularSearches">
-      <EntityTypeMapping TypeName="PexelsModel.PopularSearches">
-        <MappingFragment StoreEntitySet="PopularSearches">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="Title" ColumnName="Title" />
-          <ScalarProperty Name="Desc" ColumnName="Desc" />
-          <ScalarProperty Name="CollectionPhoto" ColumnName="CollectionPhoto" />
-          <ScalarProperty Name="CollectionTitle" ColumnName="CollectionTitle" />
-          <ScalarProperty Name="CollectionIcon" ColumnName="CollectionIcon" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="AboutHeaders">
       <EntityTypeMapping TypeName="PexelsModel.AboutHeaders">
         <MappingFragment StoreEntitySet="AboutHeaders">
@@ -153,6 +141,7 @@
     <EntitySetMapping Name="FaqHeaders">
       <EntityTypeMapping TypeName="PexelsModel.FaqHeaders">
         <MappingFragment StoreEntitySet="FaqHeaders">
+          <ScalarProperty Name="Background" ColumnName="Background" />
           <ScalarProperty Name="Desc" ColumnName="Desc" />
           <ScalarProperty Name="Title" ColumnName="Title" />
           <ScalarProperty Name="Id" ColumnName="Id" />
@@ -184,6 +173,15 @@
         <MappingFragment StoreEntitySet="Admins">
           <ScalarProperty Name="Name" ColumnName="Name" />
           <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Searches">
+      <EntityTypeMapping TypeName="PexelsModel.Searches">
+        <MappingFragment StoreEntitySet="Searches">
+          <ScalarProperty Name="Photo" ColumnName="Photo" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
           <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>

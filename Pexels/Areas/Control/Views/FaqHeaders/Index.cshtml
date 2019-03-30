@@ -1,8 +1,10 @@
 ﻿@model IEnumerable<Pexels.Models.FaqHeaders>
 
 @{
-    ViewBag.Title = "Suallar başlıq";
+    ViewBag.Title = "Index";
 }
+
+<h2>Index</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
@@ -15,6 +17,9 @@
         <th>
             @Html.DisplayNameFor(model => model.Desc)
         </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Background)
+        </th>
         <th></th>
     </tr>
 
@@ -25,6 +30,9 @@
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Desc)
+        </td>
+        <td>
+            <img src="~/Public/image/@item.Background" width="150px"/>
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |

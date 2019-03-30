@@ -22,7 +22,7 @@ namespace Pexels.Controllers
         }
 
 
-        //Login User In Login Page
+        //User Login In Page
         [HttpPost]
         public ActionResult Login(Users user)
         {
@@ -37,19 +37,12 @@ namespace Pexels.Controllers
                 }
                 else
                 {
-                    ModelState.AddModelError(string.Empty,"E-poçt və ya şifrə yanlışdır!");
+                    ViewBag.WrongPassOrEmail = "E-poçt və ya şifrə yanlışdır!";
                     return View(user);
                 }
             }
-            else
-            {
-                ModelState.AddModelError(string.Empty, "E-poçt və ya şifrə yanlışdır!");
-                return View(user);
-            }
-
             return View(user);
         }
-
 
         //User Logout
         public ActionResult Logout()

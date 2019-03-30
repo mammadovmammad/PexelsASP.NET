@@ -11,11 +11,11 @@ namespace Pexels.Controllers
     {
         PexelsEntities db =new PexelsEntities();
         // GET: Search
-        public ActionResult Index()
+        public ActionResult Index(string name)
         {
             VwModel data = new VwModel();
             data.Settings = db.Settings.FirstOrDefault();
-            data.Photos = db.Photos.OrderByDescending(p => p.Id).Take(9).ToList();
+            data.Photos = db.Photos.OrderByDescending(p => p.Id).Where(p=>p.Name.Contains(name)).Take(9).ToList();
             return View(data);
         }
     }

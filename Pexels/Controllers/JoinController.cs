@@ -12,29 +12,31 @@ namespace Pexels.Controllers
     public class JoinController : Controller
     {
         PexelsEntities db = new PexelsEntities();
-        // GET: Join
-        public ActionResult Index()
+
+        [HttpGet]
+        public ActionResult Create()
         {
             return View();
         }
-
 
         // Create User In Register Page
         [HttpPost]
         public ActionResult Create(Users users)
         {
-            if (db.Users.Count(u => u.Email == users.Email) == 1)
+            var sameEmail = db.Users.FirstOrDefault(e => e.Email == users.Email);
+            if (sameEmail!=null)
             {
-                ModelState.AddModelError("SameUser", "We already have a user with such username or email in our database.");
+                ViewBag.SameEmailError = "Bu E-poçt artıq qeydiyyatdan keçib";
+                return View();
             }
             else
             {
-                users.Password = Crypto.HashPassword(users.Password);
-                //db.Users.FirstOrDefault(u => u.Name == users.Name&&u.Surname==users.Surname&&u.Email==users.Email&&u.Password==users.Password);
+                    users.Password = Crypto.HashPassword(users.Password);
+                    //db.Users.FirstOrDefault(u => u.Name == users.Name&&u.Surname==users.Surname&&u.Email==users.Email&&u.Password==users.Password);
                     db.Users.Add(users);
                     db.SaveChanges();
             }
-            return RedirectToAction("Index","Join");
+            return RedirectToAction("Create","Join");
         }
     }
 }

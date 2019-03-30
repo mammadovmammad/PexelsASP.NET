@@ -1,4 +1,4 @@
-﻿@model Pexels.Models.PopularPhotos
+﻿@model Pexels.Models.Searches
 
 @{
     ViewBag.Title = "Details";
@@ -7,7 +7,7 @@
 <h2>Details</h2>
 
 <div>
-    <h4>PopularPhotos</h4>
+    <h4>Searches</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
@@ -23,15 +23,7 @@
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Photo)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Icon)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Icon)
+            <img src="~/Public/UserImage/@Model.Photo" width="250px"/>
         </dd>
 
     </dl>

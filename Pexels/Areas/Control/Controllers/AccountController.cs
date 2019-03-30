@@ -16,6 +16,8 @@ namespace Pexels.Areas.Control.Controllers
         {
             return View();
         }
+
+        //Login Admin In Control Panel
         [HttpPost]
         public ActionResult Login(Admins admin)
         {
@@ -39,6 +41,7 @@ namespace Pexels.Areas.Control.Controllers
             }
         }
 
+        //Logout Admin
         public ActionResult Logout()
         {
             Session.Clear();

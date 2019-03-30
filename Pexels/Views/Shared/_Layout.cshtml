@@ -47,7 +47,7 @@
                             <div class="dropdown-content-more">
                                 @if (Session["LoggedUser"] != null)
                                 {
-                                    <a href="@Url.Action("index","Profile")">Profil</a>
+                                    <a href="@Url.Action("Upload","Profile")">Profil</a>
                                     <a href="@Url.Action("Logout", "Account")">Çıxış</a>
                                     <a href="@Url.Action("index", "join")">Qeydiyyat</a>
                                     <a href="@Url.Action("index", "aboutus")">Haqqımızda</a>
@@ -56,7 +56,7 @@
                                 else
                                 {
                                     <a href="@Url.Action("Login", "Account")">Giriş</a>
-                                    <a href="@Url.Action("index", "join")">Qeydiyyat</a>
+                                    <a href="@Url.Action("Create", "join")">Qeydiyyat</a>
                                     <a href="@Url.Action("index", "aboutus")">Haqqımızda</a>
                                     <a href="@Url.Action("index", "faq")">Suallar</a>
                                 }
@@ -70,7 +70,7 @@
                         </div>
                     </li>
                     <li>
-                        <a href="@Url.Action("Index", "Profile")">
+                        <a href="@Url.Action("Upload", "Profile")">
                             <button type="button" class="btn btn-success">Yükləmək</button>
                         </a>
                     </li>
@@ -92,9 +92,9 @@
             <hr/>
             @if (Session["LoggedUser"] != null)
             {
-                <li><a href="@Url.Action("index","Profile")">Profil</a></li>
+                <li><a href="@Url.Action("Upload","Profile")">Profil</a></li>
                 <li><a href="@Url.Action("Logout", "Account")">Çıxış</a></li>
-                <li> <a href="@Url.Action("index","join")">Qeydiyyat</a></li>
+                <li> <a href="@Url.Action("Create","join")">Qeydiyyat</a></li>
                 <li><a href="@Url.Action("index","Lisence")">Lisenziya</a></li>
                 <li> <a href="@Url.Action("index","aboutus")">Haqqımızda</a></li>
                 <li> <a href="@Url.Action("index","faq")">Suallar</a></li>
@@ -102,7 +102,7 @@
             else
             {
                 <li><a href="@Url.Action("Login", "Account")">Giriş</a></li>
-                <li><a href="@Url.Action("index", "join")">Qeydiyyat</a></li>
+                <li><a href="@Url.Action("Create", "join")">Qeydiyyat</a></li>
                 <li><a href="@Url.Action("index","Lisence")">Lisenziya</a></li>
                 <li><a href="@Url.Action("index", "aboutus")">Haqqımızda</a></li>
                 <li><a href="@Url.Action("index", "faq")">Suallar</a></li>
@@ -151,7 +151,7 @@
                         Pexels
                     </a>
                     <p>Gözəl fotoşəkillər bizim istedadlı cəmiyyətimiz tərəfindən əmələ gəlmişdir.</p>
-                    <a class="register" href="@Url.Action("index","join")">Pulsuz Qeydiyyatdan keç →</a>
+                    <a class="register" href="@Url.Action("Create","join")">Pulsuz Qeydiyyatdan keç →</a>
                     <ul class="social-list">
                         <li><a href="https://www.instagram.com/"><i class="fab fa-instagram"></i></a></li>
                         <li><a href="https://twitter.com/"><i class="fab fa-twitter"></i></a></li>

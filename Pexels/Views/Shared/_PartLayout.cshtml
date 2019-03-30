@@ -48,16 +48,16 @@
                         <div class="dropdown-content-more">
                             @if (Session["LoggedUser"] != null)
                             {
-                                <a href="@Url.Action("index","Profile")">Profil</a>
+                                <a href="@Url.Action("Upload","Profile")">Profil</a>
                                 <a href="@Url.Action("Logout", "Account")">Çıxış</a>
-                                <a href="@Url.Action("index", "join")">Qeydiyyat</a>
+                                <a href="@Url.Action("Create", "join")">Qeydiyyat</a>
                                 <a href="@Url.Action("index", "aboutus")">Haqqımızda</a>
                                 <a href="@Url.Action("index", "faq")">Suallar</a>
                             }
                             else
                             {
                                 <a href="@Url.Action("Login", "Account")">Giriş</a>
-                                <a href="@Url.Action("index", "join")">Qeydiyyat</a>
+                                <a href="@Url.Action("Create", "join")">Qeydiyyat</a>
                                 <a href="@Url.Action("index", "aboutus")">Haqqımızda</a>
                                 <a href="@Url.Action("index", "faq")">Suallar</a>
                             }
@@ -72,7 +72,7 @@
 
                 </li>
                 <li>
-                    <a href="@Url.Action("Index", "Profile")">
+                    <a href="@Url.Action("Upload", "Profile")">
                         <button type="button" class="btn btn-success">Yükləmək</button>
                     </a>
                 </li>
@@ -92,9 +92,9 @@
             <hr />
             @if (Session["LoggedUser"] != null)
             {
-                <li><a href="@Url.Action("index","Profile")">Profil</a></li>
+                <li><a href="@Url.Action("Upload","Profile")">Profil</a></li>
                 <li><a href="@Url.Action("Logout", "Account")">Çıxış</a></li>
-                <li> <a href="@Url.Action("index","join")">Qeydiyyat</a></li>
+                <li> <a href="@Url.Action("Create","join")">Qeydiyyat</a></li>
                 <li><a href="@Url.Action("index","Lisence")">Lisenziya</a></li>
                 <li> <a href="@Url.Action("index","aboutus")">Haqqımızda</a></li>
                 <li> <a href="@Url.Action("index","faq")">Suallar</a></li>
@@ -102,7 +102,7 @@
             else
             {
                 <li><a href="@Url.Action("Login", "Account")">Giriş</a></li>
-                <li><a href="@Url.Action("index", "join")">Qeydiyyat</a></li>
+                <li><a href="@Url.Action("Create", "join")">Qeydiyyat</a></li>
                 <li><a href="@Url.Action("index","Lisence")">Lisenziya</a></li>
                 <li><a href="@Url.Action("index", "aboutus")">Haqqımızda</a></li>
                 <li><a href="@Url.Action("index", "faq")">Suallar</a></li>
@@ -133,7 +133,7 @@
     </div>
 </header>
     
-    <main>
+<main>
     <div class="subnavbar">
         <a class="tab @(controllerName=="discover"?"active":"")" href="@Url.Action("Index","Discover")">Kəşf edin</a>
         <a class="tab @(controllerName=="popularphotos"?"active":"")" href="@Url.Action("Index","Popularphotos")">Populyar şəkillər</a>
@@ -142,14 +142,15 @@
 
     @RenderBody()
     
-    </main>
+</main>
 
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
-    <script src="~/Public/js/masonry.pkgd.min.js"></script>
-    <script src="/Public/js/script.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
+<script src="~/Public/js/masonry.pkgd.min.js"></script>
+<script src="/Public/js/script.js"></script>
 </body>
+</html>
 
 
 

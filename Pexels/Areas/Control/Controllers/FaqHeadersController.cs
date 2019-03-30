@@ -46,7 +46,7 @@ namespace Pexels.Areas.Control.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Title,Desc")] FaqHeaders faqHeaders)
+        public ActionResult Create([Bind(Include = "Id,Title,Desc,Background")] FaqHeaders faqHeaders)
         {
             if (ModelState.IsValid)
             {
@@ -78,7 +78,7 @@ namespace Pexels.Areas.Control.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Title,Desc")] FaqHeaders faqHeaders)
+        public ActionResult Edit([Bind(Include = "Id,Title,Desc,Background")] FaqHeaders faqHeaders)
         {
             if (ModelState.IsValid)
             {

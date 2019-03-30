@@ -1,4 +1,4 @@
-$(document).ready(function () {
+﻿$(document).ready(function () {
         //Change Background Color Scroll Home Page
         $(window).on("scroll",function(){
           var wn = $(window).scrollTop();
@@ -63,9 +63,10 @@ $(document).ready(function () {
         // options
         itemSelector: '.grid-item',
             columnWidth: function (setColumns) { return setColumns / columns; }
-    });
-    
+        });
         //Masonary
+
+
         //$('.grid').infiniteScroll({
         //    // options
         //    path: '.pagination__next',
@@ -108,4 +109,17 @@ $(document).ready(function () {
         
     })
         //Like
+
+        //Error Mesage When Photo Name Null Upload Photo
+    $(".upload").click(function myfunction(e) {
+
+        var imgVal = $(".input_photo").val();
+
+            if (/\s/.test($(".input_name").val()) || imgVal==" ") {
+                e.preventDefault();
+
+                alert("Şəkilin adı boş buraxıla bilməz");
+            }
+        })
+        //Error Mesage When Photo Name Null Upload Photo
 });

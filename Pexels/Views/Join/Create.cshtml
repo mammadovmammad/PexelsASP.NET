@@ -44,13 +44,17 @@
                     </div>
                     <div class="login-join-navi">
                         <a href="@Url.Action("Login","Account")">Giriş</a>
-                        <a href="@Url.Action("Index","Join")">Qeydiyyat</a>
+                        <a href="@Url.Action("Create","Join")">Qeydiyyat</a>
                     </div>
                 </div>
                 @*Register Form*@
                 <form class="login100-form validate-form" method="post" action="@Url.Action("Create", "Join")">
-                    @Html.ValidationSummary(true, "SameUser", new { @class = "text-danger" })
-
+                    @if (ViewBag.SameEmailError != null)
+                    {
+                        <p class="text-danger">
+                            @ViewBag.SameEmailError
+                        </p>
+                    }
                     <div class="wrap-input100 validate-input" data-validate="Ad boş Buraxıla bilməz">
                         <input class="input100" type="text" name="Name" placeholder="Ad">
                         <span class="focus-input100-1"></span>

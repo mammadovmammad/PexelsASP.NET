@@ -1,5 +1,6 @@
 ﻿@using Pexels.Models
 @model Pexels.Models.VwModel
+
 @{
     Layout = "~/Views/Shared/_PartLayout.cshtml";
 }
@@ -23,9 +24,14 @@
             
 
         <div class="upload-photo col-lg-3 text-left">
-            <form method="post" action="@Url.Action("Upload", "Upload")" enctype="multipart/form-data">
+            <form method="post" action="@Url.Action("Upload", "Profile")" enctype="multipart/form-data">
                 <div class="form-group" style="display: inline-block; width: 50%;">
-                    <input class="form-control" type="file" name="img"/>
+                    @if (ViewBag.IMGnullError != null)
+                    {
+                        <p class="text-danger">@ViewBag.IMGnullError</p>
+                    }
+                    <input class="form-control input_photo" type="file" name="img"/>
+
                 </div>
 
                 <div class="form-group text-right" style="display: inline-block;width: 48%;">
@@ -37,7 +43,11 @@
                     </select>
                 </div>
                 <div class="form-group">
-                    <input class="form-control" type="text" name="name"/>
+                    @if (ViewBag.NameNullError != null)
+                    {
+                        <p class="text-danger">@ViewBag.NameNullError</p>
+                    }
+                    <input class="form-control input_name" type="text" name="name"/>
                 </div>
                 <button type="submit" class="btn btn-success upload">Yükləmək</button>
             </form>

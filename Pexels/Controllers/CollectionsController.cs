@@ -14,7 +14,7 @@ namespace Pexels.Controllers
         public ActionResult Index(int? id)
         {
             VwModel data = new VwModel();
-            data.Photos = db.Photos.Where(v => v.CategoryId == id).ToList();
+            data.Photos = db.Photos.Where(v => v.CategoryId == id).OrderByDescending(p=>p.Id).ToList();
             data.Settings = db.Settings.FirstOrDefault();
             return View(data);
         }

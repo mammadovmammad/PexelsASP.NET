@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Pexels.Models.PopularPhotos>
+﻿@model IEnumerable<Pexels.Models.Searches>
 
 @{
     ViewBag.Title = "Index";
@@ -17,9 +17,6 @@
         <th>
             @Html.DisplayNameFor(model => model.Photo)
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Icon)
-        </th>
         <th></th>
     </tr>
 
@@ -29,10 +26,7 @@
             @Html.DisplayFor(modelItem => item.Title)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Photo)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Icon)
+            <img src="~/Public/UserImage/@item.Photo" width="150px"/>
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |

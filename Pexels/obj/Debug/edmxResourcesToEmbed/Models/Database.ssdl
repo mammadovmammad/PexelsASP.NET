@@ -51,6 +51,7 @@ warning 6002: The table/view 'Pexels.dbo.AboutUs' does not have a primary key de
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Title" Type="nvarchar" MaxLength="250" />
     <Property Name="Desc" Type="nvarchar(max)" />
+    <Property Name="Background" Type="nvarchar" MaxLength="250" />
   </EntityType>
   <EntityType Name="FaqNews">
     <Key>
@@ -142,18 +143,13 @@ warning 6002: The table/view 'Pexels.dbo.PopularPhotos' does not have a primary 
     <Property Name="Photo" Type="nvarchar" MaxLength="250" />
     <Property Name="Icon" Type="nvarchar" MaxLength="250" />
   </EntityType>
-  <!--Errors Found During Generation:
-warning 6002: The table/view 'Pexels.dbo.PopularSearches' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
-  <EntityType Name="PopularSearches">
+  <EntityType Name="Searches">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Title" Type="nvarchar" MaxLength="150" />
-    <Property Name="Desc" Type="nvarchar" MaxLength="150" />
-    <Property Name="CollectionPhoto" Type="nvarchar" MaxLength="250" />
-    <Property Name="CollectionTitle" Type="nvarchar" MaxLength="150" />
-    <Property Name="CollectionIcon" Type="nvarchar" MaxLength="50" />
+    <Property Name="Photo" Type="nvarchar" MaxLength="150" />
   </EntityType>
   <EntityType Name="Settings">
     <Key>
@@ -238,6 +234,7 @@ warning 6002: The table/view 'Pexels.dbo.PopularSearches' does not have a primar
     <EntitySet Name="LisenceHeader" EntityType="Self.LisenceHeader" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="LisenceNotAllows" EntityType="Self.LisenceNotAllows" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Photos" EntityType="Self.Photos" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Searches" EntityType="Self.Searches" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Settings" EntityType="Self.Settings" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="AboutUs" EntityType="Self.AboutUs" store:Type="Tables" store:Schema="dbo">
@@ -263,16 +260,6 @@ warning 6002: The table/view 'Pexels.dbo.PopularSearches' does not have a primar
     [PopularPhotos].[Photo] AS [Photo], 
     [PopularPhotos].[Icon] AS [Icon]
     FROM [dbo].[PopularPhotos] AS [PopularPhotos]</DefiningQuery>
-    </EntitySet>
-    <EntitySet Name="PopularSearches" EntityType="Self.PopularSearches" store:Type="Tables" store:Schema="dbo">
-      <DefiningQuery>SELECT 
-    [PopularSearches].[Id] AS [Id], 
-    [PopularSearches].[Title] AS [Title], 
-    [PopularSearches].[Desc] AS [Desc], 
-    [PopularSearches].[CollectionPhoto] AS [CollectionPhoto], 
-    [PopularSearches].[CollectionTitle] AS [CollectionTitle], 
-    [PopularSearches].[CollectionIcon] AS [CollectionIcon]
-    FROM [dbo].[PopularSearches] AS [PopularSearches]</DefiningQuery>
     </EntitySet>
     <AssociationSet Name="FK_Likes_Photos" Association="Self.FK_Likes_Photos">
       <End Role="Photos" EntitySet="Photos" />

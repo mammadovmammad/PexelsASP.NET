@@ -15,6 +15,7 @@ namespace Pexels.Controllers
         {
             VwModel data = new VwModel();
             data.Settings = db.Settings.FirstOrDefault();
+            data.Searches = db.Searches.ToList();
             return View(data);
         }
     }

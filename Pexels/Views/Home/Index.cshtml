@@ -1,4 +1,5 @@
 ﻿@model Pexels.Models.VwModel
+
 @{
     ViewBag.Title = "Index";
     Layout = null;
@@ -18,7 +19,7 @@
 
 <body>
     @*Menu For Index Page*@
-    <header class="index">
+    <header class="index" style="background-image: url('/Public/image/@Model.Homes.Image')">
         <div class="menu home">
             <div class="row menu-navbar-home">
                 @*Logo*@
@@ -42,14 +43,14 @@
                             </div>
                         </li>
                         <li><a href="@Url.Action("Index", "Lisence")">Lisenziya</a></li>
-                        <li><a href="@Url.Action("Index", "Join")">Qeydiyyat</a></li>
+                        <li><a href="@Url.Action("Create", "Join")">Qeydiyyat</a></li>
                         <li>
                             <div class="dropdown">
                                 <a class="dropbtn" href="#"><i class="fas fa-ellipsis-h"></i></a>
                                 <div class="dropdown-content-more">
                                     @if (Session["LoggedUser"] != null)
                                     {
-                                        <a href="@Url.Action("index","Profile")">Profil</a>
+                                        <a href="@Url.Action("Upload","Profile")">Profil</a>
                                         <a href="@Url.Action("Logout", "Account")">Çıxış</a>
                                         <a href="@Url.Action("index", "aboutus")">Haqqımızda</a>
                                         <a href="@Url.Action("index", "faq")">Suallar</a>
@@ -57,7 +58,7 @@
                                     else
                                     {
                                         <a href="@Url.Action("Login", "Account")">Giriş</a>
-                                        <a href="@Url.Action("index", "join")">Qeydiyyat</a>
+                                        <a href="@Url.Action("Create", "join")">Qeydiyyat</a>
                                         <a href="@Url.Action("index", "aboutus")">Haqqımızda</a>
                                         <a href="@Url.Action("index", "faq")">Suallar</a>
                                     }
@@ -88,7 +89,7 @@
                             </div>
                         </li>
                         <li>
-                            <a href="@Url.Action("Index", "Profile")">
+                            <a href="@Url.Action("Upload", "Profile")">
                                 <button type="button" class="btn btn-success">Yükləmək</button>
                             </a>
                         </li>
@@ -100,7 +101,7 @@
         @*Search Section For Search Photos*@
         <div id="search">
             <div class="row d-flex justify-content-center">
-                <h2>İstedadlı fotoqraflar tərəfindən paylaşılan ən yaxşı pulsuz şəkilləri.</h2>
+                <h2>@Model.Homes.HeadTitle</h2>
             </div>
             <div class="row d-flex justify-content-center">
                 <div class="wrap">
@@ -127,9 +128,9 @@
                 <hr />
                 @if (Session["LoggedUser"] != null)
                 {
-                    <li><a href="@Url.Action("index","Profile")">Profil</a></li>
+                    <li><a href="@Url.Action("Upload","Profile")">Profil</a></li>
                     <li><a href="@Url.Action("Logout", "Account")">Çıxış</a></li>
-                    <li> <a href="@Url.Action("index","join")">Qeydiyyat</a></li>
+                    <li> <a href="@Url.Action("Create","join")">Qeydiyyat</a></li>
                     <li><a href="@Url.Action("index","Lisence")">Lisenziya</a></li>
                     <li> <a href="@Url.Action("index","aboutus")">Haqqımızda</a></li>
                     <li> <a href="@Url.Action("index","faq")">Suallar</a></li>
@@ -137,7 +138,7 @@
                 else
                 {
                     <li><a href="@Url.Action("Login", "Account")">Giriş</a></li>
-                    <li><a href="@Url.Action("index", "join")">Qeydiyyat</a></li>
+                    <li><a href="@Url.Action("Create", "join")">Qeydiyyat</a></li>
                     <li><a href="@Url.Action("index","Lisence")">Lisenziya</a></li>
                     <li><a href="@Url.Action("index", "aboutus")">Haqqımızda</a></li>
                     <li><a href="@Url.Action("index", "faq")">Suallar</a></li>
@@ -173,7 +174,7 @@
         <div class="home-content m-container">
             @*Home Page Title*@
             <div class="title">
-                <h4>Pulsuz Foto şəkil</h4>
+                <h4>@Model.Homes.Title</h4>
             </div>
 
             @*Photo Section*@
