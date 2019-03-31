@@ -11,24 +11,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Pulsuz fotoşəkillər - Pexels</title>
+    <!--===============================================================================================-->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <!--===============================================================================================-->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
+    <!--===============================================================================================-->
     <link rel="stylesheet" href="/Public/css/style.css">
+    <!--===============================================================================================-->
 </head>
 
 <body>
-    @*Menu For Index Page*@
+    <!--Menu For Index Page Start-->
     <header class="index" style="background-image: url('/Public/image/background-image2.jpeg')">
         <div class="menu home">
             <div class="row menu-navbar-home">
-                @*Logo*@
+                <!--Logo Start-->
                 <div class="col-lg-2 logo">
                     <a class="logotxt" href="@Url.Action("index", "home")">
                         <img src="/Public/image/logo.jpg" width="35" height="35" alt="">
                         <span>Pexels</span>
                     </a>
                 </div>
-                @*Navbar*@
+                <!--Logo End-->
+                <!--Navbar Start-->
                 <div class="col-lg-10 d-flex justify-content-end">
                     <ul class="navbar-item">
                         <li>
@@ -63,7 +68,7 @@
                                         <a href="@Url.Action("index", "faq")">Suallar</a>
                                     }
 
-
+                                    <!--Social List Start-->
                                     <ul class="social">
                                         <li>
                                             <a target="blank_" href="https://www.facebook.com/">
@@ -86,6 +91,7 @@
                                             </a>
                                         </li>
                                     </ul>
+                                    <!--Social List End-->
                                 </div>
                             </div>
                         </li>
@@ -96,10 +102,12 @@
                         </li>
                     </ul>
                 </div>
+                <!--Navbar End-->
             </div>
             <i class="fas fa-bars res-menu"></i>
         </div>
-        @*Search Section For Search Photos*@
+
+        <!--Search Section For Search Photos Start-->
         <div id="search">
             <div class="row d-flex justify-content-center">
                 <h2>İstedadlı fotoqraflar tərəfindən paylaşılan ən yaxşı pulsuz şəkilləri.</h2>
@@ -115,8 +123,8 @@
                 </div>
             </div>
         </div>
-
-        @*Responsive Menu For Index Page*@
+        <!--Search Section For Search Photos End-->
+        <!--Responsive Menu For Index Page Start-->
         <div class="menu-responsive">
             <ul class="navbar-responsive">
                 <li>
@@ -167,26 +175,36 @@
                 </li>
             </ul>
         </div>
+        <!--Responsive Menu For Index Page End-->
     </header>
+    <!--Menu For Index Page End-->
 
     <main>
-        @*Home Page Content*@
+        <!--Home Page Content Start-->
         <div class="home-content m-container">
-            @*Home Page Title*@
+            <!--Home Page Title Start-->
             <div class="title">
                 <h4>Pulsuz Foto şəkil</h4>
             </div>
+            <!--Home Page Title End-->
 
-            @*Photo Section*@
+            <!--Photo Section Start-->
             @Html.Partial("_PartialPhotos", Model)
+            <!--Photo Section End-->
 
         </div>
+        <!--Home Page Content End-->
     </main>
 
+    <!--===============================================================================================-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!--===============================================================================================-->
     <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
+    <!--===============================================================================================-->
     <script src="~/Public/js/masonry.pkgd.min.js"></script>
+    <!--===============================================================================================-->
     <script src="/Public/js/script.js"></script>
+    <!--===============================================================================================-->
 </body>
 
 </html>

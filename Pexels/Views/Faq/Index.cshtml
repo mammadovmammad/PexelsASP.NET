@@ -4,19 +4,21 @@
 }
 
 <main>
-    @*Header Section In Faq Page*@
+    <!--Header Section In Faq Page Start-->
     <section class="faq-header" style="background-image: url('/Public/image/@Model.FaqHeader.Background')">
         <div class="header-content">
             <h1>@Model.FaqHeader.Title</h1>
             <h3>@Model.FaqHeader.Desc</h3>
         </div>
     </section>
+    <!--Header Section In Faq Page End-->
 
-    @*Faq Content For Ask Questions*@
+    <!--Faq Content For Ask Questions Start-->
     <div class="faq-content">
         <div class="container">
             <div class="col-lg-12">
                 <h2>Mən Pexel'də yeniyəm. Nə bilməliyəm?</h2>
+                <!--I New In Pexels Part Start-->
                 @foreach (var item in Model.FaqNews)
                 {
                     <div class="definition-list">
@@ -30,8 +32,10 @@
                         </div>
                     </div>
                 }
+                <!--I New In Pexels Part End-->
 
                 <h2>Pexels'e fotoşəkillər göndərmək istəyirəm, proses nədir?</h2>
+                <!--I Want Upload Photo Start-->
                 @foreach (var item in Model.FaqUpload)
                 {
                     <div class="definition-list">
@@ -45,9 +49,11 @@
                         </div>
                     </div>
                 }
+                <!--I Want Upload Photo End-->
             </div>
         </div>
     </div>
+    <!--Faq Content For Ask Questions End-->
 
 </main>
 

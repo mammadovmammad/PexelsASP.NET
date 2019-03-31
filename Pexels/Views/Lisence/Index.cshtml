@@ -4,15 +4,16 @@
 }
 
 <main>
-    @*Header Section For Lisence Page*@
+    <!--Header Section For Lisence Page Start-->
     <section class="lisence-header" style="background-image: url('/Public/image/@Model.LisenceHeader.Background')">
         <div class="header-content">
             <h1>@Model.LisenceHeader.Title</h1>
             <h3>@Model.LisenceHeader.Text</h3>
         </div>
     </section>
-    
-    @*Lisence Content Allow*@
+    <!--Header Section For Lisence Page End-->
+
+    <!--Lisence Content Allow Start-->
     <div class="container-center-lisence">
         <div class="col-lg-12 title-center">
             <div class="row">
@@ -36,9 +37,9 @@
             </ul>
         </div>
     </div>
+    <!--Lisence Content Allow End-->
 
-    
-    @*Cards Section*@
+    <!--Cards Section Head Start-->
     <div class="col-lg-12 title-center">
         <div class="row">
             <h1>Hekayənizi şəkillərlə danışın</h1>
@@ -47,6 +48,9 @@
             <p>Pexels Lisenziyasını mümkün qədər sadə tutmağa çalışdıq. Daha ətraflı məlumat üçün oxuyun.</p>
         </div>
     </div>
+    <!--Cards Section Head End-->
+
+    <!--Cards Content Start-->
     <div class="text-content">
         <div class="row">
             @foreach (var item in Model.LisenceCard)
@@ -63,8 +67,9 @@
             }
         </div>
     </div>
-    
-    @*Lisence Content Not Allowed*@
+    <!--Cards Content End-->
+
+    <!--Lisence Content Not Allowed Start-->
     <div class="container-center-lisence">
         <div class="col-lg-12 title-center">
             <div class="row">
@@ -86,5 +91,6 @@
             </ul>
         </div>
     </div>
+    <!--Lisence Content Not Allowed End-->
 </main>
 

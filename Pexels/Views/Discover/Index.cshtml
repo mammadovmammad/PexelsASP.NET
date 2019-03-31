@@ -6,32 +6,36 @@
 
 
 
-    @*Content Title*@
-    <section class="container-center-discover">
-        <div class="title-discover">
-            <h3>@Model.DiscoverHeader.Title</h3>
-            <p>@Model.DiscoverHeader.Desc</p>
-        </div>
-        
-        @*Cards Collection*@
-        <div class="container-center-discover">
-            <div class="row">
-                @foreach (var item in Model.Categories)
-                {
-                    <div class="col-lg-4 collections">
-                        <div class="card text-center" style="width: 20rem;">
-                            <a href="@Url.Action("Index","Collections",new{id = item.Id})">
-                                <img class="card-img-top" src="/Public/UserImage/@item.Image">
-                            </a>
-                            <div class="card-body">
-                                <p class="card-text collections-body">
-                                    <h5>@item.Category1</h5>
-                                    <span>@item.Photos.Count() Şəkil</span>
-                                </p>
-                            </div>
+<!--Discover Section Start-->
+<section class="container-center-discover">
+    <!--Content Title Start-->
+    <div class="title-discover">
+        <h3>@Model.DiscoverHeader.Title</h3>
+        <p>@Model.DiscoverHeader.Desc</p>
+    </div>
+    <!--Content Title End-->
+
+    <!--Cards Collection Start-->
+    <div class="container-center-discover">
+        <div class="row">
+            @foreach (var item in Model.Categories)
+            {
+                <div class="col-lg-4 collections">
+                    <div class="card text-center" style="width: 20rem;">
+                        <a href="@Url.Action("Index", "Collections", new {id = item.Id})">
+                            <img class="card-img-top" src="/Public/UserImage/@item.Image">
+                        </a>
+                        <div class="card-body">
+                            <p class="card-text collections-body">
+                                <h5>@item.Category1</h5>
+                                <span>@item.Photos.Count() Şəkil</span>
+                            </p>
                         </div>
                     </div>
-                }
-            </div>
+                </div>
+            }
         </div>
-    </section>
+    </div>
+    <!--Cards Collection End-->
+</section>
+<!--Discover Section End-->

@@ -6,10 +6,13 @@
     Layout = "../Shared/_PartLayout.cshtml";
 }
 
+<!--Search Photo Title Start-->
 <div class="title-search">
     <h3>Breakfast time</h3>
 </div>
+<!--Search Photo Title End-->
 
+<!--Photos Section Start-->
 <div class="grid" data-masonry='{ "itemSelector": ".grid-item" }' @*data-infinite-scroll='{ "path": ".pagination__next", "append": ".grid-item", "history": false }'*@>
     @foreach (var item in Model.Photos)
     {
@@ -36,5 +39,4 @@
         </div>
     }
 </div>
-
-
+<!--Photos Section End-->

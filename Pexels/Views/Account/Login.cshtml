@@ -38,11 +38,11 @@
 </head>
 <body>
 
-    <!--Register Head-->
+    <!--Register Head Start-->
     <div class="limiter">
         <div class="container-login100">
             <div class="wrap-login100 p-l-55 p-r-55 p-t-65 p-b-50">
-                <!--Navigation-->
+                <!--Navigation Start-->
                 <div class="row navi d-flex justify-content-between">
                     <div class="index-navi">
                         <img src="/Public/image/logo.jpg" width="30" height="30" alt="">
@@ -53,8 +53,9 @@
                         <a href="@Url.Action("Create", "Join")">Qeydiyyat</a>
                     </div>
                 </div>
+                <!--Navigation End-->
 
-                <!--Register Form-->
+                <!--Register Form Start-->
                 <form role="form" class="login100-form validate-form" method="post" action="@Url.Action("Login", "Account")">
 
                     @if (ViewBag.WrongPassOrEmail != null)
@@ -99,10 +100,12 @@
 
                     </div>
                 </form>
+                <!--Register Form End-->
+
             </div>
         </div>
     </div>
-
+    <!--Register Head End-->
 
     <!--===============================================================================================-->
     <script src="~/Public/Login/vendor/jquery/jquery-3.2.1.min.js"></script>

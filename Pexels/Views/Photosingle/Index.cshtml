@@ -4,26 +4,29 @@
     Layout = "../Shared/_PartLayout.cshtml";
 }
 
+
+<!--Image Section Start-->
 <section class="image-section mt-100 justify-content-around">
     <div class="row">
-        @*Image Div*@
+        <!--Image Div Start-->
         <div class="col-lg-8">
             <span>@Model.PhotoModel.Name</span>
             <div class="image">
                 <img src="/Public/UserImage/@Model.PhotoModel.Link" alt="">
             </div>
-            
         </div>
-        @*Download And Like Buttons*@
+        <!--Image Div End-->
+
+        <!--Download And Like Buttons Start-->
         <div class="col-lg-4">
             <div class="content">
                 <div class="row">
                     <div class="col-lg-7">
                         <div class="download">
-                                <a href="/Public/UserImage/@Model.PhotoModel.Link" download="/Public/UserImage/@Model.PhotoModel.Link">
-                                    <i class="fas fa-download"></i>
-                                    Pulsuz yüklə
-                                </a>
+                            <a href="/Public/UserImage/@Model.PhotoModel.Link" download="/Public/UserImage/@Model.PhotoModel.Link">
+                                <i class="fas fa-download"></i>
+                                Pulsuz yüklə
+                            </a>
                         </div>
                     </div>
 
@@ -36,15 +39,16 @@
                     </div>
                 </div>
 
-                @*Pexels Photo Lisence *@
+                <!--Pexels Photo Lisence Start-->
                 <div class="pexels-lisence-photo mt-40">
                     <h4>Pexels Lisenziya</h4>
                     <p>✓ Şəxsi və kommersiya istifadə üçün pulsuzdur</p>
                     <p>✓ Atribut tələb olunmur</p>
                     <a href="@Url.Action("index", "Lisence")">Learn more about the license »</a>
                 </div>
+                <!--Pexels Photo Lisence End-->
 
-                @*Follow*@
+                <!--Follow Start-->
                 <div class="pexels-follow mt-40">
                     <h4>Pexels İzləyin</h4>
                     <a target="_blank" href="https://www.instagram.com/pexels/">
@@ -52,9 +56,11 @@
                         <span>Instagram</span>
                     </a>
                 </div>
+                <!--Follow Start End-->
 
             </div>
         </div>
+        <!--Download And Like Buttons End-->
     </div>
-
 </section>
+<!--Image Section End-->

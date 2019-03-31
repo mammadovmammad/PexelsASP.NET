@@ -25,29 +25,34 @@
     <link rel="stylesheet" type="text/css" href="/Public/Login/vendor/select2/select2.min.css">
     <!--===============================================================================================-->
     <link rel="stylesheet" type="text/css" href="/Public/Login/vendor/daterangepicker/daterangepicker.css">
+    <!--===============================================================================================-->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
     <!--===============================================================================================-->
     <link rel="stylesheet" type="text/css" href="/Public/Login/css/util.css">
+    <!--===============================================================================================-->
     <link rel="stylesheet" type="text/css" href="/Public/Login/css/main.css">
     <!--===============================================================================================-->
 </head>
 <body>
 
-            @*Register Head*@
-<div class="limiter">
+    <!--Register Head Start-->
+    <div class="limiter">
         <div class="container-login100">
             <div class="wrap-login100 p-l-55 p-r-55 p-t-65 p-b-50">
+                <!--Register Navi Start-->
                 <div class="row navi d-flex justify-content-between">
                     <div class="index-navi">
                         <img src="/Public/image/logo.jpg" width="30" height="30" alt="">
-                        <a href="@Url.Action("Index","Home")">Pexels</a>
+                        <a href="@Url.Action("Index", "Home")">Pexels</a>
                     </div>
                     <div class="login-join-navi">
-                        <a href="@Url.Action("Login","Account")">Giriş</a>
-                        <a href="@Url.Action("Create","Join")">Qeydiyyat</a>
+                        <a href="@Url.Action("Login", "Account")">Giriş</a>
+                        <a href="@Url.Action("Create", "Join")">Qeydiyyat</a>
                     </div>
                 </div>
-                @*Register Form*@
+                <!--Register Navi End-->
+
+                <!--Register Form Start-->
                 <form class="login100-form validate-form" method="post" action="@Url.Action("Create", "Join")">
                     @if (ViewBag.SameEmailError != null)
                     {
@@ -85,13 +90,11 @@
                         </button>
                     </div>
                 </form>
+                <!--Register Form End-->
             </div>
-
         </div>
     </div>
-    </div>
-
-
+    <!--Register Head End-->
 
     <!--===============================================================================================-->
     <script src="/Public/Login/vendor/jquery/jquery-3.2.1.min.js"></script>
@@ -99,16 +102,19 @@
     <script src="/Public/Login/vendor/animsition/js/animsition.min.js"></script>
     <!--===============================================================================================-->
     <script src="/Public/Login/vendor/bootstrap/js/popper.js"></script>
+    <!--===============================================================================================-->
     <script src="/Public/Login/vendor/bootstrap/js/bootstrap.min.js"></script>
     <!--===============================================================================================-->
     <script src="/Public/Login/vendor/select2/select2.min.js"></script>
     <!--===============================================================================================-->
     <script src="/Public/Login/vendor/daterangepicker/moment.min.js"></script>
+    <!--===============================================================================================-->
     <script src="/Public/Login/vendor/daterangepicker/daterangepicker.js"></script>
     <!--===============================================================================================-->
     <script src="/Public/Login/vendor/countdowntime/countdowntime.js"></script>
     <!--===============================================================================================-->
     <script src="/Public/Login/js/main.js"></script>
+    <!--===============================================================================================-->
 
 </body>
 </html>

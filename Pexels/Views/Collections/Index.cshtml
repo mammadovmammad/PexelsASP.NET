@@ -6,11 +6,13 @@
     Layout = "../Shared/_PartLayout.cshtml";
 }
 
-@*Title For Photos Category*@
+<!--Title For Photos Category Start-->
 <div class="title-collection">
     <h1></h1>
 </div>
+<!--Title For Photos Category End-->
 
+<!--Photos Start-->
 <div class="grid" data-masonry='{ "itemSelector": ".grid-item" }'>
     @foreach (var item in Model.Photos)
     {
@@ -26,7 +28,4 @@
         </div>
     }
 </div>
-
-
-
-
+<!--Photos End-->

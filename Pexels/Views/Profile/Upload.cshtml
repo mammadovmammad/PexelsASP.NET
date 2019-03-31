@@ -5,8 +5,10 @@
     Layout = "~/Views/Shared/_PartLayout.cshtml";
 }
 
+<!--Profile Section Start-->
 <div class="row profile-header d-flex text-center">
     <div class="col-lg-12 d-flex justify-content-center align-items-center">
+        <!--Profile Info Start-->
         <div class="profile col-lg-4">
             <div class="profile-logo">
                 <img src="/Public/image/profile-image.png" alt="">
@@ -21,16 +23,18 @@
 
             </div>
         </div>
-            
+        <!--Profile Info Start-->
 
+        <!--Upload Section Start-->
         <div class="upload-photo col-lg-3 text-left">
+            <!--Upload Form Start-->
             <form method="post" action="@Url.Action("Upload", "Profile")" enctype="multipart/form-data">
                 <div class="form-group" style="display: inline-block; width: 50%;">
                     @if (ViewBag.IMGnullError != null)
                     {
                         <p class="text-danger">@ViewBag.IMGnullError</p>
                     }
-                    <input class="form-control input_photo" type="file" name="img"/>
+                    <input class="form-control input_photo" type="file" name="img" />
 
                 </div>
 
@@ -47,15 +51,18 @@
                     {
                         <p class="text-danger">@ViewBag.NameNullError</p>
                     }
-                    <input class="form-control input_name" type="text" name="name"/>
+                    <input class="form-control input_name" type="text" name="name" />
                 </div>
                 <button type="submit" class="btn btn-success upload">Yükləmək</button>
             </form>
+            <!--Upload Form End-->
         </div>
+        <!--Upload Section End-->
     </div>
-        
-        
 </div>
+<!--Profile Section End-->
+
+<!--Photos Which User Shared Start-->
 <div class="grid" data-masonry='{ "itemSelector": ".grid-item" }' @*data-infinite-scroll='{ "path": ".pagination__next", "append": ".grid-item", "history": false }'*@>
     @foreach (var item in Model.Photos)
     {
@@ -71,3 +78,4 @@
         </div>
     }
 </div>
+<!--Photos Which User Shared End-->
