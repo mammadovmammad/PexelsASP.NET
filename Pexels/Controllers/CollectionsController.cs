@@ -13,9 +13,12 @@ namespace Pexels.Controllers
         // GET: Collections
         public ActionResult Index(int? id)
         {
-            VwModel data = new VwModel();
-            data.Photos = db.Photos.Where(v => v.CategoryId == id).OrderByDescending(p=>p.Id).ToList();
-            data.Settings = db.Settings.FirstOrDefault();
+            VwModel data = new VwModel
+            {
+                Photos = db.Photos.Where(v => v.CategoryId == id && v.Status == true).OrderByDescending(p => p.Id).ToList(),
+                Likes = db.Likes.ToList(),
+                Settings = db.Settings.FirstOrDefault()
+            };
             return View(data);
         }
     }

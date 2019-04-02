@@ -88,6 +88,7 @@ warning 6002: The table/view 'Pexels.dbo.Homes' does not have a primary key defi
     <Property Name="Count" Type="int" />
     <Property Name="PhotoId" Type="int" />
     <Property Name="UserId" Type="int" />
+    <Property Name="Status" Type="bit" />
   </EntityType>
   <EntityType Name="LisenceAllows">
     <Key>

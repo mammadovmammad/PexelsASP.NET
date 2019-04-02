@@ -25,7 +25,7 @@ namespace Pexels.Controllers
             VwModel data = new VwModel
             {
                 Settings = db.Settings.FirstOrDefault(),
-                Photos = db.Photos.Where(p => p.Users.Id == user.Id).OrderByDescending(p => p.Id).ToList(),
+                Photos = db.Photos.Where(p => p.Users.Id == user.Id&&p.Status==true).OrderByDescending(p => p.Id).ToList(),
                 Categories = db.Category.ToList()
             };
                
@@ -37,16 +37,11 @@ namespace Pexels.Controllers
         [HttpPost]
         public ActionResult Upload(HttpPostedFileBase img, int categoryId, string name)
         {
-            //if (name == null || name.Contains(" "))
-            //{
-            //    return Redirect("Index");
-
-            //}
             Users user = Session["User"] as Users;
             VwModel data = new VwModel
             {
                 Settings = db.Settings.FirstOrDefault(),
-                Photos = db.Photos.Where(p => p.Users.Id == user.Id).OrderByDescending(p => p.Id).ToList(),
+                Photos = db.Photos.Where(p => p.Users.Id == user.Id&&p.Status==true).OrderByDescending(p => p.Id).ToList(),
                 Categories = db.Category.ToList()
             };
 
@@ -60,6 +55,7 @@ namespace Pexels.Controllers
 
             Photos photo = new Photos()
             {
+                Status = true,
                 UserId = user.Id,
                 CategoryId = categoryId,
                 Name = name

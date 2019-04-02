@@ -87,6 +87,7 @@
     <EntitySetMapping Name="Likes">
       <EntityTypeMapping TypeName="PexelsModel.Likes">
         <MappingFragment StoreEntitySet="Likes">
+          <ScalarProperty Name="Status" ColumnName="Status" />
           <ScalarProperty Name="UserId" ColumnName="UserId" />
           <ScalarProperty Name="PhotoId" ColumnName="PhotoId" />
           <ScalarProperty Name="Count" ColumnName="Count" />

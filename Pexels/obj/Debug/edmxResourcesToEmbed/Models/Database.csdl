@@ -138,6 +138,7 @@
     <NavigationProperty Name="Photos" Relationship="PexelsModel.FK_Likes_Photos" FromRole="Likes" ToRole="Photos" />
     <Property Name="UserId" Type="Int32" />
     <NavigationProperty Name="Users" Relationship="PexelsModel.FK_Likes_Users" FromRole="Likes" ToRole="Users" />
+    <Property Name="Status" Type="Boolean" />
   </EntityType>
   <EntityType Name="LisenceAllows">
     <Key>

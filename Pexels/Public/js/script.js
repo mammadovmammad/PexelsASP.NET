@@ -75,33 +75,55 @@
         //});
 
         //Like
-        $(document).on("click", ".right-like-button", function () {
-        var isLiked = $(this).next();
-        var forPhotoId = isLiked.next().val();
+    $(document).on("click", ".grid .right-like-button", function () {
+        var isLiked = $(this).attr("data-proId");
+       
+        
+        console.log(isLiked);
+        var islikeeed = $(this).next().val();
         var myButton = $(this);
-        if ($(this).next().val() == 0) {
+        var count = $(".photo-like-single").text();
+        var likecount =  parseInt(count);
+        if (myButton.hasClass("liked") == false && islikeeed==0 ) {
+            //$(this).attr("data-proId") != 0
             $.ajax({
                 url: "/AJAX/LikePhoto",
-                data: { photoID: forPhotoId },
+                data: { photoID: isLiked },
                 type: "post",
                 datatype: "json",
-                success: function(res) {
-                    console.log(res);
-                    isLiked.val(1)
-                    myButton.css("color", "red")
+                success: function (res) {
+                    console.log(likecount);
+                        ++likecount;
+
+
+                    console.log(likecount);
+
+                    $(".photo-like-single").text(likecount);
+
+                    myButton.addClass("liked");
+
+                    islikeeed = 1;
                 }
-            })
+            });
         } else {
-            console.log(forPhotoId)
                 $.ajax({
                     url: "/AJAX/DissLikePhoto",
-                    data: { photoID:forPhotoId  },
+                    data: { photoID:isLiked  },
                     type: "post",
                     datatype: "json",
                     success: function(res) {
                         console.log(res);
-                        isLiked.val(0)
-                        myButton.css("color", "white")
+
+                        --likecount;
+
+                        $(".photo-like-single").text(likecount);
+
+                        myButton.removeClass("liked");
+
+                        myButton.css("color", "white");
+
+                        islikeeed = 0;
+
                     }
             })
                 

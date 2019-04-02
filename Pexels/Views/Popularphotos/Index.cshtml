@@ -23,7 +23,24 @@
                 <img src="/Public/UserImage/@item.Link" alt="">
             </a>
             <div class="photo-buttons">
-                <i class="fas fa-heart right-like-button"></i>
+                @if (Session["User"] != null)
+                {
+                    Users user = Session["User"] as Users;
+
+                    if (Model.Likes.Exists(l => l.UserId == user.Id && l.Status == true && l.PhotoId == item.Id))
+                    {
+                        <i style=" color: red" class="fas fa-heart right-like-button " data-proId="@item.Id"></i>
+                    }
+                    else
+                    {
+                        <i style="color: white" class="fas fa-heart right-like-button" data-proId="@item.Id"></i>
+                    }
+
+                }
+                else
+                {
+                    <a href="@Url.Action("login","Account")"><i class="fas fa-heart right-like-button"></i></a>
+                }
                 <input type="hidden" id="isLikeed" value="0" />
                 <input class="forPhotoId" type="hidden" value="@item.Id" />
             </div>

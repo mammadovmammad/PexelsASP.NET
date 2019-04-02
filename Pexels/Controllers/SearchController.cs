@@ -13,9 +13,12 @@ namespace Pexels.Controllers
         // GET: Search
         public ActionResult Index(string name)
         {
-            VwModel data = new VwModel();
-            data.Settings = db.Settings.FirstOrDefault();
-            data.Photos = db.Photos.OrderByDescending(p => p.Id).Where(p=>p.Name.Contains(name)).Take(9).ToList();
+            VwModel data = new VwModel
+            {
+                Settings = db.Settings.FirstOrDefault(),
+                Photos = db.Photos.OrderByDescending(p => p.Id).Where(p => p.Name.Contains(name)).ToList(),
+                Likes = db.Likes.ToList()
+            };
             return View(data);
         }
     }

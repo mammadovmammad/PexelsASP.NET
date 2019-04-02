@@ -783,6 +783,19 @@ ul {
             object-fit: cover;
         }
 
+        .image-section span.photo-name-single{
+            position: absolute;
+            bottom: 102%;
+            left: 12%;
+            font-weight: 500;
+            font-size: 25px;
+            color: #555;
+        }
+
+         .single-like{
+            border-color: black;
+        }
+
 .content {
     color: #555;
 }
@@ -938,6 +951,9 @@ ul.res-social {
         height: 100%;
     }
 
+    .liked{
+        color: red!important;
+    }
 
 
 

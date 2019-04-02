@@ -93,6 +93,7 @@ warning 6002: The table/view 'Pexels.dbo.Homes' does not have a primary key defi
           <Property Name="Count" Type="int" />
           <Property Name="PhotoId" Type="int" />
           <Property Name="UserId" Type="int" />
+          <Property Name="Status" Type="bit" />
         </EntityType>
         <EntityType Name="LisenceAllows">
           <Key>
@@ -425,6 +426,7 @@ warning 6002: The table/view 'Pexels.dbo.PopularPhotos' does not have a primary 
           <NavigationProperty Name="Photos" Relationship="PexelsModel.FK_Likes_Photos" FromRole="Likes" ToRole="Photos" />
           <Property Name="UserId" Type="Int32" />
           <NavigationProperty Name="Users" Relationship="PexelsModel.FK_Likes_Users" FromRole="Likes" ToRole="Users" />
+          <Property Name="Status" Type="Boolean" />
         </EntityType>
         <EntityType Name="LisenceAllows">
           <Key>
@@ -638,6 +640,7 @@ warning 6002: The table/view 'Pexels.dbo.PopularPhotos' does not have a primary 
           <EntitySetMapping Name="Likes">
             <EntityTypeMapping TypeName="PexelsModel.Likes">
               <MappingFragment StoreEntitySet="Likes">
+                <ScalarProperty Name="Status" ColumnName="Status" />
                 <ScalarProperty Name="UserId" ColumnName="UserId" />
                 <ScalarProperty Name="PhotoId" ColumnName="PhotoId" />
                 <ScalarProperty Name="Count" ColumnName="Count" />

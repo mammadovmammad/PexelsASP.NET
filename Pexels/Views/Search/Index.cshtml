@@ -24,13 +24,23 @@
             </div>
 
             <div class="photo-buttons">
-                @if (Session["User"] == null)
+                @if (Session["User"] != null)
                 {
-                    <a href="@Url.Action("login","Account")"><i class="fas fa-heart right-like-button"></i></a>
+                    Users user = Session["User"] as Users;
+
+                    if (Model.Likes.Exists(l => l.UserId == user.Id && l.Status == true && l.PhotoId == item.Id))
+                    {
+                        <i style=" color: red" class="fas fa-heart right-like-button " data-proId="@item.Id"></i>
+                    }
+                    else
+                    {
+                        <i style="color: white" class="fas fa-heart right-like-button" data-proId="@item.Id"></i>
+                    }
+
                 }
                 else
                 {
-                    <i class="fas fa-heart right-like-button"></i>
+                    <a href="@Url.Action("login","Account")"><i class="fas fa-heart right-like-button"></i></a>
                 }
 
                 <input type="hidden" id="isLikeed" value="0" />

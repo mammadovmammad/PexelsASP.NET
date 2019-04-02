@@ -1,22 +1,27 @@
-﻿@model Pexels.Models.VwModel
+﻿@using Pexels.Models
+@model Pexels.Models.VwModel
 @{
     ViewBag.Title = "Index";
     Layout = "../Shared/_PartLayout.cshtml";
+}
+@{
+    var count = Model.Likes.Where(l => l.PhotoId == Model.PhotoModel.Id).Count();
 }
 
 
 <!--Image Section Start-->
 <section class="image-section mt-100 justify-content-around">
     <div class="row">
+        
         <!--Image Div Start-->
         <div class="col-lg-8">
-            <span>@Model.PhotoModel.Name</span>
+            <span class="photo-name-single">@Model.PhotoModel.Name</span>
+
             <div class="image">
                 <img src="/Public/UserImage/@Model.PhotoModel.Link" alt="">
             </div>
         </div>
         <!--Image Div End-->
-
         <!--Download And Like Buttons Start-->
         <div class="col-lg-4">
             <div class="content">
@@ -31,10 +36,31 @@
                     </div>
 
                     <div class="col-lg-5">
-                        <div class="like">
-                            <button class="btn btn-secondary button-like">
-                                <i class="far fa-heart"></i>
-                            </button>
+                        <div class="like grid">
+                            @*<button class="btn btn-secondary button-like">*@
+                                @if (Session["User"] != null)
+                                {
+                                    
+                                    Users user = Session["User"] as Users;
+
+                                    if (Model.Likes.Exists(l => l.UserId == user.Id && l.Status == true && l.PhotoId == Model.PhotoModel.Id))
+                                    {
+                                        <i style=" color: red" class="fas fa-heart right-like-button single-like " data-proId="@Model.PhotoModel.Id"></i>
+                                        <span class="photo-like-single">@Model.Likes.Where(l => l.PhotoId == Model.PhotoModel.Id).Count()</span>
+                                    }
+                                    else
+                                    {
+                                        <i style="color: white" class="fas fa-heart right-like-button single-like" data-proId="@Model.PhotoModel.Id"></i>
+                                        <span class="photo-like-single">@Model.Likes.Where(l => l.PhotoId == Model.PhotoModel.Id).Count()</span>
+                                    }
+
+                                }
+                                else
+                                {
+                                    <a href="@Url.Action("login","Account")"><i class="fas fa-heart right-like-button"></i></a>
+                                }
+                            @*</button>*@
+                            
                         </div>
                     </div>
                 </div>
@@ -47,7 +73,6 @@
                     <a href="@Url.Action("index", "Lisence")">Learn more about the license »</a>
                 </div>
                 <!--Pexels Photo Lisence End-->
-
                 <!--Follow Start-->
                 <div class="pexels-follow mt-40">
                     <h4>Pexels İzləyin</h4>

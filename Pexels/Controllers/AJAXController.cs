@@ -32,18 +32,34 @@ namespace Pexels.Controllers
         public ActionResult LikePhoto(int photoID)
         {
             Users user = Session["User"] as Users;
-            
-                Likes like = new Likes
+            var addable = false;
+            foreach (var like in db.Likes)
+            {
+                if (like.UserId == user.Id && like.PhotoId == photoID)
+                {
+                    return Json("false" , JsonRequestBehavior.AllowGet);
+                }
+                else
+                {
+                    addable = true;
+                }
+            }
+
+            if (addable==true)
+            {
+                Likes Like = new Likes
                 {
                     PhotoId = photoID,
                     UserId = user.Id,
+                    Status = true
                 };
 
-                db.Likes.Add(like);
+                db.Likes.Add(Like);
                 db.SaveChanges();
+                return Json(Like);
 
-                return Json(like);
-
+            }
+                return Json("false");
         }
 
         //Disslike Photos By User

@@ -17,8 +17,9 @@ namespace Pexels.Controllers
             VwModel data = new VwModel
             {
                 Settings = db.Settings.FirstOrDefault(),
-                Photos = db.Photos.OrderByDescending(p => p.Id).ToList(),
-                Homes = db.Homes.FirstOrDefault()
+                Photos = db.Photos.Where(p=>p.Status==true).OrderByDescending(p => p.Id).ToList(),
+                Homes = db.Homes.FirstOrDefault(),
+                Likes = db.Likes.ToList()
                 //SessionuserLikeses = db.Likes.Select(p=>p.Photos).Where(p=>p.UserId==user.Id).ToList()
             };
 
@@ -31,6 +32,7 @@ namespace Pexels.Controllers
             VwModel data = new VwModel();
             data.Settings = db.Settings.FirstOrDefault();
             data.Photos = db.Photos.Where(p=>p.Name.ToUpper().Contains(query.Trim().ToUpper()) || p.Category.Category1.Contains(query.Trim().ToUpper())).OrderByDescending(p => p.Id)./*Take(10).*/ToList();
+            data.Likes = db.Likes.ToList();
             return View(data);
         }
         

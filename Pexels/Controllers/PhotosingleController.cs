@@ -23,6 +23,7 @@ namespace Pexels.Controllers
             else
             {
                 data.PhotoModel = db.Photos.Where(p => p.Id == id).FirstOrDefault();
+                data.Likes = db.Likes.ToList();
             }
             
             return View(data);

@@ -18,6 +18,7 @@ namespace Pexels.Models
         public Nullable<int> Count { get; set; }
         public Nullable<int> PhotoId { get; set; }
         public Nullable<int> UserId { get; set; }
+        public Nullable<bool> Status { get; set; }
     
         public virtual Photos Photos { get; set; }
         public virtual Users Users { get; set; }
