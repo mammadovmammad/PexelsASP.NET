@@ -44,13 +44,15 @@
             <div class="wrap-login100 p-l-55 p-r-55 p-t-65 p-b-50">
                 <!--Navigation Start-->
                 <div class="row navi d-flex justify-content-between">
-                    <div class="index-navi">
-                        <img src="/Public/image/logo.jpg" width="30" height="30" alt="">
-                        <a href="@Url.Action("Index", "Home")">Pexels</a>
-                    </div>
-                    <div class="login-join-navi">
-                        <a href="@Url.Action("Login", "Account")">Giriş</a>
-                        <a href="@Url.Action("Create", "Join")">Qeydiyyat</a>
+                    <div class="col-lg-12">
+                        <div class="index-navi col-lg-2">
+                            <img src="/Public/image/logo.jpg" width="30" height="30" alt="">
+                            <a href="@Url.Action("Index", "Home")">Pexels</a>
+                        </div>
+                        <div class="login-join-navi col-lg-10">
+                            <a href="@Url.Action("Login", "Account")">Giriş</a>
+                            <a href="@Url.Action("Create", "Account")">Qeydiyyat</a>
+                        </div>
                     </div>
                 </div>
                 <!--Navigation End-->
@@ -94,7 +96,7 @@
                             Hesab yaratmaq istəyirsiniz?
                         </span>
 
-                        <a href="@Url.Action("Create", "join")" class="txt2 hov1">
+                        <a href="@Url.Action("Create", "Account")" class="txt2 hov1">
                             Qeydiyyat
                         </a>
 

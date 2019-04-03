@@ -1,0 +1,32 @@
+.title-popular-photos{
+        margin-top: 2%;
+        h3{
+            margin-left: 1.5%;
+        }
+}
+
+.image-div:hover{
+           .photo-buttons{
+                    opacity: 1;
+           }
+}
+
+.photo-buttons{
+    width: 14%;
+    position: absolute;
+    font-size: 20px;
+    right: 0%;
+    bottom: 2%;
+    opacity: 0;
+    transition: all .3s;
+    a{
+    color: white;
+    i{
+    text-shadow: 0 0 3px rgba(0, 0, 0, 0.6);
+    line-height: .3;
+    }
+    }
+    a.right-like-button{
+        margin-left: 10px;
+    }
+}

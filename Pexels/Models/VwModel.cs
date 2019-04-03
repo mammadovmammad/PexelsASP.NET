@@ -13,6 +13,7 @@ namespace Pexels.Models
         public AboutHeaders AboutHeaders { get; set; }
         public LisenceHeader LisenceHeader { get; set; }
         public List<Category> Categories { get; set; }
+        public Category SearchCategory { get; set; }
         public DiscoverHeaders DiscoverHeader { get; set; }
         public List<Photos> Photos { get; set; }
         public List<LisenceAllows> LisenceAllow { get; set; }

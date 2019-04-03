@@ -17,8 +17,11 @@ namespace Pexels.Controllers
             {
                 Settings = db.Settings.FirstOrDefault(),
                 Photos = db.Photos.OrderByDescending(p => p.Id).Where(p => p.Name.Contains(name)).ToList(),
+                SearchCategory = db.Category.FirstOrDefault(),
+                Searches = db.Searches.ToList(),
                 Likes = db.Likes.ToList()
             };
+            ViewBag.CategoryName = name;
             return View(data);
         }
     }

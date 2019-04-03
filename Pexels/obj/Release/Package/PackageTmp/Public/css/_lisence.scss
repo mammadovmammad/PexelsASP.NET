@@ -1,0 +1,89 @@
+.lisence-header{
+    background-image: url("../image/lisence-background.jpg");
+    height: 350px;
+    background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  .header-content{
+      text-align: center;
+    padding-top: 120px;
+    h1{
+        margin: 10px 0px;
+    }
+    h1,h3{
+        margin-bottom: 15px;
+        color: white;
+    }
+    h3{
+        width: 50%;
+        margin-left: 370px;
+    }
+  }
+}
+
+.container-center-lisence{
+    margin-top: 25px;
+    .row{
+        justify-content: center;
+        ul.list-custom-allowed{
+            max-width: 44%;
+            display: block;
+            margin-bottom: 70px;
+            li{
+                font-size: 18px;
+                padding: 10px 0px;
+                line-height: 40px;
+               i{
+                   font-size: 25px;
+                color: #05a081;
+                }
+            } 
+        }
+        ul.list-custom-notallowed{
+            max-width: 44%;
+            display: block;
+            margin-bottom: 70px;
+            li{
+                font-size: 18px;
+                padding: 10px 0px;
+                line-height: 40px;
+               i{
+                   font-size: 25px;
+                color: red;
+                }
+            } 
+        }
+    }
+}
+    .title-center{
+        text-align: center;
+        .row{
+            justify-content: center;
+            p{
+                width: 25%;
+                margin-top: -15px;
+                color: #666;
+                font-size: 17px;
+            }
+        }
+    }
+
+    .text-content{
+        padding-left: 150px;
+        padding-right: 150px;
+        .col-lg-6{
+            padding: 20px 0px;
+            img{
+                float: left;
+                margin: 0px 15px;
+            }
+            .content-text{
+                padding-top: 25px;
+            }
+        }
+        
+    }
+
+    .container-footer{
+        height: 365px;
+    }

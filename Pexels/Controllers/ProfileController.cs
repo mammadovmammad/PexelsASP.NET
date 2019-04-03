@@ -26,7 +26,8 @@ namespace Pexels.Controllers
             {
                 Settings = db.Settings.FirstOrDefault(),
                 Photos = db.Photos.Where(p => p.Users.Id == user.Id&&p.Status==true).OrderByDescending(p => p.Id).ToList(),
-                Categories = db.Category.ToList()
+                Categories = db.Category.ToList(),
+                Likes = db.Likes.ToList()
             };
                
             return View(data);

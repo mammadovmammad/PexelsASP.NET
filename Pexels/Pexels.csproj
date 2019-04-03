@@ -180,7 +180,6 @@
     <Compile Include="Controllers\DiscoverController.cs" />
     <Compile Include="Controllers\FaqController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\JoinController.cs" />
     <Compile Include="Controllers\LisenceController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\PhotosingleController.cs" />
@@ -188,7 +187,6 @@
     <Compile Include="Controllers\PopularsearchesController.cs" />
     <Compile Include="Controllers\ProfileController.cs" />
     <Compile Include="Controllers\SearchController.cs" />
-    <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -265,6 +263,8 @@
     <Compile Include="Models\Users.cs">
       <DependentUpon>Database.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\VwAbout.cs" />
+    <Compile Include="Models\VwLisence.cs" />
     <Compile Include="Models\VwModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -392,6 +392,53 @@
     <Content Include="Public\js\masonry.pkgd.min.js" />
     <Content Include="Public\UserImage\2019_03_25_07_00_31big-photo-2.jpeg" />
     <Content Include="Public\UserImage\2019_03_25_07_06_11lisence-image1.jpg" />
+    <Content Include="Public\UserImage\2019_03_26_11_33_55PIC_20180604_102406759.jpeg" />
+    <Content Include="Public\UserImage\2019_03_27_02_38_04Ekran Görüntüsü %2853%29.png" />
+    <Content Include="Public\UserImage\2019_03_27_03_18_17indir %281%29.jpg" />
+    <Content Include="Public\UserImage\2019_03_27_03_19_10indir.jpg" />
+    <Content Include="Public\UserImage\2019_03_28_05_42_07baku.jpg" />
+    <Content Include="Public\UserImage\2019_03_28_05_56_04London.jpg" />
+    <Content Include="Public\UserImage\2019_03_28_05_59_25indir.jpg" />
+    <Content Include="Public\UserImage\2019_03_28_06_15_37indir %283%29.jpg" />
+    <Content Include="Public\UserImage\2019_03_28_06_16_344TE7kqZ.jpg" />
+    <Content Include="Public\UserImage\2019_03_28_06_17_434TE7kqZ.jpg" />
+    <Content Include="Public\UserImage\2019_03_28_06_18_53paris_france_louvre_59233_1600x1200.jpg" />
+    <Content Include="Public\UserImage\2019_03_28_06_19_59bmw_m3_e92_auto_car_green_road_sky_clouds_94286_1400x1050.jpg" />
+    <Content Include="Public\UserImage\2019_03_28_06_21_03snow_leopard_snow_hunting_attention_black_and_white_57947_1600x1200.jpg" />
+    <Content Include="Public\UserImage\2019_03_28_06_23_48far_cry_3_beach_game_graphics_hdr_95932_1280x1024.jpg" />
+    <Content Include="Public\UserImage\2019_03_28_06_50_104TE7kqZ.jpg" />
+    <Content Include="Public\UserImage\2019_03_28_06_56_28flowers-wallpaper-24.jpg" />
+    <Content Include="Public\UserImage\2019_03_29_03_01_092019_03_27_03_19_10indir.jpg" />
+    <Content Include="Public\UserImage\2019_03_29_04_35_53about-background.jpg" />
+    <Content Include="Public\UserImage\2019_03_29_06_14_59indir %282%29.jpg" />
+    <Content Include="Public\UserImage\2019_03_29_06_16_48laptop_macbook_iphone_apple_journal_glasses_113949_1280x960.jpg" />
+    <Content Include="Public\UserImage\2019_03_29_06_42_23bmw_black_m3_e46_tuning_96695_1280x720.jpg" />
+    <Content Include="Public\UserImage\2019_03_29_06_52_07bmw_m4_gts_f82_105089_1152x864.jpg" />
+    <Content Include="Public\UserImage\2019_03_30_02_19_38photo-1459664018906-085c36f472af.jpg" />
+    <Content Include="Public\UserImage\2019_03_30_02_20_37photo-1469204691332-56e068855403.jpg" />
+    <Content Include="Public\UserImage\2019_03_30_02_21_34photo-1486639107311-064febaff1c5.jpg" />
+    <Content Include="Public\UserImage\2019_03_30_02_23_00pexels-photo-1366630.jpeg" />
+    <Content Include="Public\UserImage\2019_03_30_02_25_08pexels-photo-825258.jpeg" />
+    <Content Include="Public\UserImage\2019_03_30_02_25_46pexels-photo-546819.jpeg" />
+    <Content Include="Public\UserImage\2019_03_30_02_35_21pexels-photo-546819.jpeg" />
+    <Content Include="Public\UserImage\2019_03_30_02_36_07pexels-photo-1305360 %281%29.jpeg" />
+    <Content Include="Public\UserImage\2019_03_30_03_03_12pexels-photo-442150.jpeg" />
+    <Content Include="Public\UserImage\2019_03_30_03_03_52pexels-photo.jpg" />
+    <Content Include="Public\UserImage\2019_03_30_03_04_25pexels-photo-1558732.jpeg" />
+    <Content Include="Public\UserImage\2019_03_30_03_05_03pexels-photo-358457.jpeg" />
+    <Content Include="Public\UserImage\2019_03_30_03_08_54pexels-photo-1034662.jpeg" />
+    <Content Include="Public\UserImage\2019_03_30_03_19_26pexels-photo-167702.jpg" />
+    <Content Include="Public\UserImage\2019_03_30_03_31_14pexels-photo-863988.jpeg" />
+    <Content Include="Public\UserImage\2019_03_30_03_42_53pexels-photo.jpg" />
+    <Content Include="Public\UserImage\2019_03_30_03_43_07pexels-photo-167702.jpg" />
+    <Content Include="Public\UserImage\2019_03_30_03_43_27pexels-photo.jpg" />
+    <Content Include="Public\UserImage\2019_03_30_03_43_36pexels-photo-358457.jpeg" />
+    <Content Include="Public\UserImage\2019_03_30_03_44_48pexels-photo-1558732.jpeg" />
+    <Content Include="Public\UserImage\2019_03_30_04_04_00photo-1469204691332-56e068855403.jpg" />
+    <Content Include="Public\UserImage\2019_03_30_04_32_21pexels-photo-167702.jpg" />
+    <Content Include="Public\UserImage\2019_03_30_04_42_12pexels-photo.jpg" />
+    <Content Include="Public\UserImage\2019_04_03_09_18_39pexels-photo-841130.jpeg" />
+    <Content Include="Public\UserImage\animal.jpg" />
     <Content Include="Public\UserImage\city.jpg" />
     <Content Include="Public\UserImage\collection-photo1.jpeg" />
     <Content Include="Public\UserImage\collection-photo2.jpeg" />
@@ -404,11 +451,6 @@
     <Content Include="Public\image\lisence-image3.jpg" />
     <Content Include="Public\image\lisence-image4.jpg" />
     <Content Include="Public\image\logo.jpg" />
-    <Content Include="Public\image\open big photo in html with javascript - Google%27da Ara.html" />
-    <Content Include="Public\image\open big photo in html with javascript - Google%27da Ara_files\googlelogo_color_92x30dp.png" />
-    <Content Include="Public\image\open big photo in html with javascript - Google%27da Ara_files\saved_resource.html" />
-    <Content Include="Public\image\open big photo in html with javascript - Google%27da Ara_files\tia.png" />
-    <Content Include="Public\image\open big photo in html with javascript - Google%27da Ara_files\widget.html" />
     <Content Include="Public\image\pexels-photo-120049.jpeg" />
     <Content Include="Public\image\pexels-photo-1838582.jpeg" />
     <Content Include="Public\image\pexels-photo-55787.jpeg" />
@@ -463,7 +505,14 @@
     <Content Include="Public\Login\vendor\select2\select2.js" />
     <Content Include="Public\Login\vendor\select2\select2.min.css" />
     <Content Include="Public\Login\vendor\select2\select2.min.js" />
+    <Content Include="Public\UserImage\flowers-wallpaper-24.jpg" />
+    <Content Include="Public\UserImage\game.jpg" />
+    <Content Include="Public\UserImage\indir.jpg" />
+    <Content Include="Public\UserImage\pexels-photo-792727.jpeg" />
+    <Content Include="Public\UserImage\pexels-photo-841130.jpeg" />
     <Content Include="Public\UserImage\sport.jpg" />
+    <Content Include="Public\UserImage\thumb-1920-390734.jpg" />
+    <Content Include="Public\UserImage\_Public_UserImage_2019_03_26_11_33_55PIC_20180604_102406759.jpeg" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -627,14 +676,6 @@
     <Content Include="Public\css\_popular-searches.scss" />
     <Content Include="Public\css\_search.scss" />
     <Content Include="Public\css\_variables.scss" />
-    <Content Include="Public\image\open big photo in html with javascript - Google%27da Ara_files\api.js.indir" />
-    <Content Include="Public\image\open big photo in html with javascript - Google%27da Ara_files\cb=gapi%281%29.loaded_0" />
-    <Content Include="Public\image\open big photo in html with javascript - Google%27da Ara_files\cb=gapi.loaded_0" />
-    <Content Include="Public\image\open big photo in html with javascript - Google%27da Ara_files\dn.js.indir" />
-    <Content Include="Public\image\open big photo in html with javascript - Google%27da Ara_files\m=r36a9c,Uuupec" />
-    <Content Include="Public\image\open big photo in html with javascript - Google%27da Ara_files\m=sb_wiz,aa,abd,async,bgd,dvl,foot,lu,m,mpck,mu,sf,sonic,spch,tl,vs,exdc,xz7cCd,qik19b,aam1T,fEVMic,WgDvvc,TxZWcc,NBZ7u" />
-    <Content Include="Public\image\open big photo in html with javascript - Google%27da Ara_files\rs=AA2YrTvh165XLnAHTvafSJlxTpVvtqRuwA" />
-    <Content Include="Public\image\open big photo in html with javascript - Google%27da Ara_files\rs=ACT90oHmMVRK0xQHgpLtL2Ta-PwUNBLbgg" />
     <Content Include="Public\Login\fonts\font-awesome-4.7.0\fonts\fontawesome-webfont.eot" />
     <Content Include="Public\Login\fonts\font-awesome-4.7.0\fonts\fontawesome-webfont.ttf" />
     <Content Include="Public\Login\fonts\font-awesome-4.7.0\fonts\fontawesome-webfont.woff" />
@@ -711,7 +752,7 @@
     <Content Include="Views\Collections\Index.cshtml" />
     <Content Include="Views\Photosingle\Index.cshtml" />
     <Content Include="Views\Account\Login.cshtml" />
-    <Content Include="Views\Join\Create.cshtml" />
+    <Content Include="Views\Account\Create.cshtml" />
     <Content Include="Public\Login\vendor\bootstrap\css\bootstrap-grid.css.map" />
     <Content Include="Public\Login\vendor\bootstrap\css\bootstrap-grid.min.css.map" />
     <Content Include="Public\Login\vendor\bootstrap\css\bootstrap-reboot.css.map" />
@@ -721,6 +762,7 @@
     <Content Include="Views\Profile\Upload.cshtml" />
     <Content Include="Views\Shared\_PartialPhotos.cshtml" />
     <Content Include="Views\Home\Search.cshtml" />
+    <None Include="Properties\PublishProfiles\CustomProfile.pubxml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

@@ -1,0 +1,53 @@
+.mt-40{
+    margin-top: 40px;
+}
+
+.mt-100{
+    margin-top: 100px;
+}
+
+.image-section{
+    padding-left: 40px;
+    padding-right: 40px;
+    .image{
+        margin-left: 100px;
+        img{
+            height: auto; 
+            width: auto; 
+            width: 700px; 
+            height: 800px;
+            object-fit: cover;
+        }
+    }
+}
+
+.content{
+    color:#555;
+
+    a{
+        color: #555;
+        text-decoration: none;
+    }
+    .col-lg-7{
+        padding: 0;
+    }
+    .button-download{
+            width: 100%;
+            padding: 10px;
+            font-size: 18px;
+            background-color: #05a081;
+    }
+
+    .like{
+        .button-like{
+            background: #f9f9f9;
+            border-color: #eee;
+            padding: 10px 15px;
+            i{
+                color: #555;
+                font-size: 20px;
+            }
+        }
+    }
+
+}

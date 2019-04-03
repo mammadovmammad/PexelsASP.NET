@@ -18,6 +18,13 @@ namespace Pexels.Controllers
             data.AboutHeaders = db.AboutHeaders.FirstOrDefault();
             data.Settings = db.Settings.FirstOrDefault();
             return View(data);
+            //VwAbout data = new VwAbout
+            //{
+            //    AboutUs = db.AboutUs.ToList(),
+            //    AboutHeaders = db.AboutHeaders.FirstOrDefault(),
+            //    Settings = db.Settings.FirstOrDefault()
+            //};
+            //return View(data);
         }
     }
 }
