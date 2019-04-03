@@ -20,12 +20,12 @@ namespace Pexels.Controllers
                 Photos = db.Photos.Where(p=>p.Status==true).OrderByDescending(p => p.Id).ToList(),
                 Homes = db.Homes.FirstOrDefault(),
                 Likes = db.Likes.ToList()
-                //SessionuserLikeses = db.Likes.Select(p=>p.Photos).Where(p=>p.UserId==user.Id).ToList()
             };
 
             return View(data);
         }
 
+        //Search Photo Index Page
         [HttpPost]
         public ActionResult Search(string query)
         {

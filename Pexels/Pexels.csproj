@@ -531,7 +531,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Control\Models\" />
-    <Folder Include="Uploads\" />
   </ItemGroup>
   <ItemGroup>
     <EntityDeploy Include="Models\Database.edmx">

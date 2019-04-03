@@ -15,6 +15,7 @@
         });
         //Change Background Color Scroll Home Page
 
+
         //Responsive Menu
         $('.res-menu').click(function() {
             $('.menu-responsive').toggleClass('res-active');
@@ -26,6 +27,7 @@
                 }
     });
         //Responsive Menu
+
 
         //Ajax Get Photos
         //var skipCount =10;
@@ -53,6 +55,7 @@
         //window.addEventListener("scroll", scrollLoadFunction);
         //Ajax Get Photos
 
+
         //Masonary
         var columns = 3,
         setColumns = function () { columns = $(window).width() > 700 ? 3 : $(window).width() > 480 ? 2 : 1 };
@@ -77,15 +80,18 @@
         //Like
     $(document).on("click", ".grid .right-like-button", function () {
         var isLiked = $(this).attr("data-proId");
-       
-        
+
         console.log(isLiked);
+
         var islikeeed = $(this).next().val();
+
         var myButton = $(this);
+
         var count = $(".photo-like-single").text();
-        var likecount =  parseInt(count);
+
+        var likecount = parseInt(count);
+
         if (myButton.hasClass("liked") == false && islikeeed==0 ) {
-            //$(this).attr("data-proId") != 0
             $.ajax({
                 url: "/AJAX/LikePhoto",
                 data: { photoID: isLiked },
@@ -131,6 +137,7 @@
         
     })
         //Like
+
 
         //Error Mesage When Photo Name Null Upload Photo
     $(".upload").click(function myfunction(e) {
