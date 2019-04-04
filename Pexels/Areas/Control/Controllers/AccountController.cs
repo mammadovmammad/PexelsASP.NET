@@ -21,8 +21,6 @@ namespace Pexels.Areas.Control.Controllers
         [HttpPost]
         public ActionResult Login(Admins admin)
         {
-            if (db.Admins.Count(u => u.Name == admin.Name) == 1)
-            {
                 if (Crypto.VerifyHashedPassword(db.Admins.First(u => u.Name == admin.Name).Password, admin.Password))
                 {
                     Session["Adminlogged"] = true;
@@ -33,12 +31,7 @@ namespace Pexels.Areas.Control.Controllers
                     ModelState.AddModelError(string.Empty, "E-poçt və ya şifrə yanlışdır!");
                     return View(admin);
                 }
-            }
-            else
-            {
-                ModelState.AddModelError(string.Empty, "E-poçt və ya şifrə yanlışdır!");
-                return View(admin);
-            }
+           
         }
 
         //Logout Admin

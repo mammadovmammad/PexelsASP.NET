@@ -40,7 +40,6 @@ namespace Pexels.Controllers
             else
             {
                 users.Password = Crypto.HashPassword(users.Password);
-                //db.Users.FirstOrDefault(u => u.Name == users.Name&&u.Surname==users.Surname&&u.Email==users.Email&&u.Password==users.Password);
                 db.Users.Add(users);
                 db.SaveChanges();
             }
@@ -52,8 +51,6 @@ namespace Pexels.Controllers
         [HttpPost]
         public ActionResult Login(Users user)
         {
-            if (db.Users.Count(u => u.Email == user.Email) == 1)
-            {
                 if (Crypto.VerifyHashedPassword(db.Users.First(u => u.Email==user.Email).Password, user.Password))
                 {
                     current_user = db.Users.FirstOrDefault(u => u.Email == user.Email);
@@ -66,8 +63,6 @@ namespace Pexels.Controllers
                     ViewBag.WrongPassOrEmail = "E-poçt və ya şifrə yanlışdır!";
                     return View(user);
                 }
-            }
-            return View(user);
         }
 
         //User Logout
