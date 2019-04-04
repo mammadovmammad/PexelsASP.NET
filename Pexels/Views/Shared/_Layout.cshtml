@@ -164,46 +164,49 @@
     <!--Footer Start-->
     <footer>
         <div class="container-footer">
-            <div class="row d-flex justify-content-center">
-                <!--Footer Logo Start-->
-                <div class="footer-list-pexels col-lg-3">
-                    <a href="@Url.Action("index", "Home")">
-                        <img src="/Public/image/logo.jpg" width="30" height="30" alt="">
-                        Pexels
-                    </a>
-                    <p>Gözəl fotoşəkillər bizim istedadlı cəmiyyətimiz tərəfindən əmələ gəlmişdir.</p>
-                    <a class="register" href="@Url.Action("Create", "Account")">Pulsuz Qeydiyyatdan keç →</a>
-                    <!--Social List Start-->
-                    <ul class="social-list">
-                        <li><a href="https://www.instagram.com/"><i class="fab fa-instagram"></i></a></li>
-                        <li><a href="https://twitter.com/"><i class="fab fa-twitter"></i></a></li>
-                        <li><a href="https://www.facebook.com/"><i class="fab fa-facebook-f"></i></a></li>
-                        <li><a href="https://medium.com/"><i class="fab fa-medium"></i></a></li>
-                    </ul>
-                    <!--Social List End-->
+            <div class="container-fluid con-footer">
+                <div class="row d-flex justify-content-center">
+                    <!--Footer Logo Start-->
+                    <div class="footer-list-pexels col-lg-4">
+                        <a href="@Url.Action("index", "Home")">
+                            <img src="/Public/image/logo.jpg" width="30" height="30" alt="">
+                            Pexels
+                        </a>
+                        <p>Gözəl fotoşəkillər bizim istedadlı cəmiyyətimiz tərəfindən əmələ gəlmişdir.</p>
+                        <a class="register" href="@Url.Action("Create", "Account")">Pulsuz Qeydiyyatdan keç →</a>
+                        <!--Social List Start-->
+                        <ul class="social-list">
+                            <li><a href="https://www.instagram.com/"><i class="fab fa-instagram"></i></a></li>
+                            <li><a href="https://twitter.com/"><i class="fab fa-twitter"></i></a></li>
+                            <li><a href="https://www.facebook.com/"><i class="fab fa-facebook-f"></i></a></li>
+                            <li><a href="https://medium.com/"><i class="fab fa-medium"></i></a></li>
+                        </ul>
+                        <!--Social List End-->
+                    </div>
+                    <!--Footer Logo End-->
+                    <!--Footer Services Start-->
+                    <div class="footer-list-service col-lg-4">
+                        <h5>Service</h5>
+                        <ul class="service-list">
+                            <li> <a href="@Url.Action("index", "Lisence")">Lisenziya</a> </li>
+                            <li> <a href="@Url.Action("index", "Faq")">Suallar</a> </li>
+                            <li><a href="@Url.Action("index", "Aboutus")">Haqqımızda</a></li>
+                        </ul>
+                    </div>
+                    <!--Footer Services End-->
+                    <!--Footer Photos Start-->
+                    <div class="footer-list-photo col-lg-4">
+                        <h5>Şəkillər</h5>
+                        <ul class="photo-list">
+                            <li> <a href="@Url.Action("index", "Discover")">Koleksiyonları kəşf edin</a> </li>
+                            <li> <a href="@Url.Action("index", "Popularphotos")">Populyar şəkillər</a> </li>
+                            <li><a href="@Url.Action("index", "Popularsearches")">Populyar axtarışlar</a></li>
+                        </ul>
+                    </div>
+                    <!--Footer Photos End-->
                 </div>
-                <!--Footer Logo End-->
-                <!--Footer Services Start-->
-                <div class="footer-list-service col-lg-3">
-                    <h5>Service</h5>
-                    <ul class="service-list">
-                        <li> <a href="@Url.Action("index", "Lisence")">Lisenziya</a> </li>
-                        <li> <a href="@Url.Action("index", "Faq")">Suallar</a> </li>
-                        <li><a href="@Url.Action("index", "Aboutus")">Haqqımızda</a></li>
-                    </ul>
-                </div>
-                <!--Footer Services End-->
-                <!--Footer Photos Start-->
-                <div class="footer-list-photo col-lg-3">
-                    <h5>Şəkillər</h5>
-                    <ul class="photo-list">
-                        <li> <a href="@Url.Action("index", "Discover")">Koleksiyonları kəşf edin</a> </li>
-                        <li> <a href="@Url.Action("index", "Popularphotos")">Populyar şəkillər</a> </li>
-                        <li><a href="@Url.Action("index", "Popularsearches")">Populyar axtarışlar</a></li>
-                    </ul>
-                </div>
-                <!--Footer Photos End-->
             </div>
+
         </div>
     </footer>
     <!--Footer End-->
